@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 using static ChillinRoomGMG.Static;
@@ -151,6 +152,11 @@ namespace ChillinRoomGMG.Forms
 					loop++;
 				}
 			}
+		}
+
+		private void linkLabel_theWhatLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Process.Start("https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-");
 		}
 	}
 }

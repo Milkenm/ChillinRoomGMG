@@ -37,7 +37,7 @@ namespace ChillinRoomGMG.Forms
 				{
 					Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y + 1);
 				}
-				inactivity = new InputInactivity(2000);
+				inactivity = new InputInactivity(settings.AutoMineDelay * 1000);
 				inactivity.InactivityTimeReached += Inactivity_InactivityTimeReached;
 				inactivity.InputReceived += Inactivity_InputReceived;
 			}
