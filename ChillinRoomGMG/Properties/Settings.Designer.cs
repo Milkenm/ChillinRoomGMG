@@ -212,5 +212,29 @@ namespace ChillinRoomGMG.Properties {
                 this["RecordHashRate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NotificationAutoStart {
+            get {
+                return ((bool)(this["NotificationAutoStart"]));
+            }
+            set {
+                this["NotificationAutoStart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NotificationAutoStop {
+            get {
+                return ((bool)(this["NotificationAutoStop"]));
+            }
+            set {
+                this["NotificationAutoStop"] = value;
+            }
+        }
     }
 }

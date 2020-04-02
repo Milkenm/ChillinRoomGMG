@@ -30,30 +30,35 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
 			this.panel_background = new System.Windows.Forms.Panel();
-			this.titleBar = new ChillinRoomGMG.Controls.PixelTitleBar();
 			this.groupBox_general = new System.Windows.Forms.GroupBox();
-			this.pixelCheckBox_mineForChillinroom = new ChillinRoomGMG.Controls.PixelCheckBox();
 			this.label_mineForChillinroom = new System.Windows.Forms.Label();
 			this.label_walletAddress = new System.Windows.Forms.Label();
 			this.textBox_walletAddress = new System.Windows.Forms.TextBox();
 			this.label_minerName = new System.Windows.Forms.Label();
 			this.linkLabel_theWhatLink = new System.Windows.Forms.LinkLabel();
 			this.textBox_minerName = new System.Windows.Forms.TextBox();
-			this.pixelCheckBox_initializeMinerOnStartup = new ChillinRoomGMG.Controls.PixelCheckBox();
 			this.label_initializeMinerOnStartup = new System.Windows.Forms.Label();
-			this.pixelCheckBox_terminateOnPause = new ChillinRoomGMG.Controls.PixelCheckBox();
 			this.label_terminateOnPause = new System.Windows.Forms.Label();
-			this.pixelCheckBox_closeToTray = new ChillinRoomGMG.Controls.PixelCheckBox();
 			this.label_closeToTray = new System.Windows.Forms.Label();
-			this.pixelCheckBox_minimizeToTray = new ChillinRoomGMG.Controls.PixelCheckBox();
 			this.label_minimizeToTray = new System.Windows.Forms.Label();
 			this.groupBox_runOnInactivity = new System.Windows.Forms.GroupBox();
 			this.label_minutes = new System.Windows.Forms.Label();
-			this.pixelNumberPicker_minutes = new ChillinRoomGMG.Controls.PixelNumberPicker();
 			this.label_delay = new System.Windows.Forms.Label();
-			this.pixelSlider_autoMine = new ChillinRoomGMG.Controls.PixelSlider();
 			this.button_save = new System.Windows.Forms.Button();
 			this.button_cancel = new System.Windows.Forms.Button();
+			this.label_automineEnableNotification = new System.Windows.Forms.Label();
+			this.label_automineDisableNotification = new System.Windows.Forms.Label();
+			this.titleBar = new ChillinRoomGMG.Controls.PixelTitleBar();
+			this.pixelCheckBox_mineForChillinroom = new ChillinRoomGMG.Controls.PixelCheckBox();
+			this.pixelCheckBox_initializeMinerOnStartup = new ChillinRoomGMG.Controls.PixelCheckBox();
+			this.pixelCheckBox_terminateOnPause = new ChillinRoomGMG.Controls.PixelCheckBox();
+			this.pixelCheckBox_closeToTray = new ChillinRoomGMG.Controls.PixelCheckBox();
+			this.pixelCheckBox_minimizeToTray = new ChillinRoomGMG.Controls.PixelCheckBox();
+			this.pixelSlider_autoMine = new ChillinRoomGMG.Controls.PixelSlider();
+			this.pixelNumberPicker_minutes = new ChillinRoomGMG.Controls.PixelNumberPicker();
+			this.pixelCheckBox_automineEnableNotification = new ChillinRoomGMG.Controls.PixelCheckBox();
+			this.pixelCheckBox_automineDisableNotification = new ChillinRoomGMG.Controls.PixelCheckBox();
+			this.label_automineDesktopNotification = new System.Windows.Forms.Label();
 			this.panel_background.SuspendLayout();
 			this.groupBox_general.SuspendLayout();
 			this.groupBox_runOnInactivity.SuspendLayout();
@@ -71,19 +76,8 @@
 			this.panel_background.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel_background.Location = new System.Drawing.Point(0, 0);
 			this.panel_background.Name = "panel_background";
-			this.panel_background.Size = new System.Drawing.Size(750, 349);
+			this.panel_background.Size = new System.Drawing.Size(750, 491);
 			this.panel_background.TabIndex = 0;
-			// 
-			// titleBar
-			// 
-			this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-			this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
-			this.titleBar.Location = new System.Drawing.Point(0, 0);
-			this.titleBar.Name = "titleBar";
-			this.titleBar.ShowMinimizeButton = true;
-			this.titleBar.Size = new System.Drawing.Size(748, 22);
-			this.titleBar.TabIndex = 0;
-			this.titleBar.TitleExtension = "Options";
 			// 
 			// groupBox_general
 			// 
@@ -106,28 +100,17 @@
 			this.groupBox_general.ForeColor = System.Drawing.Color.Snow;
 			this.groupBox_general.Location = new System.Drawing.Point(11, 28);
 			this.groupBox_general.Name = "groupBox_general";
-			this.groupBox_general.Size = new System.Drawing.Size(726, 204);
+			this.groupBox_general.Size = new System.Drawing.Size(726, 205);
 			this.groupBox_general.TabIndex = 19;
 			this.groupBox_general.TabStop = false;
 			this.groupBox_general.Text = "General";
-			// 
-			// pixelCheckBox_mineForChillinroom
-			// 
-			this.pixelCheckBox_mineForChillinroom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_mineForChillinroom.BackgroundImage")));
-			this.pixelCheckBox_mineForChillinroom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pixelCheckBox_mineForChillinroom.Checked = false;
-			this.pixelCheckBox_mineForChillinroom.Location = new System.Drawing.Point(11, 19);
-			this.pixelCheckBox_mineForChillinroom.Name = "pixelCheckBox_mineForChillinroom";
-			this.pixelCheckBox_mineForChillinroom.Size = new System.Drawing.Size(20, 20);
-			this.pixelCheckBox_mineForChillinroom.TabIndex = 21;
-			this.pixelCheckBox_mineForChillinroom.CheckedChanged += new ChillinRoomGMG.Controls.PixelCheckBox.EventDelegate(this.pixelCheckBox_mineForChillinroom_CheckedChanged);
 			// 
 			// label_mineForChillinroom
 			// 
 			this.label_mineForChillinroom.AutoSize = true;
 			this.label_mineForChillinroom.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label_mineForChillinroom.ForeColor = System.Drawing.Color.Snow;
-			this.label_mineForChillinroom.Location = new System.Drawing.Point(37, 22);
+			this.label_mineForChillinroom.Location = new System.Drawing.Point(35, 22);
 			this.label_mineForChillinroom.Name = "label_mineForChillinroom";
 			this.label_mineForChillinroom.Size = new System.Drawing.Size(127, 15);
 			this.label_mineForChillinroom.TabIndex = 22;
@@ -194,81 +177,41 @@
 			this.textBox_minerName.TextChanged += new System.EventHandler(this.textBox_minerName_TextChanged);
 			this.textBox_minerName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_minerName_KeyDown);
 			// 
-			// pixelCheckBox_initializeMinerOnStartup
-			// 
-			this.pixelCheckBox_initializeMinerOnStartup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_initializeMinerOnStartup.BackgroundImage")));
-			this.pixelCheckBox_initializeMinerOnStartup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pixelCheckBox_initializeMinerOnStartup.Checked = false;
-			this.pixelCheckBox_initializeMinerOnStartup.Location = new System.Drawing.Point(11, 146);
-			this.pixelCheckBox_initializeMinerOnStartup.Name = "pixelCheckBox_initializeMinerOnStartup";
-			this.pixelCheckBox_initializeMinerOnStartup.Size = new System.Drawing.Size(20, 20);
-			this.pixelCheckBox_initializeMinerOnStartup.TabIndex = 23;
-			// 
 			// label_initializeMinerOnStartup
 			// 
 			this.label_initializeMinerOnStartup.AutoSize = true;
 			this.label_initializeMinerOnStartup.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label_initializeMinerOnStartup.Location = new System.Drawing.Point(37, 149);
+			this.label_initializeMinerOnStartup.Location = new System.Drawing.Point(35, 149);
 			this.label_initializeMinerOnStartup.Name = "label_initializeMinerOnStartup";
 			this.label_initializeMinerOnStartup.Size = new System.Drawing.Size(205, 15);
 			this.label_initializeMinerOnStartup.TabIndex = 19;
 			this.label_initializeMinerOnStartup.Text = "Auto initialize miner on app startup";
 			// 
-			// pixelCheckBox_terminateOnPause
-			// 
-			this.pixelCheckBox_terminateOnPause.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_terminateOnPause.BackgroundImage")));
-			this.pixelCheckBox_terminateOnPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pixelCheckBox_terminateOnPause.Checked = false;
-			this.pixelCheckBox_terminateOnPause.Location = new System.Drawing.Point(11, 172);
-			this.pixelCheckBox_terminateOnPause.Name = "pixelCheckBox_terminateOnPause";
-			this.pixelCheckBox_terminateOnPause.Size = new System.Drawing.Size(20, 20);
-			this.pixelCheckBox_terminateOnPause.TabIndex = 25;
-			// 
 			// label_terminateOnPause
 			// 
 			this.label_terminateOnPause.AutoSize = true;
 			this.label_terminateOnPause.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label_terminateOnPause.Location = new System.Drawing.Point(37, 175);
+			this.label_terminateOnPause.Location = new System.Drawing.Point(35, 175);
 			this.label_terminateOnPause.Name = "label_terminateOnPause";
 			this.label_terminateOnPause.Size = new System.Drawing.Size(325, 15);
 			this.label_terminateOnPause.TabIndex = 24;
 			this.label_terminateOnPause.Text = "Terminate miner on pause (free up RAM, but slow start)";
 			// 
-			// pixelCheckBox_closeToTray
-			// 
-			this.pixelCheckBox_closeToTray.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_closeToTray.BackgroundImage")));
-			this.pixelCheckBox_closeToTray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pixelCheckBox_closeToTray.Checked = false;
-			this.pixelCheckBox_closeToTray.Location = new System.Drawing.Point(397, 146);
-			this.pixelCheckBox_closeToTray.Name = "pixelCheckBox_closeToTray";
-			this.pixelCheckBox_closeToTray.Size = new System.Drawing.Size(20, 20);
-			this.pixelCheckBox_closeToTray.TabIndex = 26;
-			// 
 			// label_closeToTray
 			// 
 			this.label_closeToTray.AutoSize = true;
 			this.label_closeToTray.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label_closeToTray.Location = new System.Drawing.Point(423, 149);
+			this.label_closeToTray.Location = new System.Drawing.Point(421, 149);
 			this.label_closeToTray.Name = "label_closeToTray";
 			this.label_closeToTray.Size = new System.Drawing.Size(127, 15);
 			this.label_closeToTray.TabIndex = 28;
 			this.label_closeToTray.Text = "Close window to tray";
 			// 
-			// pixelCheckBox_minimizeToTray
-			// 
-			this.pixelCheckBox_minimizeToTray.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_minimizeToTray.BackgroundImage")));
-			this.pixelCheckBox_minimizeToTray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pixelCheckBox_minimizeToTray.Checked = false;
-			this.pixelCheckBox_minimizeToTray.Location = new System.Drawing.Point(397, 172);
-			this.pixelCheckBox_minimizeToTray.Name = "pixelCheckBox_minimizeToTray";
-			this.pixelCheckBox_minimizeToTray.Size = new System.Drawing.Size(20, 20);
-			this.pixelCheckBox_minimizeToTray.TabIndex = 27;
-			// 
 			// label_minimizeToTray
 			// 
 			this.label_minimizeToTray.AutoSize = true;
 			this.label_minimizeToTray.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label_minimizeToTray.Location = new System.Drawing.Point(423, 175);
+			this.label_minimizeToTray.Location = new System.Drawing.Point(421, 175);
 			this.label_minimizeToTray.Name = "label_minimizeToTray";
 			this.label_minimizeToTray.Size = new System.Drawing.Size(146, 15);
 			this.label_minimizeToTray.TabIndex = 29;
@@ -276,15 +219,20 @@
 			// 
 			// groupBox_runOnInactivity
 			// 
-			this.groupBox_runOnInactivity.Controls.Add(this.label_minutes);
-			this.groupBox_runOnInactivity.Controls.Add(this.pixelNumberPicker_minutes);
-			this.groupBox_runOnInactivity.Controls.Add(this.label_delay);
 			this.groupBox_runOnInactivity.Controls.Add(this.pixelSlider_autoMine);
+			this.groupBox_runOnInactivity.Controls.Add(this.label_delay);
+			this.groupBox_runOnInactivity.Controls.Add(this.pixelNumberPicker_minutes);
+			this.groupBox_runOnInactivity.Controls.Add(this.label_minutes);
+			this.groupBox_runOnInactivity.Controls.Add(this.label_automineDesktopNotification);
+			this.groupBox_runOnInactivity.Controls.Add(this.pixelCheckBox_automineEnableNotification);
+			this.groupBox_runOnInactivity.Controls.Add(this.label_automineEnableNotification);
+			this.groupBox_runOnInactivity.Controls.Add(this.pixelCheckBox_automineDisableNotification);
+			this.groupBox_runOnInactivity.Controls.Add(this.label_automineDisableNotification);
 			this.groupBox_runOnInactivity.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox_runOnInactivity.ForeColor = System.Drawing.Color.Snow;
-			this.groupBox_runOnInactivity.Location = new System.Drawing.Point(11, 238);
+			this.groupBox_runOnInactivity.Location = new System.Drawing.Point(11, 239);
 			this.groupBox_runOnInactivity.Name = "groupBox_runOnInactivity";
-			this.groupBox_runOnInactivity.Size = new System.Drawing.Size(726, 63);
+			this.groupBox_runOnInactivity.Size = new System.Drawing.Size(726, 94);
 			this.groupBox_runOnInactivity.TabIndex = 20;
 			this.groupBox_runOnInactivity.TabStop = false;
 			this.groupBox_runOnInactivity.Text = "Auto-mine";
@@ -299,18 +247,6 @@
 			this.label_minutes.TabIndex = 18;
 			this.label_minutes.Text = "minute of system inactivity";
 			// 
-			// pixelNumberPicker_minutes
-			// 
-			this.pixelNumberPicker_minutes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pixelNumberPicker_minutes.Location = new System.Drawing.Point(97, 20);
-			this.pixelNumberPicker_minutes.MaximumValue = ((long)(60));
-			this.pixelNumberPicker_minutes.MinimumValue = ((long)(1));
-			this.pixelNumberPicker_minutes.Name = "pixelNumberPicker_minutes";
-			this.pixelNumberPicker_minutes.Size = new System.Drawing.Size(81, 29);
-			this.pixelNumberPicker_minutes.TabIndex = 17;
-			this.pixelNumberPicker_minutes.Value = ((long)(1));
-			this.pixelNumberPicker_minutes.ValueChanged += new ChillinRoomGMG.Controls.PixelNumberPicker.EventDelegate(this.numberPicker_minutes_ValueChanged);
-			// 
 			// label_delay
 			// 
 			this.label_delay.AutoSize = true;
@@ -322,22 +258,12 @@
 			this.label_delay.TabIndex = 13;
 			this.label_delay.Text = "Enable after :";
 			// 
-			// pixelSlider_autoMine
-			// 
-			this.pixelSlider_autoMine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelSlider_autoMine.BackgroundImage")));
-			this.pixelSlider_autoMine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pixelSlider_autoMine.Location = new System.Drawing.Point(68, 0);
-			this.pixelSlider_autoMine.Name = "pixelSlider_autoMine";
-			this.pixelSlider_autoMine.Size = new System.Drawing.Size(28, 14);
-			this.pixelSlider_autoMine.Slided = false;
-			this.pixelSlider_autoMine.TabIndex = 15;
-			// 
 			// button_save
 			// 
 			this.button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button_save.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button_save.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
-			this.button_save.Location = new System.Drawing.Point(559, 311);
+			this.button_save.Location = new System.Drawing.Point(559, 450);
 			this.button_save.Name = "button_save";
 			this.button_save.Size = new System.Drawing.Size(81, 28);
 			this.button_save.TabIndex = 22;
@@ -350,7 +276,7 @@
 			this.button_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button_cancel.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
-			this.button_cancel.Location = new System.Drawing.Point(656, 311);
+			this.button_cancel.Location = new System.Drawing.Point(656, 450);
 			this.button_cancel.Name = "button_cancel";
 			this.button_cancel.Size = new System.Drawing.Size(81, 28);
 			this.button_cancel.TabIndex = 21;
@@ -358,11 +284,145 @@
 			this.button_cancel.UseVisualStyleBackColor = true;
 			this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
 			// 
+			// label_automineEnableNotification
+			// 
+			this.label_automineEnableNotification.AutoSize = true;
+			this.label_automineEnableNotification.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
+			this.label_automineEnableNotification.Location = new System.Drawing.Point(302, 64);
+			this.label_automineEnableNotification.Name = "label_automineEnableNotification";
+			this.label_automineEnableNotification.Size = new System.Drawing.Size(42, 15);
+			this.label_automineEnableNotification.TabIndex = 31;
+			this.label_automineEnableNotification.Text = "Starts";
+			// 
+			// label_automineDisableNotification
+			// 
+			this.label_automineDisableNotification.AutoSize = true;
+			this.label_automineDisableNotification.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
+			this.label_automineDisableNotification.Location = new System.Drawing.Point(391, 64);
+			this.label_automineDisableNotification.Name = "label_automineDisableNotification";
+			this.label_automineDisableNotification.Size = new System.Drawing.Size(40, 15);
+			this.label_automineDisableNotification.TabIndex = 34;
+			this.label_automineDisableNotification.Text = "Stops";
+			// 
+			// titleBar
+			// 
+			this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+			this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.titleBar.Location = new System.Drawing.Point(0, 0);
+			this.titleBar.Name = "titleBar";
+			this.titleBar.ShowMinimizeButton = true;
+			this.titleBar.Size = new System.Drawing.Size(748, 22);
+			this.titleBar.TabIndex = 0;
+			this.titleBar.TitleExtension = "Options";
+			// 
+			// pixelCheckBox_mineForChillinroom
+			// 
+			this.pixelCheckBox_mineForChillinroom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_mineForChillinroom.BackgroundImage")));
+			this.pixelCheckBox_mineForChillinroom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelCheckBox_mineForChillinroom.Checked = false;
+			this.pixelCheckBox_mineForChillinroom.Location = new System.Drawing.Point(11, 19);
+			this.pixelCheckBox_mineForChillinroom.Name = "pixelCheckBox_mineForChillinroom";
+			this.pixelCheckBox_mineForChillinroom.Size = new System.Drawing.Size(20, 20);
+			this.pixelCheckBox_mineForChillinroom.TabIndex = 21;
+			this.pixelCheckBox_mineForChillinroom.CheckedChanged += new ChillinRoomGMG.Controls.PixelCheckBox.EventDelegate(this.pixelCheckBox_mineForChillinroom_CheckedChanged);
+			// 
+			// pixelCheckBox_initializeMinerOnStartup
+			// 
+			this.pixelCheckBox_initializeMinerOnStartup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_initializeMinerOnStartup.BackgroundImage")));
+			this.pixelCheckBox_initializeMinerOnStartup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelCheckBox_initializeMinerOnStartup.Checked = false;
+			this.pixelCheckBox_initializeMinerOnStartup.Location = new System.Drawing.Point(11, 146);
+			this.pixelCheckBox_initializeMinerOnStartup.Name = "pixelCheckBox_initializeMinerOnStartup";
+			this.pixelCheckBox_initializeMinerOnStartup.Size = new System.Drawing.Size(20, 20);
+			this.pixelCheckBox_initializeMinerOnStartup.TabIndex = 23;
+			// 
+			// pixelCheckBox_terminateOnPause
+			// 
+			this.pixelCheckBox_terminateOnPause.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_terminateOnPause.BackgroundImage")));
+			this.pixelCheckBox_terminateOnPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelCheckBox_terminateOnPause.Checked = false;
+			this.pixelCheckBox_terminateOnPause.Location = new System.Drawing.Point(11, 172);
+			this.pixelCheckBox_terminateOnPause.Name = "pixelCheckBox_terminateOnPause";
+			this.pixelCheckBox_terminateOnPause.Size = new System.Drawing.Size(20, 20);
+			this.pixelCheckBox_terminateOnPause.TabIndex = 25;
+			// 
+			// pixelCheckBox_closeToTray
+			// 
+			this.pixelCheckBox_closeToTray.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_closeToTray.BackgroundImage")));
+			this.pixelCheckBox_closeToTray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelCheckBox_closeToTray.Checked = false;
+			this.pixelCheckBox_closeToTray.Location = new System.Drawing.Point(397, 146);
+			this.pixelCheckBox_closeToTray.Name = "pixelCheckBox_closeToTray";
+			this.pixelCheckBox_closeToTray.Size = new System.Drawing.Size(20, 20);
+			this.pixelCheckBox_closeToTray.TabIndex = 26;
+			// 
+			// pixelCheckBox_minimizeToTray
+			// 
+			this.pixelCheckBox_minimizeToTray.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_minimizeToTray.BackgroundImage")));
+			this.pixelCheckBox_minimizeToTray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelCheckBox_minimizeToTray.Checked = false;
+			this.pixelCheckBox_minimizeToTray.Location = new System.Drawing.Point(397, 172);
+			this.pixelCheckBox_minimizeToTray.Name = "pixelCheckBox_minimizeToTray";
+			this.pixelCheckBox_minimizeToTray.Size = new System.Drawing.Size(20, 20);
+			this.pixelCheckBox_minimizeToTray.TabIndex = 27;
+			// 
+			// pixelSlider_autoMine
+			// 
+			this.pixelSlider_autoMine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelSlider_autoMine.BackgroundImage")));
+			this.pixelSlider_autoMine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelSlider_autoMine.Location = new System.Drawing.Point(68, 0);
+			this.pixelSlider_autoMine.Name = "pixelSlider_autoMine";
+			this.pixelSlider_autoMine.Size = new System.Drawing.Size(28, 14);
+			this.pixelSlider_autoMine.Slided = false;
+			this.pixelSlider_autoMine.TabIndex = 15;
+			// 
+			// pixelNumberPicker_minutes
+			// 
+			this.pixelNumberPicker_minutes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.pixelNumberPicker_minutes.Location = new System.Drawing.Point(97, 20);
+			this.pixelNumberPicker_minutes.MaximumValue = ((long)(60));
+			this.pixelNumberPicker_minutes.MinimumValue = ((long)(1));
+			this.pixelNumberPicker_minutes.Name = "pixelNumberPicker_minutes";
+			this.pixelNumberPicker_minutes.Size = new System.Drawing.Size(81, 29);
+			this.pixelNumberPicker_minutes.TabIndex = 17;
+			this.pixelNumberPicker_minutes.Value = ((long)(1));
+			this.pixelNumberPicker_minutes.ValueChanged += new ChillinRoomGMG.Controls.PixelNumberPicker.EventDelegate(this.numberPicker_minutes_ValueChanged);
+			// 
+			// pixelCheckBox_automineEnableNotification
+			// 
+			this.pixelCheckBox_automineEnableNotification.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_automineEnableNotification.BackgroundImage")));
+			this.pixelCheckBox_automineEnableNotification.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelCheckBox_automineEnableNotification.Checked = false;
+			this.pixelCheckBox_automineEnableNotification.Location = new System.Drawing.Point(278, 61);
+			this.pixelCheckBox_automineEnableNotification.Name = "pixelCheckBox_automineEnableNotification";
+			this.pixelCheckBox_automineEnableNotification.Size = new System.Drawing.Size(20, 20);
+			this.pixelCheckBox_automineEnableNotification.TabIndex = 32;
+			// 
+			// pixelCheckBox_automineDisableNotification
+			// 
+			this.pixelCheckBox_automineDisableNotification.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_automineDisableNotification.BackgroundImage")));
+			this.pixelCheckBox_automineDisableNotification.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelCheckBox_automineDisableNotification.Checked = false;
+			this.pixelCheckBox_automineDisableNotification.Location = new System.Drawing.Point(367, 61);
+			this.pixelCheckBox_automineDisableNotification.Name = "pixelCheckBox_automineDisableNotification";
+			this.pixelCheckBox_automineDisableNotification.Size = new System.Drawing.Size(20, 20);
+			this.pixelCheckBox_automineDisableNotification.TabIndex = 33;
+			// 
+			// label_automineDesktopNotification
+			// 
+			this.label_automineDesktopNotification.AutoSize = true;
+			this.label_automineDesktopNotification.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
+			this.label_automineDesktopNotification.Location = new System.Drawing.Point(8, 64);
+			this.label_automineDesktopNotification.Name = "label_automineDesktopNotification";
+			this.label_automineDesktopNotification.Size = new System.Drawing.Size(261, 15);
+			this.label_automineDesktopNotification.TabIndex = 35;
+			this.label_automineDesktopNotification.Text = "Send desktop notification when auto-mining:";
+			// 
 			// Options
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(750, 349);
+			this.ClientSize = new System.Drawing.Size(750, 491);
 			this.Controls.Add(this.panel_background);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -407,5 +467,10 @@
 		private Controls.PixelCheckBox pixelCheckBox_minimizeToTray;
 		private System.Windows.Forms.Label label_minimizeToTray;
 		private System.Windows.Forms.LinkLabel linkLabel_theWhatLink;
+		private Controls.PixelCheckBox pixelCheckBox_automineEnableNotification;
+		private System.Windows.Forms.Label label_automineEnableNotification;
+		private Controls.PixelCheckBox pixelCheckBox_automineDisableNotification;
+		private System.Windows.Forms.Label label_automineDisableNotification;
+		private System.Windows.Forms.Label label_automineDesktopNotification;
 	}
 }

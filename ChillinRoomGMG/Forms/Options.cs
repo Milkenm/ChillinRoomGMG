@@ -30,6 +30,9 @@ namespace ChillinRoomGMG.Forms
 			pixelCheckBox_closeToTray.Checked = settings.CloseToTray;
 			pixelCheckBox_minimizeToTray.Checked = settings.MinimizeToTray;
 
+			pixelCheckBox_automineEnableNotification.Checked = settings.NotificationAutoStart;
+			pixelCheckBox_automineDisableNotification.Checked = settings.NotificationAutoStop;
+
 			CheckMinutePlural();
 
 			textBox_walletAddress.GotFocus += TextBox_walletAddress_GotFocus;
@@ -94,6 +97,9 @@ namespace ChillinRoomGMG.Forms
 
 			settings.CloseToTray = pixelCheckBox_closeToTray.Checked;
 			settings.MinimizeToTray = pixelCheckBox_minimizeToTray.Checked;
+
+			settings.NotificationAutoStart = pixelCheckBox_automineEnableNotification.Checked;
+			settings.NotificationAutoStop = pixelCheckBox_automineDisableNotification.Checked;
 
 			minerForm.LoadConfig();
 			Close();
