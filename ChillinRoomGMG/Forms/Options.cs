@@ -33,7 +33,10 @@ namespace ChillinRoomGMG.Forms
 			pixelCheckBox_automineEnableNotification.Checked = settings.NotificationAutoStart;
 			pixelCheckBox_automineDisableNotification.Checked = settings.NotificationAutoStop;
 
-			CheckMinutePlural();
+			pixelCheckBox_validShareNotification.Checked = settings.NotificationValidShare;
+			pixelNumberPicker_validShareNotificationCount.Value = settings.ValidShareNotificationCount;
+			pixelCheckBox_invalidShareNotification.Checked = settings.NotificationInvalidShare;
+			pixelNumberPicker_invalidShareNotificationCount.Value = settings.InvalidShareNotificationCount;
 
 			textBox_walletAddress.GotFocus += TextBox_walletAddress_GotFocus;
 		}
@@ -101,6 +104,11 @@ namespace ChillinRoomGMG.Forms
 			settings.NotificationAutoStart = pixelCheckBox_automineEnableNotification.Checked;
 			settings.NotificationAutoStop = pixelCheckBox_automineDisableNotification.Checked;
 
+			settings.NotificationValidShare = pixelCheckBox_validShareNotification.Checked;
+			settings.ValidShareNotificationCount = (int)pixelNumberPicker_validShareNotificationCount.Value;
+			settings.NotificationInvalidShare = pixelCheckBox_invalidShareNotification.Checked;
+			settings.InvalidShareNotificationCount = (int)pixelNumberPicker_invalidShareNotificationCount.Value;
+
 			minerForm.LoadConfig();
 			Close();
 		}
@@ -111,11 +119,6 @@ namespace ChillinRoomGMG.Forms
 		}
 
 		private void numberPicker_minutes_ValueChanged()
-		{
-			CheckMinutePlural();
-		}
-
-		private void CheckMinutePlural()
 		{
 			label_minutes.Text = pixelNumberPicker_minutes.Value == 1 ? "minute" : "minutes";
 			label_minutes.Text += " of system inactivity";
@@ -163,6 +166,16 @@ namespace ChillinRoomGMG.Forms
 		private void linkLabel_theWhatLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			Process.Start("https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-");
+		}
+
+		private void pixelNumberPicker_validShareNotificationCount_ValueChanged()
+		{
+			label_validShareNotification.Text = pixelNumberPicker_validShareNotificationCount.Value == 1 ? "valid share" : "valid shares";
+		}
+
+		private void pixelNumberPicker_invalidShareNotificationCount_ValueChanged()
+		{
+			label_invalidShareNotification.Text = pixelNumberPicker_invalidShareNotificationCount.Value == 1 ? "invalid share" : "invalid shares";
 		}
 	}
 }

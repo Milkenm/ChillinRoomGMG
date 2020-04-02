@@ -236,5 +236,53 @@ namespace ChillinRoomGMG.Properties {
                 this["NotificationAutoStop"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NotificationValidShare {
+            get {
+                return ((bool)(this["NotificationValidShare"]));
+            }
+            set {
+                this["NotificationValidShare"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NotificationInvalidShare {
+            get {
+                return ((bool)(this["NotificationInvalidShare"]));
+            }
+            set {
+                this["NotificationInvalidShare"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int ValidShareNotificationCount {
+            get {
+                return ((int)(this["ValidShareNotificationCount"]));
+            }
+            set {
+                this["ValidShareNotificationCount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int InvalidShareNotificationCount {
+            get {
+                return ((int)(this["InvalidShareNotificationCount"]));
+            }
+            set {
+                this["InvalidShareNotificationCount"] = value;
+            }
+        }
     }
 }

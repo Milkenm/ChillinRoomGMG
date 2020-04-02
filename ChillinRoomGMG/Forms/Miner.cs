@@ -169,11 +169,21 @@ namespace ChillinRoomGMG.Forms
 					}
 					timer_refreshLatestShareTimer.Start();
 				}));
+
+				if (settings.NotificationValidShare && validShares % settings.ValidShareNotificationCount == 0)
+				{
+					trayIcon.ShowBalloonTip(0, $"Valid share [x{settings.ValidShareNotificationCount}]", $"Total: {validShares} valid shares", ToolTipIcon.Info);
+				}
 			}
 			else
 			{
 				settings.TotalInvalidShares++;
 				invalidShares++;
+
+				if (settings.NotificationInvalidShare && invalidShares % settings.InvalidShareNotificationCount == 0)
+				{
+					trayIcon.ShowBalloonTip(0, $"Invalid share [x{settings.InvalidShareNotificationCount}]", $"Total: { invalidShares} invalid shares", ToolTipIcon.Info);
+				}
 			}
 
 			Invoke(new Action(() => label_shares.Text = $"{ThousandsSeparator(validShares)} / {ThousandsSeparator(invalidShares)}"));

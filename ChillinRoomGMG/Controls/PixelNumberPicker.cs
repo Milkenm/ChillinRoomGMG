@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace ChillinRoomGMG.Controls
 {
+	[DefaultEvent("ValueChanged")]
 	public partial class PixelNumberPicker : UserControl
 	{
 		public delegate void EventDelegate();
