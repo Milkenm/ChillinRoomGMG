@@ -194,7 +194,7 @@ namespace ChillinRoomGMG.Forms
 			if (settings.AutoMine && button_mine.Text == "START MINING" && validSettings)
 			{
 				inactivityEnabled = true;
-				button_mine.PerformClick();
+				Mine();
 				trayIcon.ShowBalloonTip(0, "Automatic mining started.", "Automatic mining has started due to system inactivity.", ToolTipIcon.Info);
 
 				button_mine.Text = "AUTO MINING";
@@ -210,7 +210,7 @@ namespace ChillinRoomGMG.Forms
 				button_mine.Text = "START MINING";
 
 				inactivityEnabled = false;
-				button_mine.PerformClick();
+				Mine();
 				trayIcon.ShowBalloonTip(0, "Mining stopped.", "Automatic mining has stopped.", ToolTipIcon.Info);
 			}
 		}
@@ -255,6 +255,11 @@ namespace ChillinRoomGMG.Forms
 		}
 
 		private void button_mine_Click(object sender, EventArgs e)
+		{
+			Mine();
+		}
+
+		private void Mine()
 		{
 			// START THE MINER
 			if (button_mine.BackColor == Color.FromArgb(74, 57, 63))
