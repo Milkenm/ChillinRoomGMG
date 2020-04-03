@@ -38,5 +38,15 @@ namespace ChillinRoomGMG
 
 		[DllImport("user32.dll")]
 		internal static extern bool ReleaseCapture();
+
+		[DllImport("user32.dll")]
+		internal static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+		[StructLayout(LayoutKind.Sequential)]
+		internal struct LASTINPUTINFO
+		{
+			public uint cbSize;
+			public int dwTime;
+		}
 	}
 }

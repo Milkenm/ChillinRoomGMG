@@ -37,9 +37,8 @@ namespace ChillinRoomGMG.Forms
 				{
 					Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y + 1);
 				}
-				inactivity = new InputInactivity(settings.AutoMineDelay * 60000);
-				inactivity.InactivityTimeReached += Inactivity_InactivityTimeReached;
-				inactivity.InputReceived += Inactivity_InputReceived;
+
+				
 			}
 
 			xmrig.ValidShare += () => UpdateShares(true);
@@ -47,6 +46,10 @@ namespace ChillinRoomGMG.Forms
 			xmrig.LoggedLine += Xmrig_LoggedLine;
 
 			InitClickEvent(Controls);
+
+			inactivity = new InputInactivity();
+			inactivity.InactivityTimeReached += Inactivity_InactivityTimeReached;
+			inactivity.InputReceived += Inactivity_InputReceived;
 
 			LoadConfig();
 		}
@@ -113,6 +116,8 @@ namespace ChillinRoomGMG.Forms
 				validSettings = false;
 			}
 			button_mine.Enabled = validSettings;
+
+			inactivity.MsDelay = settings.AutoMineDelay * (settings.AutoMineTimeUnit == 0 ? 1000 : settings.AutoMineTimeUnit == 1 ? 60000 : 3600000);
 		}
 
 		private void Xmrig_LoggedLine(string line)
@@ -208,7 +213,7 @@ namespace ChillinRoomGMG.Forms
 
 				inactivityEnabled = true;
 				Mine();
-
+				
 				if (settings.NotificationAutoStart)
 				{
 					trayIcon.ShowBalloonTip(0, "Automatic mining started.", "Automatic mining has started due to system inactivity.", ToolTipIcon.Info);

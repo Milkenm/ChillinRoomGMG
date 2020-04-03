@@ -38,6 +38,8 @@ namespace ChillinRoomGMG.Forms
 			pixelCheckBox_invalidShareNotification.Checked = settings.NotificationInvalidShare;
 			pixelNumberPicker_invalidShareNotificationCount.Value = settings.InvalidShareNotificationCount;
 
+			comboBox_timeUnit.SelectedIndex = settings.AutoMineTimeUnit;
+
 			textBox_walletAddress.GotFocus += TextBox_walletAddress_GotFocus;
 		}
 
@@ -109,6 +111,8 @@ namespace ChillinRoomGMG.Forms
 			settings.NotificationInvalidShare = pixelCheckBox_invalidShareNotification.Checked;
 			settings.InvalidShareNotificationCount = (int)pixelNumberPicker_invalidShareNotificationCount.Value;
 
+			settings.AutoMineTimeUnit = comboBox_timeUnit.SelectedIndex;
+
 			minerForm.LoadConfig();
 			Close();
 		}
@@ -120,8 +124,17 @@ namespace ChillinRoomGMG.Forms
 
 		private void numberPicker_minutes_ValueChanged()
 		{
-			label_minutes.Text = pixelNumberPicker_minutes.Value == 1 ? "minute" : "minutes";
-			label_minutes.Text += " of system inactivity";
+			int previousIndex = comboBox_timeUnit.SelectedIndex;
+			bool s = pixelNumberPicker_minutes.Value != 1;
+
+			comboBox_timeUnit.Items.Clear();
+
+			foreach (string unit in new string[] { "second", "minute", "hour" })
+			{
+				comboBox_timeUnit.Items.Add(unit + (s ? "s" : null));
+			}
+
+			comboBox_timeUnit.SelectedIndex = previousIndex;
 		}
 
 		private void pixelCheckBox_mineForChillinroom_CheckedChanged()
