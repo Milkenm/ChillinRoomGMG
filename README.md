@@ -7,6 +7,7 @@
 <br>
 <br>
 ## Stuff
+* **Miner**: XMRig
 * **Pool**: SupportXMR (pool.supportxmr.com:443)
 * **Performance**: Idk, but I get more hash rate, don't ask me how
 <br/>
