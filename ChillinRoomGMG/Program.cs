@@ -21,8 +21,8 @@ namespace ChillinRoomGMG
 			}
 			else
 			{
-				Application.ThreadException += (s, e) => GlobalException();
 				Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+				Application.ThreadException += (s, e) => GlobalException();
 				AppDomain.CurrentDomain.UnhandledException += (s, e) => GlobalException();
 
 				Application.EnableVisualStyles();
@@ -31,15 +31,7 @@ namespace ChillinRoomGMG
 			}
 		}
 
-		private static void GlobalException()
-		{
-			if (xmrig.IsRunning)
-			{
-				xmrig.Kill();
-
-				xmrig.Initialize();
-			}
-		}
+		private static void GlobalException() { }
 
 		private class TrayIcon : ApplicationContext
 		{
