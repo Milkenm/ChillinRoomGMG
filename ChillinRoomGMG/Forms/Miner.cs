@@ -37,8 +37,6 @@ namespace ChillinRoomGMG.Forms
 				{
 					Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y + 1);
 				}
-
-				
 			}
 
 			xmrig.ValidShare += () => UpdateShares(true);
@@ -213,7 +211,7 @@ namespace ChillinRoomGMG.Forms
 
 				inactivityEnabled = true;
 				Mine();
-				
+
 				if (settings.NotificationAutoStart)
 				{
 					trayIcon.ShowBalloonTip(0, "Automatic mining started.", "Automatic mining has started due to system inactivity.", ToolTipIcon.Info);

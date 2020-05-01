@@ -16,6 +16,9 @@ namespace ChillinRoomGMG.Forms
 
 		private void Options_Load(object sender, EventArgs e)
 		{
+			Version v = typeof(Options).Assembly.GetName().Version;
+			label_version.Text = $"v{v.Major}.{v.Minor}.{v.Build}";
+
 			MineForChillinRoomToggle(settings.MineForChillinRoom);
 
 			pixelCheckBox_mineForChillinroom.Checked = settings.MineForChillinRoom;

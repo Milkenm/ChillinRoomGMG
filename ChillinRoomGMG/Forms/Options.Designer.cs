@@ -75,6 +75,7 @@
 			this.panel_buttons = new System.Windows.Forms.Panel();
 			this.button_cancel = new System.Windows.Forms.Button();
 			this.button_save = new System.Windows.Forms.Button();
+			this.label_version = new System.Windows.Forms.Label();
 			this.panel_background.SuspendLayout();
 			this.groupBox_general.SuspendLayout();
 			this.panel_mineForChillinroom.SuspendLayout();
@@ -95,6 +96,7 @@
 			this.panel_background.Controls.Add(this.titleBar);
 			this.panel_background.Controls.Add(this.groupBox_general);
 			this.panel_background.Controls.Add(this.groupBox_runOnInactivity);
+			this.panel_background.Controls.Add(this.label_version);
 			this.panel_background.Controls.Add(this.panel_buttons);
 			this.panel_background.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel_background.Location = new System.Drawing.Point(0, 0);
@@ -661,6 +663,17 @@
 			this.button_save.UseVisualStyleBackColor = true;
 			this.button_save.Click += new System.EventHandler(this.button_save_Click);
 			// 
+			// label_version
+			// 
+			this.label_version.AutoSize = true;
+			this.label_version.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
+			this.label_version.Location = new System.Drawing.Point(14, 463);
+			this.label_version.Margin = new System.Windows.Forms.Padding(0);
+			this.label_version.Name = "label_version";
+			this.label_version.Size = new System.Drawing.Size(64, 15);
+			this.label_version.TabIndex = 36;
+			this.label_version.Text = "<version>";
+			// 
 			// Options
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -748,5 +761,6 @@
 		private System.Windows.Forms.Panel panel_buttons;
 		private System.Windows.Forms.Panel panel_mineForChillinroom;
 		private System.Windows.Forms.ComboBox comboBox_timeUnit;
+		private System.Windows.Forms.Label label_version;
 	}
 }
