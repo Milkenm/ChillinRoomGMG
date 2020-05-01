@@ -12,5 +12,5 @@
 <br/>
 
 * **Random features:**
-  * **Auto-mining**: start mining after *x* minutes of user inactivity
+  * **Auto-mining**: start mining after *x* seconds/minutes/hours of user inactivity
   * **Statistics**: total valid and invalid shares, record hash rate and total mined time
