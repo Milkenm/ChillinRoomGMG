@@ -280,7 +280,7 @@ namespace ChillinRoomGMG.Forms
 			Mine();
 		}
 
-		private void Mine()
+		internal void Mine()
 		{
 			// START THE MINER
 			if (button_mine.BackColor == Color.FromArgb(74, 57, 63))
