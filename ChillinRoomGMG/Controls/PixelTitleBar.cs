@@ -65,21 +65,7 @@ namespace ChillinRoomGMG.Controls
 		{
 			Form parent = GetFinalParent();
 
-			if (settings.CloseToTray)
-			{
-				parent.Hide();
-			}
-			else
-			{
-				if (parent.Name == "Miner")
-				{
-					AppClose();
-				}
-				else
-				{
-					parent.Close();
-				}
-			}
+			parent.Close();
 		}
 
 		// MINIMIZE BUTTON

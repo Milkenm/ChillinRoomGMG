@@ -264,6 +264,7 @@
 			this.Name = "Miner";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ChillinRoom GMG";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Miner_FormClosing);
 			this.Load += new System.EventHandler(this.Main_Load);
 			this.panel_background.ResumeLayout(false);
 			this.panel_controls.ResumeLayout(false);

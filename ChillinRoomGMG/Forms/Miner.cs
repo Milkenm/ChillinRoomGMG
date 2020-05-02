@@ -354,5 +354,19 @@ namespace ChillinRoomGMG.Forms
 				InitClickEvent(control.Controls);
 			}
 		}
+
+		private void Miner_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			e.Cancel = true;
+
+			if (settings.CloseToTray)
+			{
+				Hide();
+			}
+			else
+			{
+				AppClose();
+			}
+		}
 	}
 }
