@@ -1,6 +1,7 @@
 ﻿using ChillinRoomGMG.Properties;
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -173,7 +174,7 @@ namespace ChillinRoomGMG.Forms
 					timer_refreshLatestShareTimer.Start();
 				}));
 
-				if (settings.NotificationValidShare && validShares % settings.ValidShareNotificationCount == 0)
+				if (settings.NotificationValidShare && SendNotification() && validShares % settings.ValidShareNotificationCount == 0)
 				{
 					trayIcon.ShowBalloonTip(0, $"Valid share [x{settings.ValidShareNotificationCount}]", $"Total: {validShares} valid shares", ToolTipIcon.Info);
 				}
@@ -183,7 +184,7 @@ namespace ChillinRoomGMG.Forms
 				settings.TotalInvalidShares++;
 				invalidShares++;
 
-				if (settings.NotificationInvalidShare && invalidShares % settings.InvalidShareNotificationCount == 0)
+				if (settings.NotificationInvalidShare && SendNotification() && invalidShares % settings.InvalidShareNotificationCount == 0)
 				{
 					trayIcon.ShowBalloonTip(0, $"Invalid share [x{settings.InvalidShareNotificationCount}]", $"Total: { invalidShares} invalid shares", ToolTipIcon.Info);
 				}
@@ -212,7 +213,7 @@ namespace ChillinRoomGMG.Forms
 				inactivityEnabled = true;
 				Mine();
 
-				if (settings.NotificationAutoStart)
+				if (settings.NotificationAutoStart && SendNotification())
 				{
 					trayIcon.ShowBalloonTip(0, "Automatic mining started.", "Automatic mining has started due to system inactivity.", ToolTipIcon.Info);
 				}
@@ -229,7 +230,7 @@ namespace ChillinRoomGMG.Forms
 				inactivityEnabled = false;
 				Mine();
 
-				if (settings.NotificationAutoStop)
+				if (settings.NotificationAutoStop && SendNotification())
 				{
 					trayIcon.ShowBalloonTip(0, "Mining stopped.", "Automatic mining has stopped.", ToolTipIcon.Info);
 				}
@@ -367,6 +368,11 @@ namespace ChillinRoomGMG.Forms
 			{
 				AppClose();
 			}
+		}
+
+		private bool SendNotification()
+		{
+			return !(ContainsFocus && settings.HideNotificationsWhileFocused);
 		}
 	}
 }

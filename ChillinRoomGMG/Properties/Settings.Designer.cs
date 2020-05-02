@@ -296,5 +296,17 @@ namespace ChillinRoomGMG.Properties {
                 this["AutoMineTimeUnit"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HideNotificationsWhileFocused {
+            get {
+                return ((bool)(this["HideNotificationsWhileFocused"]));
+            }
+            set {
+                this["HideNotificationsWhileFocused"] = value;
+            }
+        }
     }
 }

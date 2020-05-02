@@ -31,7 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Miner));
 			this.panel_background = new System.Windows.Forms.Panel();
-			this.titleBar = new ChillinRoomGMG.Controls.PixelTitleBar();
 			this.button_options = new System.Windows.Forms.Button();
 			this.listBox_log = new System.Windows.Forms.ListBox();
 			this.panel_controls = new System.Windows.Forms.Panel();
@@ -47,6 +46,7 @@
 			this.button_statistics = new System.Windows.Forms.Button();
 			this.timer_refreshLatestShareTimer = new System.Windows.Forms.Timer(this.components);
 			this.timer_miningTimeCounter = new System.Windows.Forms.Timer(this.components);
+			this.titleBar = new ChillinRoomGMG.Controls.PixelTitleBar();
 			this.panel_background.SuspendLayout();
 			this.panel_controls.SuspendLayout();
 			this.groupBox_hashRate.SuspendLayout();
@@ -67,17 +67,6 @@
 			this.panel_background.Name = "panel_background";
 			this.panel_background.Size = new System.Drawing.Size(747, 422);
 			this.panel_background.TabIndex = 0;
-			// 
-			// titleBar
-			// 
-			this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-			this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
-			this.titleBar.Location = new System.Drawing.Point(0, 0);
-			this.titleBar.Name = "titleBar";
-			this.titleBar.ShowMinimizeButton = true;
-			this.titleBar.Size = new System.Drawing.Size(745, 22);
-			this.titleBar.TabIndex = 16;
-			this.titleBar.TitleExtension = "Options";
 			// 
 			// button_options
 			// 
@@ -251,6 +240,17 @@
 			// 
 			this.timer_miningTimeCounter.Interval = 1000;
 			this.timer_miningTimeCounter.Tick += new System.EventHandler(this.timer_miningTimeCounter_Tick);
+			// 
+			// titleBar
+			// 
+			this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+			this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.titleBar.Location = new System.Drawing.Point(0, 0);
+			this.titleBar.Name = "titleBar";
+			this.titleBar.ShowMinimizeButton = true;
+			this.titleBar.Size = new System.Drawing.Size(745, 22);
+			this.titleBar.TabIndex = 16;
+			this.titleBar.TitleExtension = "Options";
 			// 
 			// Miner
 			// 

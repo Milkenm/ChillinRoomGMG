@@ -43,6 +43,8 @@ namespace ChillinRoomGMG.Forms
 
 			comboBox_timeUnit.SelectedIndex = settings.AutoMineTimeUnit;
 
+			pixelCheckBox_hideNotifications.Checked = settings.HideNotificationsWhileFocused;
+
 			textBox_walletAddress.GotFocus += TextBox_walletAddress_GotFocus;
 		}
 
@@ -115,6 +117,8 @@ namespace ChillinRoomGMG.Forms
 			settings.InvalidShareNotificationCount = (int)pixelNumberPicker_invalidShareNotificationCount.Value;
 
 			settings.AutoMineTimeUnit = comboBox_timeUnit.SelectedIndex;
+
+			settings.HideNotificationsWhileFocused = pixelCheckBox_hideNotifications.Checked;
 
 			minerForm.LoadConfig();
 			Close();
