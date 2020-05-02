@@ -16,19 +16,19 @@
         "Entry"
         {
         "MsmKey" = "8:_0445AF16589284FA0157BC19EB116FF9"
-        "OwnerKey" = "8:_2276EA327A184DE09D84592E83D9959E"
+        "OwnerKey" = "8:_63FD5680805C41E49032CDE2FD3A329C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_08310D487015AB5E61EE209AEA4F9905"
-        "OwnerKey" = "8:_2276EA327A184DE09D84592E83D9959E"
+        "OwnerKey" = "8:_63FD5680805C41E49032CDE2FD3A329C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_1171A35A0B3B4C4A83E2C21E8363F5A8"
-        "OwnerKey" = "8:_2276EA327A184DE09D84592E83D9959E"
+        "OwnerKey" = "8:_63FD5680805C41E49032CDE2FD3A329C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -39,7 +39,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2276EA327A184DE09D84592E83D9959E"
+        "MsmKey" = "8:_63FD5680805C41E49032CDE2FD3A329C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -58,7 +58,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2276EA327A184DE09D84592E83D9959E"
+        "OwnerKey" = "8:_63FD5680805C41E49032CDE2FD3A329C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -334,7 +334,7 @@
             {
             "DefaultLocation" = "8:[ProgramFiles64Folder][ProductName]"
             "Name" = "8:#1925"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:TARGETDIR"
@@ -345,7 +345,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_782FF220076B4E2794359FDCACB07F36"
             {
             "Name" = "8:#1919"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:ProgramMenuFolder"
@@ -354,7 +354,7 @@
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_E4385C454A274C7DBDDD2A6FE417AB46"
                     {
                     "Name" = "8:Milkenm"
-                    "AlwaysCreate" = "11:FALSE"
+                    "AlwaysCreate" = "11:TRUE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_15AB84490BAB4BE0924705B42BB5DB5F"
@@ -367,7 +367,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_93EEA60D21E04EB2A554B66F01200880"
             {
             "Name" = "8:#1916"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
@@ -392,7 +392,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Chillin'Room GMG"
         "ProductCode" = "8:{D743A3F4-CC6A-4062-BAE0-581A571D4D6D}"
-        "PackageCode" = "8:{3840C27A-6162-407F-86C1-F77A5172DF48}"
+        "PackageCode" = "8:{71029D04-D09A-4E02-B38C-63F454800BC7}"
         "UpgradeCode" = "8:{A8A7BD5D-697E-47C7-9B96-62D11CAD0AAD}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -520,9 +520,9 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_2276EA327A184DE09D84592E83D9959E"
+            "Target" = "8:_63FD5680805C41E49032CDE2FD3A329C"
             "Folder" = "8:_93EEA60D21E04EB2A554B66F01200880"
-            "WorkingFolder" = "8:"
+            "WorkingFolder" = "8:_29FCD9C8611040019088804C186B7E90"
             "Icon" = "8:_F9900AC714A74C08A2A836AC7952364C"
             "Feature" = "8:"
             }
@@ -534,9 +534,9 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_2276EA327A184DE09D84592E83D9959E"
+            "Target" = "8:_63FD5680805C41E49032CDE2FD3A329C"
             "Folder" = "8:_E4385C454A274C7DBDDD2A6FE417AB46"
-            "WorkingFolder" = "8:"
+            "WorkingFolder" = "8:_29FCD9C8611040019088804C186B7E90"
             "Icon" = "8:_F9900AC714A74C08A2A836AC7952364C"
             "Feature" = "8:"
             }
@@ -939,7 +939,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2276EA327A184DE09D84592E83D9959E"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_63FD5680805C41E49032CDE2FD3A329C"
             {
             "SourcePath" = "8:..\\ChillinRoomGMG\\obj\\Release\\ChillinRoomGMG.exe"
             "TargetName" = "8:"
