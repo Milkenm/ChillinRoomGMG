@@ -6,15 +6,15 @@ namespace ChillinRoomGMG
 	internal static class WinAPI
 	{
 		[DllImport("user32.dll")]
-		public static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+		internal static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
 		[DllImport("user32.dll")]
-		public static extern bool SetForegroundWindow(IntPtr hWnd);
+		internal static extern bool SetForegroundWindow(IntPtr hWnd);
 
 		[DllImport("user32.dll")]
-		public static extern bool ShowWindow(IntPtr hWnd, WindowShowStyle nCmdShow);
+		internal static extern bool ShowWindow(IntPtr hWnd, WindowShowStyle nCmdShow);
 
-		public enum WindowShowStyle : uint
+		internal enum WindowShowStyle : uint
 		{
 			Hide = 0,
 			ShowNormal = 1,
@@ -31,7 +31,7 @@ namespace ChillinRoomGMG
 		}
 
 		[DllImport("user32.dll")]
-		public static extern bool HideCaret(IntPtr hWnd);
+		internal static extern bool HideCaret(IntPtr hWnd);
 
 		[DllImport("user32.dll")]
 		internal static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
