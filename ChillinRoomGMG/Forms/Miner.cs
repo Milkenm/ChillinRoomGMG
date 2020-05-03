@@ -1,7 +1,6 @@
 ﻿using ChillinRoomGMG.Properties;
 
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -121,7 +120,7 @@ namespace ChillinRoomGMG.Forms
 
 		private void Xmrig_LoggedLine(string line)
 		{
-			if (line.Contains("speed") && xmrig.IsRunning)
+			if (line.Contains("speed"))
 			{
 				if (xmrig.IsRunning)
 				{
