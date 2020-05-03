@@ -193,7 +193,6 @@
     </Compile>
     <Compile Include="Static.cs" />
     <Compile Include="Code\Static\WinAPI.cs" />
-    <Compile Include="Properties\Settings.cs" />
     <EmbeddedResource Include="Controls\PixelCheckBox.resx">
       <DependentUpon>PixelCheckBox.cs</DependentUpon>
     </EmbeddedResource>

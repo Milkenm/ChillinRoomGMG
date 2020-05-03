@@ -8,6 +8,8 @@ namespace ChillinRoomGMG
 	{
 		internal static void AppClose()
 		{
+			minerForm.SaveSettings();
+
 			trayIcon.Visible = false;
 
 			xmrig.Kill();

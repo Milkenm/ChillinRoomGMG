@@ -13,6 +13,11 @@ namespace ChillinRoomGMG.Forms
 {
 	public partial class Miner : Form
 	{
+		private long totalMinedSeconds = settings.TotalMinedSeconds;
+		private decimal recordHashRate = settings.RecordHashRate;
+		private long totalValidShares = settings.TotalValidShares;
+		private long totalInvalidShares = settings.TotalInvalidShares;
+
 		private static bool inactivityEnabled;
 		private static bool validSettings;
 
@@ -126,9 +131,9 @@ namespace ChillinRoomGMG.Forms
 				{
 					string[] hashRates = line.Remove(0, 44).Replace(" H/s", "").Replace(" max", "").Replace("n/a", "0.0").Split(' ');
 
-					if (Convert.ToDecimal(hashRates[3].Replace(".", ",")) > settings.RecordHashRate)
+					if (Convert.ToDecimal(hashRates[3].Replace(".", ",")) > recordHashRate)
 					{
-						settings.RecordHashRate = Convert.ToDecimal(hashRates[3].Replace(".", ","));
+						recordHashRate = Convert.ToDecimal(hashRates[3].Replace(".", ","));
 					}
 
 					Invoke(new Action(() =>
@@ -157,7 +162,7 @@ namespace ChillinRoomGMG.Forms
 		{
 			if (valid)
 			{
-				settings.TotalValidShares++;
+				totalValidShares++;
 				validShares++;
 
 				latestValidShareTime = 0;
@@ -180,7 +185,7 @@ namespace ChillinRoomGMG.Forms
 			}
 			else
 			{
-				settings.TotalInvalidShares++;
+				totalInvalidShares++;
 				invalidShares++;
 
 				if (settings.NotificationInvalidShare && SendNotification() && invalidShares % settings.InvalidShareNotificationCount == 0)
@@ -263,13 +268,6 @@ namespace ChillinRoomGMG.Forms
 
 		private static int latestValidShareTime;
 
-		private void timer_refreshLatestShareTimer_Tick(object sender, EventArgs e)
-		{
-			latestValidShareTime++;
-
-			SetLastShareText(latestValidShareTime);
-		}
-
 		private void SetLastShareText(int seconds)
 		{
 			label_lastValid.Text = $"Last valid : {seconds} s ago";
@@ -329,11 +327,6 @@ namespace ChillinRoomGMG.Forms
 			}
 		}
 
-		private void timer_miningTimeCounter_Tick(object sender, EventArgs e)
-		{
-			settings.TotalMinedSeconds++;
-		}
-
 		private void button_statistics_Click(object sender, EventArgs e)
 		{
 			new Statistics().ShowDialog();
@@ -372,6 +365,34 @@ namespace ChillinRoomGMG.Forms
 		private bool SendNotification()
 		{
 			return !(ContainsFocus && settings.HideNotificationsWhileFocused);
+		}
+
+		private void timer_refreshLatestShareTimer_Tick(object sender, EventArgs e)
+		{
+			latestValidShareTime++;
+
+			SetLastShareText(latestValidShareTime);
+		}
+
+		private void timer_miningTimeCounter_Tick(object sender, EventArgs e)
+		{
+			totalMinedSeconds++;
+		}
+
+		private void timer_save_Tick(object sender, EventArgs e)
+		{
+			SaveSettings();
+		}
+
+		internal bool savingSettings;
+		internal void SaveSettings()
+		{
+			settings.TotalMinedSeconds = totalMinedSeconds;
+			settings.RecordHashRate = recordHashRate;
+			settings.TotalValidShares = totalValidShares;
+			settings.TotalInvalidShares = totalInvalidShares;
+
+			settings.Save();
 		}
 	}
 }

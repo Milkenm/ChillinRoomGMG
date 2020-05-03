@@ -21,21 +21,9 @@ namespace ChillinRoomGMG
 			}
 			else
 			{
-				Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
-				Application.ThreadException += (s, e) => GlobalException();
-				AppDomain.CurrentDomain.UnhandledException += (s, e) => GlobalException();
-
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
 				Application.Run(new TrayIcon());
-			}
-		}
-
-		private static void GlobalException() {
-			if (xmrig.IsRunning)
-			{
-				minerForm.Mine();
-				minerForm.Mine();
 			}
 		}
 

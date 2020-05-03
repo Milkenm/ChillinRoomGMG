@@ -120,6 +120,8 @@ namespace ChillinRoomGMG.Forms
 
 			settings.HideNotificationsWhileFocused = pixelCheckBox_hideNotifications.Checked;
 
+			settings.Save();
+
 			minerForm.LoadConfig();
 			Close();
 		}
