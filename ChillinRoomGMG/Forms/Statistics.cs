@@ -13,27 +13,22 @@ namespace ChillinRoomGMG.Forms
 			InitializeComponent();
 		}
 
-		private void Statistics_Load(object sender, EventArgs e)
+		private void RefreshStatistics(object sender, EventArgs e)
 		{
-			RefreshStatistics();
-		}
+			label_totalShares.Text = $"{ThousandsSeparator(minerForm.totalValidShares)} / {ThousandsSeparator(minerForm.totalInvalidShares)}";
+			label_hashRateRecord.Text = ThousandsSeparator(minerForm.recordHashRate) + " H/s";
 
-		private void timer_refresh_Tick(object sender, EventArgs e)
-		{
-			RefreshStatistics();
-		}
-
-		private void RefreshStatistics()
-		{
-			label_totalShares.Text = $"{ThousandsSeparator(settings.TotalValidShares)} / {ThousandsSeparator(settings.TotalInvalidShares)}";
-			label_hashRateRecord.Text = ThousandsSeparator(settings.RecordHashRate) + " H/s";
-
-			long days = settings.TotalMinedSeconds / 60 / 60 / 24;
-			long hours = (settings.TotalMinedSeconds / 60 / 60) - (days * 24);
-			long minutes = (settings.TotalMinedSeconds / 60) - ((hours + (days * 24)) * 60);
-			long seconds = settings.TotalMinedSeconds - ((minutes + ((hours + (days * 24)) * 60)) * 60);
+			long days = minerForm.totalMinedSeconds / 60 / 60 / 24;
+			long hours = (minerForm.totalMinedSeconds / 60 / 60) - (days * 24);
+			long minutes = (minerForm.totalMinedSeconds / 60) - ((hours + (days * 24)) * 60);
+			long seconds = minerForm.totalMinedSeconds - ((minutes + ((hours + (days * 24)) * 60)) * 60);
 
 			label_timeMined.Text = $"{days.ToString("000")} - {hours.ToString("00")}:{minutes.ToString("00")}:{seconds.ToString("00")}";
+		}
+
+		private void Statistics_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			statisticsForm = null;
 		}
 	}
 }

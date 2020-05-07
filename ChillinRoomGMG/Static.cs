@@ -18,6 +18,8 @@ namespace ChillinRoomGMG
 
 		internal static Miner minerForm = new Miner();
 
+		internal static Statistics statisticsForm;
+
 		internal static XMRig xmrig;
 		internal static InputInactivity inactivity;
 	}

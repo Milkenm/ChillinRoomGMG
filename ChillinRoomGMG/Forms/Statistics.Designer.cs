@@ -67,10 +67,10 @@
 			this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
 			this.titleBar.Location = new System.Drawing.Point(0, 0);
 			this.titleBar.Name = "titleBar";
-			this.titleBar.ShowMinimizeButton = true;
+			this.titleBar.ShowMinimizeButton = false;
 			this.titleBar.Size = new System.Drawing.Size(265, 22);
 			this.titleBar.TabIndex = 16;
-			this.titleBar.TitleExtension = "Statistics";
+			this.titleBar.TitleExtension = "Options";
 			// 
 			// groupBox_totalShares
 			// 
@@ -180,8 +180,8 @@
 			// timer_refresh
 			// 
 			this.timer_refresh.Enabled = true;
-			this.timer_refresh.Interval = 1500;
-			this.timer_refresh.Tick += new System.EventHandler(this.timer_refresh_Tick);
+			this.timer_refresh.Interval = 1000;
+			this.timer_refresh.Tick += new System.EventHandler(this.RefreshStatistics);
 			// 
 			// Statistics
 			// 
@@ -196,7 +196,8 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Statistics";
-			this.Load += new System.EventHandler(this.Statistics_Load);
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Statistics_FormClosed);
+			this.Load += new System.EventHandler(this.RefreshStatistics);
 			this.panel_background.ResumeLayout(false);
 			this.groupBox_totalShares.ResumeLayout(false);
 			this.groupBox_totalShares.PerformLayout();

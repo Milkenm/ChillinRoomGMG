@@ -13,10 +13,10 @@ namespace ChillinRoomGMG.Forms
 {
 	public partial class Miner : Form
 	{
-		private long totalMinedSeconds = settings.TotalMinedSeconds;
-		private decimal recordHashRate = settings.RecordHashRate;
-		private long totalValidShares = settings.TotalValidShares;
-		private long totalInvalidShares = settings.TotalInvalidShares;
+		internal long totalMinedSeconds = settings.TotalMinedSeconds;
+		internal decimal recordHashRate = settings.RecordHashRate;
+		internal long totalValidShares = settings.TotalValidShares;
+		internal long totalInvalidShares = settings.TotalInvalidShares;
 
 		private static bool inactivityEnabled;
 		private static bool validSettings;
@@ -155,8 +155,8 @@ namespace ChillinRoomGMG.Forms
 			}
 		}
 
-		private static int validShares;
-		private static int invalidShares;
+		internal static int validShares;
+		internal static int invalidShares;
 
 		private void UpdateShares(bool valid)
 		{
@@ -329,7 +329,11 @@ namespace ChillinRoomGMG.Forms
 
 		private void button_statistics_Click(object sender, EventArgs e)
 		{
-			new Statistics().ShowDialog();
+			if (statisticsForm == null)
+			{
+				statisticsForm = new Statistics();
+			}
+			statisticsForm.Show();
 		}
 
 		// # = #
@@ -384,7 +388,6 @@ namespace ChillinRoomGMG.Forms
 			SaveSettings();
 		}
 
-		internal bool savingSettings;
 		internal void SaveSettings()
 		{
 			settings.TotalMinedSeconds = totalMinedSeconds;
