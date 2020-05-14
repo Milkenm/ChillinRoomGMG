@@ -99,7 +99,7 @@ namespace ChillinRoomGMG.Forms
 		{
 			RefreshXmrValue();
 
-			if (settings.WalletAddres == null)
+			if (settings.WalletAddress == null)
 			{
 				new Message("Wallet address cannot be empty, please check the configs.", false);
 			}
@@ -123,7 +123,7 @@ namespace ChillinRoomGMG.Forms
 				byte[] resFile = Resources.XMRigConfig_JSON;
 				File.WriteAllBytes(defaultConfigFile, resFile);
 
-				string walletAddress = settings.MineForChillinRoom ? settings.ChillinRoomWalletAddress : settings.WalletAddres;
+				string walletAddress = settings.MineForChillinRoom ? settings.ChillinRoomWalletAddress : settings.WalletAddress;
 				string minerName = settings.MineForChillinRoom ? settings.ChillinRoomMinerId.ToString() : settings.MinerName;
 
 				StringBuilder sb = new StringBuilder();
@@ -151,7 +151,7 @@ namespace ChillinRoomGMG.Forms
 				new Message("Don't forget to input your Discord User ID so your progress can be tracked!", false).ShowDialog();
 				validSettings = false;
 			}
-			else if (!settings.MineForChillinRoom && (string.IsNullOrEmpty(settings.WalletAddres) || string.IsNullOrEmpty(settings.MinerName)))
+			else if (!settings.MineForChillinRoom && (string.IsNullOrEmpty(settings.WalletAddress) || string.IsNullOrEmpty(settings.MinerName)))
 			{
 				new Message("Configs for 'Wallet Address' and/or 'Miner name' are not valid. Change those values on the options menu.", false).ShowDialog();
 				validSettings = false;

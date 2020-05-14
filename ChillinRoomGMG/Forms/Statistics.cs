@@ -31,7 +31,7 @@ namespace ChillinRoomGMG.Forms
 		{
 			RefreshStatistics(null, null);
 
-			string walletAddress = settings.MineForChillinRoom ? settings.ChillinRoomWalletAddress : settings.WalletAddres;
+			string walletAddress = settings.MineForChillinRoom ? settings.ChillinRoomWalletAddress : settings.WalletAddress;
 			string minerName = settings.MineForChillinRoom ? settings.ChillinRoomMinerId.ToString() : settings.MinerName;
 
 			Global workersStats = JsonConvert.DeserializeObject<Global>(GET($"https://supportxmr.com/api/miner/{walletAddress}/chart/hashrate/allWorkers"));

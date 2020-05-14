@@ -81,7 +81,7 @@ namespace ChillinRoomGMG.Forms
 			{
 				label_walletAddress.Text = "XMR wallet address";
 				textBox_walletAddress.ReadOnly = false;
-				textBox_walletAddress.Text = settings.WalletAddres;
+				textBox_walletAddress.Text = settings.WalletAddress;
 
 				label_minerName.Text = "Miner name";
 				textBox_minerName.Text = settings.MinerName;
@@ -98,7 +98,7 @@ namespace ChillinRoomGMG.Forms
 
 			if (!pixelCheckBox_mineForChillinroom.Checked)
 			{
-				settings.WalletAddres = textBox_walletAddress.Text;
+				settings.WalletAddress = textBox_walletAddress.Text;
 				settings.MinerName = textBox_minerName.Text;
 			}
 			else

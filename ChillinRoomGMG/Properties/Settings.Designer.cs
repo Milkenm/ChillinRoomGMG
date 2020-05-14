@@ -84,12 +84,12 @@ namespace ChillinRoomGMG.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WalletAddres {
+        public string WalletAddress {
             get {
-                return ((string)(this["WalletAddres"]));
+                return ((string)(this["WalletAddress"]));
             }
             set {
-                this["WalletAddres"] = value;
+                this["WalletAddress"] = value;
             }
         }
         
