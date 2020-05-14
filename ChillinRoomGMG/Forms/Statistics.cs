@@ -31,11 +31,8 @@ namespace ChillinRoomGMG.Forms
 		{
 			RefreshStatistics(null, null);
 
-			string walletAddress = settings.MineForChillinRoom ? settings.ChillinRoomWalletAddress : settings.WalletAddress;
-			string minerName = settings.MineForChillinRoom ? settings.ChillinRoomMinerId.ToString() : settings.MinerName;
-
-			Global workersStats = JsonConvert.DeserializeObject<Global>(GET($"https://supportxmr.com/api/miner/{walletAddress}/chart/hashrate/allWorkers"));
-			MinerStats minerStats = JsonConvert.DeserializeObject<MinerStats>(GET($"https://supportxmr.com/api/miner/{walletAddress}/stats/{minerName}"));
+			Global workersStats = JsonConvert.DeserializeObject<Global>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/chart/hashrate/allWorkers"));
+			MinerStats minerStats = JsonConvert.DeserializeObject<MinerStats>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/stats/{settings.MinerName}"));
 			moneroInfo = JsonConvert.DeserializeObject<MoneroInfo>(GET("https://moneroblocks.info/api/get_stats"));
 
 			label_totalHashes.Text = (minerStats.totalHash != null ? ThousandsSeparator(minerStats.totalHash) : "0") + " H";

@@ -35,14 +35,10 @@
 			this.panel_currency = new System.Windows.Forms.Panel();
 			this.comboBox_currencies = new System.Windows.Forms.ComboBox();
 			this.label_currency = new System.Windows.Forms.Label();
-			this.panel_mineForChillinroom = new System.Windows.Forms.Panel();
-			this.pixelCheckBox_mineForChillinroom = new ChillinRoomGMG.Controls.PixelCheckBox();
-			this.label_mineForChillinroom = new System.Windows.Forms.Label();
 			this.panel_minerInfo = new System.Windows.Forms.Panel();
 			this.label_walletAddress = new System.Windows.Forms.Label();
 			this.textBox_walletAddress = new System.Windows.Forms.TextBox();
 			this.label_minerName = new System.Windows.Forms.Label();
-			this.linkLabel_theWhatLink = new System.Windows.Forms.LinkLabel();
 			this.textBox_minerName = new System.Windows.Forms.TextBox();
 			this.panel_minerSettings = new System.Windows.Forms.Panel();
 			this.pixelCheckBox_initializeMinerOnStartup = new ChillinRoomGMG.Controls.PixelCheckBox();
@@ -85,7 +81,6 @@
 			this.panel_background.SuspendLayout();
 			this.groupBox_general.SuspendLayout();
 			this.panel_currency.SuspendLayout();
-			this.panel_mineForChillinroom.SuspendLayout();
 			this.panel_minerInfo.SuspendLayout();
 			this.panel_minerSettings.SuspendLayout();
 			this.panel_tray.SuspendLayout();
@@ -110,7 +105,7 @@
 			this.panel_background.Location = new System.Drawing.Point(0, 0);
 			this.panel_background.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_background.Name = "panel_background";
-			this.panel_background.Size = new System.Drawing.Size(755, 536);
+			this.panel_background.Size = new System.Drawing.Size(755, 517);
 			this.panel_background.TabIndex = 0;
 			// 
 			// titleBar
@@ -127,18 +122,17 @@
 			// 
 			// groupBox_general
 			// 
-			this.groupBox_general.Controls.Add(this.panel_currency);
-			this.groupBox_general.Controls.Add(this.panel_mineForChillinroom);
 			this.groupBox_general.Controls.Add(this.panel_minerInfo);
 			this.groupBox_general.Controls.Add(this.panel_minerSettings);
 			this.groupBox_general.Controls.Add(this.panel_tray);
 			this.groupBox_general.Controls.Add(this.panel_sharesNotification);
 			this.groupBox_general.Controls.Add(this.panel_hideNotifications);
+			this.groupBox_general.Controls.Add(this.panel_currency);
 			this.groupBox_general.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox_general.ForeColor = System.Drawing.Color.Snow;
 			this.groupBox_general.Location = new System.Drawing.Point(11, 28);
 			this.groupBox_general.Name = "groupBox_general";
-			this.groupBox_general.Size = new System.Drawing.Size(731, 361);
+			this.groupBox_general.Size = new System.Drawing.Size(731, 336);
 			this.groupBox_general.TabIndex = 19;
 			this.groupBox_general.TabStop = false;
 			this.groupBox_general.Text = "General";
@@ -149,7 +143,7 @@
 			this.panel_currency.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.panel_currency.Controls.Add(this.comboBox_currencies);
 			this.panel_currency.Controls.Add(this.label_currency);
-			this.panel_currency.Location = new System.Drawing.Point(6, 327);
+			this.panel_currency.Location = new System.Drawing.Point(6, 302);
 			this.panel_currency.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_currency.Name = "panel_currency";
 			this.panel_currency.Size = new System.Drawing.Size(193, 27);
@@ -178,42 +172,6 @@
 			this.label_currency.TabIndex = 28;
 			this.label_currency.Text = "Currency:";
 			// 
-			// panel_mineForChillinroom
-			// 
-			this.panel_mineForChillinroom.AutoSize = true;
-			this.panel_mineForChillinroom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.panel_mineForChillinroom.Controls.Add(this.pixelCheckBox_mineForChillinroom);
-			this.panel_mineForChillinroom.Controls.Add(this.label_mineForChillinroom);
-			this.panel_mineForChillinroom.Location = new System.Drawing.Point(9, 16);
-			this.panel_mineForChillinroom.Margin = new System.Windows.Forms.Padding(0);
-			this.panel_mineForChillinroom.Name = "panel_mineForChillinroom";
-			this.panel_mineForChillinroom.Size = new System.Drawing.Size(151, 20);
-			this.panel_mineForChillinroom.TabIndex = 23;
-			// 
-			// pixelCheckBox_mineForChillinroom
-			// 
-			this.pixelCheckBox_mineForChillinroom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_mineForChillinroom.BackgroundImage")));
-			this.pixelCheckBox_mineForChillinroom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pixelCheckBox_mineForChillinroom.Checked = false;
-			this.pixelCheckBox_mineForChillinroom.Location = new System.Drawing.Point(0, 0);
-			this.pixelCheckBox_mineForChillinroom.Margin = new System.Windows.Forms.Padding(0);
-			this.pixelCheckBox_mineForChillinroom.Name = "pixelCheckBox_mineForChillinroom";
-			this.pixelCheckBox_mineForChillinroom.Size = new System.Drawing.Size(20, 20);
-			this.pixelCheckBox_mineForChillinroom.TabIndex = 21;
-			this.pixelCheckBox_mineForChillinroom.CheckedChanged += new ChillinRoomGMG.Controls.PixelCheckBox.EventDelegate(this.pixelCheckBox_mineForChillinroom_CheckedChanged);
-			// 
-			// label_mineForChillinroom
-			// 
-			this.label_mineForChillinroom.AutoSize = true;
-			this.label_mineForChillinroom.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label_mineForChillinroom.ForeColor = System.Drawing.Color.Snow;
-			this.label_mineForChillinroom.Location = new System.Drawing.Point(24, 3);
-			this.label_mineForChillinroom.Margin = new System.Windows.Forms.Padding(0);
-			this.label_mineForChillinroom.Name = "label_mineForChillinroom";
-			this.label_mineForChillinroom.Size = new System.Drawing.Size(127, 15);
-			this.label_mineForChillinroom.TabIndex = 22;
-			this.label_mineForChillinroom.Text = "Mine for Chillin\'Room";
-			// 
 			// panel_minerInfo
 			// 
 			this.panel_minerInfo.AutoSize = true;
@@ -221,9 +179,8 @@
 			this.panel_minerInfo.Controls.Add(this.label_walletAddress);
 			this.panel_minerInfo.Controls.Add(this.textBox_walletAddress);
 			this.panel_minerInfo.Controls.Add(this.label_minerName);
-			this.panel_minerInfo.Controls.Add(this.linkLabel_theWhatLink);
 			this.panel_minerInfo.Controls.Add(this.textBox_minerName);
-			this.panel_minerInfo.Location = new System.Drawing.Point(9, 47);
+			this.panel_minerInfo.Location = new System.Drawing.Point(9, 20);
 			this.panel_minerInfo.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_minerInfo.Name = "panel_minerInfo";
 			this.panel_minerInfo.Size = new System.Drawing.Size(711, 89);
@@ -265,21 +222,6 @@
 			this.label_minerName.TabIndex = 33;
 			this.label_minerName.Text = "Miner name";
 			// 
-			// linkLabel_theWhatLink
-			// 
-			this.linkLabel_theWhatLink.AutoSize = true;
-			this.linkLabel_theWhatLink.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.linkLabel_theWhatLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.linkLabel_theWhatLink.Location = new System.Drawing.Point(94, 49);
-			this.linkLabel_theWhatLink.Margin = new System.Windows.Forms.Padding(0);
-			this.linkLabel_theWhatLink.Name = "linkLabel_theWhatLink";
-			this.linkLabel_theWhatLink.Size = new System.Drawing.Size(116, 13);
-			this.linkLabel_theWhatLink.TabIndex = 35;
-			this.linkLabel_theWhatLink.TabStop = true;
-			this.linkLabel_theWhatLink.Text = "(\"the what?\" help link)";
-			this.linkLabel_theWhatLink.Visible = false;
-			this.linkLabel_theWhatLink.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			// 
 			// textBox_minerName
 			// 
 			this.textBox_minerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
@@ -300,7 +242,7 @@
 			this.panel_minerSettings.Controls.Add(this.label_initializeMinerOnStartup);
 			this.panel_minerSettings.Controls.Add(this.pixelCheckBox_terminateOnPause);
 			this.panel_minerSettings.Controls.Add(this.label_terminateOnPause);
-			this.panel_minerSettings.Location = new System.Drawing.Point(9, 146);
+			this.panel_minerSettings.Location = new System.Drawing.Point(9, 119);
 			this.panel_minerSettings.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_minerSettings.Name = "panel_minerSettings";
 			this.panel_minerSettings.Size = new System.Drawing.Size(349, 46);
@@ -358,7 +300,7 @@
 			this.panel_tray.Controls.Add(this.label_minimizeToTray);
 			this.panel_tray.Controls.Add(this.pixelCheckBox_minimizeToTray);
 			this.panel_tray.Controls.Add(this.label_closeToTray);
-			this.panel_tray.Location = new System.Drawing.Point(393, 146);
+			this.panel_tray.Location = new System.Drawing.Point(393, 119);
 			this.panel_tray.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_tray.Name = "panel_tray";
 			this.panel_tray.Size = new System.Drawing.Size(170, 46);
@@ -419,7 +361,7 @@
 			this.panel_sharesNotification.Controls.Add(this.pixelCheckBox_invalidShareNotification);
 			this.panel_sharesNotification.Controls.Add(this.pixelNumberPicker_invalidShareNotificationCount);
 			this.panel_sharesNotification.Controls.Add(this.label_invalidShareNotification);
-			this.panel_sharesNotification.Location = new System.Drawing.Point(9, 205);
+			this.panel_sharesNotification.Location = new System.Drawing.Point(9, 178);
 			this.panel_sharesNotification.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_sharesNotification.Name = "panel_sharesNotification";
 			this.panel_sharesNotification.Size = new System.Drawing.Size(199, 79);
@@ -512,7 +454,7 @@
 			this.panel_hideNotifications.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.panel_hideNotifications.Controls.Add(this.pixelCheckBox_hideNotifications);
 			this.panel_hideNotifications.Controls.Add(this.label_hideNotifications);
-			this.panel_hideNotifications.Location = new System.Drawing.Point(9, 297);
+			this.panel_hideNotifications.Location = new System.Drawing.Point(9, 270);
 			this.panel_hideNotifications.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_hideNotifications.Name = "panel_hideNotifications";
 			this.panel_hideNotifications.Size = new System.Drawing.Size(282, 19);
@@ -547,7 +489,7 @@
 			this.groupBox_runOnInactivity.Controls.Add(this.pixelSlider_autoMine);
 			this.groupBox_runOnInactivity.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox_runOnInactivity.ForeColor = System.Drawing.Color.Snow;
-			this.groupBox_runOnInactivity.Location = new System.Drawing.Point(11, 392);
+			this.groupBox_runOnInactivity.Location = new System.Drawing.Point(11, 367);
 			this.groupBox_runOnInactivity.Margin = new System.Windows.Forms.Padding(0);
 			this.groupBox_runOnInactivity.Name = "groupBox_runOnInactivity";
 			this.groupBox_runOnInactivity.Size = new System.Drawing.Size(731, 92);
@@ -706,7 +648,7 @@
 			// 
 			this.label_version.AutoSize = true;
 			this.label_version.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label_version.Location = new System.Drawing.Point(14, 512);
+			this.label_version.Location = new System.Drawing.Point(14, 490);
 			this.label_version.Margin = new System.Windows.Forms.Padding(0);
 			this.label_version.Name = "label_version";
 			this.label_version.Size = new System.Drawing.Size(64, 15);
@@ -719,7 +661,7 @@
 			this.panel_buttons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.panel_buttons.Controls.Add(this.button_cancel);
 			this.panel_buttons.Controls.Add(this.button_save);
-			this.panel_buttons.Location = new System.Drawing.Point(563, 499);
+			this.panel_buttons.Location = new System.Drawing.Point(563, 477);
 			this.panel_buttons.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_buttons.Name = "panel_buttons";
 			this.panel_buttons.Size = new System.Drawing.Size(179, 28);
@@ -757,7 +699,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(755, 536);
+			this.ClientSize = new System.Drawing.Size(755, 517);
 			this.Controls.Add(this.panel_background);
 			this.ForeColor = System.Drawing.Color.Snow;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -773,8 +715,6 @@
 			this.groupBox_general.PerformLayout();
 			this.panel_currency.ResumeLayout(false);
 			this.panel_currency.PerformLayout();
-			this.panel_mineForChillinroom.ResumeLayout(false);
-			this.panel_mineForChillinroom.PerformLayout();
 			this.panel_minerInfo.ResumeLayout(false);
 			this.panel_minerInfo.PerformLayout();
 			this.panel_minerSettings.ResumeLayout(false);
@@ -808,8 +748,6 @@
 		private System.Windows.Forms.Label label_minutes;
 		private System.Windows.Forms.Button button_cancel;
 		private System.Windows.Forms.Button button_save;
-		private Controls.PixelCheckBox pixelCheckBox_mineForChillinroom;
-		private System.Windows.Forms.Label label_mineForChillinroom;
 		private Controls.PixelCheckBox pixelCheckBox_closeToTray;
 		private System.Windows.Forms.Label label_closeToTray;
 		private Controls.PixelCheckBox pixelCheckBox_minimizeToTray;
@@ -823,7 +761,6 @@
 		private System.Windows.Forms.Label label_walletAddress;
 		private System.Windows.Forms.TextBox textBox_walletAddress;
 		private System.Windows.Forms.Label label_minerName;
-		private System.Windows.Forms.LinkLabel linkLabel_theWhatLink;
 		private System.Windows.Forms.TextBox textBox_minerName;
 		private System.Windows.Forms.Panel panel_minerSettings;
 		private Controls.PixelCheckBox pixelCheckBox_initializeMinerOnStartup;
@@ -842,7 +779,6 @@
 		private System.Windows.Forms.Panel panel_automineDelay;
 		private System.Windows.Forms.Panel panel_automineNotifications;
 		private System.Windows.Forms.Panel panel_buttons;
-		private System.Windows.Forms.Panel panel_mineForChillinroom;
 		private System.Windows.Forms.ComboBox comboBox_timeUnit;
 		private System.Windows.Forms.Label label_version;
 		private System.Windows.Forms.Panel panel_hideNotifications;

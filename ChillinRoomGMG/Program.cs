@@ -50,17 +50,6 @@ namespace ChillinRoomGMG
 					Text = "Open",
 					DefaultItem = true,
 				};
-				item.Click += (s, e) =>
-			   {
-				   if (settings.ChillinRoomMinerId != 0)
-				   {
-					   minerForm.Show();
-				   }
-				   else
-				   {
-					   new Setup().ShowDialog();
-				   }
-			   };
 
 				menu.MenuItems.Add(item);
 				menu.MenuItems.Add("-");

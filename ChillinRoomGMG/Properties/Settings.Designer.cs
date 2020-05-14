@@ -23,28 +23,6 @@ namespace ChillinRoomGMG.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("44Ly8oJWj58XvWzbRs2ugz7b1X9omVuswS8X1HBk7c2R4MhjSPnVQUBMCekUAhTEV6iayTDqnN7niLW5e" +
-            "JGX3jXCVNt11Lv")]
-        public string ChillinRoomWalletAddress {
-            get {
-                return ((string)(this["ChillinRoomWalletAddress"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public ulong ChillinRoomMinerId {
-            get {
-                return ((ulong)(this["ChillinRoomMinerId"]));
-            }
-            set {
-                this["ChillinRoomMinerId"] = value;
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
@@ -102,18 +80,6 @@ namespace ChillinRoomGMG.Properties {
             }
             set {
                 this["MinerName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MineForChillinRoom {
-            get {
-                return ((bool)(this["MineForChillinRoom"]));
-            }
-            set {
-                this["MineForChillinRoom"] = value;
             }
         }
         

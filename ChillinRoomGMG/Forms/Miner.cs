@@ -103,11 +103,7 @@ namespace ChillinRoomGMG.Forms
 			{
 				new Message("Wallet address cannot be empty, please check the configs.", false);
 			}
-			else if (settings.MineForChillinRoom && settings.ChillinRoomMinerId == 0)
-			{
-				new Message("Discord ID cannot be empty, please check the configs.", false);
-			}
-			else if (!settings.MineForChillinRoom && settings.MinerName == null)
+			else if (settings.MinerName == null)
 			{
 				new Message("Miner name cannot be empty, please check the configs.", false);
 			}
@@ -123,19 +119,16 @@ namespace ChillinRoomGMG.Forms
 				byte[] resFile = Resources.XMRigConfig_JSON;
 				File.WriteAllBytes(defaultConfigFile, resFile);
 
-				string walletAddress = settings.MineForChillinRoom ? settings.ChillinRoomWalletAddress : settings.WalletAddress;
-				string minerName = settings.MineForChillinRoom ? settings.ChillinRoomMinerId.ToString() : settings.MinerName;
-
 				StringBuilder sb = new StringBuilder();
 				foreach (string line in File.ReadAllLines(defaultConfigFile))
 				{
 					if (line.Contains("{WALLET_ADDRESS}"))
 					{
-						sb.AppendLine(line.Replace("{WALLET_ADDRESS}", walletAddress));
+						sb.AppendLine(line.Replace("{WALLET_ADDRESS}", settings.WalletAddress));
 					}
 					else if (line.Contains("{MINER_NAME}"))
 					{
-						sb.AppendLine(line.Replace("{MINER_NAME}", minerName));
+						sb.AppendLine(line.Replace("{MINER_NAME}", settings.MinerName));
 					}
 					else
 					{
@@ -146,12 +139,7 @@ namespace ChillinRoomGMG.Forms
 			}
 
 			validSettings = true;
-			if (settings.MineForChillinRoom && settings.ChillinRoomMinerId == 0)
-			{
-				new Message("Don't forget to input your Discord User ID so your progress can be tracked!", false).ShowDialog();
-				validSettings = false;
-			}
-			else if (!settings.MineForChillinRoom && (string.IsNullOrEmpty(settings.WalletAddress) || string.IsNullOrEmpty(settings.MinerName)))
+			if (string.IsNullOrEmpty(settings.WalletAddress) || string.IsNullOrEmpty(settings.MinerName))
 			{
 				new Message("Configs for 'Wallet Address' and/or 'Miner name' are not valid. Change those values on the options menu.", false).ShowDialog();
 				validSettings = false;
