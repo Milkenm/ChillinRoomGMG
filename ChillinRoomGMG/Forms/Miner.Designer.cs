@@ -170,7 +170,7 @@
 			this.label_maxHashRate.Name = "label_maxHashRate";
 			this.label_maxHashRate.Size = new System.Drawing.Size(228, 12);
 			this.label_maxHashRate.TabIndex = 19;
-			this.label_maxHashRate.Text = "Max : -.- H/s";
+			this.label_maxHashRate.Text = "Session record : -.- H/s";
 			this.label_maxHashRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// groupBox_shares
