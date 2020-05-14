@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 
+using static ChillinRoomGMG.Enums;
 using static ChillinRoomGMG.Static;
 using static ChillinRoomGMG.WinAPI;
 
@@ -46,6 +47,12 @@ namespace ChillinRoomGMG.Forms
 			pixelCheckBox_hideNotifications.Checked = settings.HideNotificationsWhileFocused;
 
 			textBox_walletAddress.GotFocus += TextBox_walletAddress_GotFocus;
+
+			foreach (Currency currency in Enum.GetValues(typeof(Currency)))
+			{
+				comboBox_currencies.Items.Add(currency);
+			}
+			comboBox_currencies.SelectedIndex = settings.Currency;
 		}
 
 		private void TextBox_walletAddress_GotFocus(object sender, EventArgs e)
@@ -119,6 +126,8 @@ namespace ChillinRoomGMG.Forms
 			settings.AutoMineTimeUnit = comboBox_timeUnit.SelectedIndex;
 
 			settings.HideNotificationsWhileFocused = pixelCheckBox_hideNotifications.Checked;
+
+			settings.Currency = comboBox_currencies.SelectedIndex;
 
 			settings.Save();
 

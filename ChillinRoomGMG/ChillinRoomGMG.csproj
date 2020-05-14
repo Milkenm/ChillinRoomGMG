@@ -142,6 +142,7 @@
     <Compile Include="Controls\PixelSlider.Designer.cs">
       <DependentUpon>PixelSlider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enums.cs" />
     <Compile Include="Forms\Message.cs">
       <SubType>Form</SubType>
     </Compile>

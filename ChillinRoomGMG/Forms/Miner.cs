@@ -1,5 +1,7 @@
 ﻿using ChillinRoomGMG.Properties;
 
+using Newtonsoft.Json;
+
 using System;
 using System.Drawing;
 using System.IO;
@@ -7,7 +9,10 @@ using System.Text;
 using System.Windows.Forms;
 
 using static ChillinRoomGMG.Code;
+using static ChillinRoomGMG.Enums;
 using static ChillinRoomGMG.Static;
+
+using static ScriptsLib.Network.Requests;
 
 namespace ChillinRoomGMG.Forms
 {
@@ -57,8 +62,43 @@ namespace ChillinRoomGMG.Forms
 			LoadConfig();
 		}
 
+		internal string GetCurrenyString()
+		{
+			return ((Currency)settings.Currency).ToString();
+		}
+
+		internal void RefreshXmrValue()
+		{
+			string request = GET("https://api.cryptonator.com/api/ticker/xmr-" + GetCurrenyString().ToLower());
+			XmrRequest response = JsonConvert.DeserializeObject<XmrRequest>(request);
+
+			if (response != latestXmrRequest)
+			{
+				latestXmrRequest = response;
+
+				label_xmrValue.Refresh();
+			}
+		}
+
+		internal XmrRequest latestXmrRequest;
+
+		public class XmrRequest
+		{
+			public Ticker ticker;
+			public bool success;
+		}
+
+		public class Ticker
+		{
+			public string price;
+			public string volume;
+			public string change;
+		}
+
 		public void LoadConfig()
 		{
+			RefreshXmrValue();
+
 			if (settings.WalletAddres == null)
 			{
 				new Message("Wallet address cannot be empty, please check the configs.", false);
@@ -73,8 +113,6 @@ namespace ChillinRoomGMG.Forms
 			}
 			else
 			{
-				label_userId.Text = settings.MineForChillinRoom ? "[DISCORD ID]: " + settings.ChillinRoomMinerId.ToString() : settings.MinerName;
-
 				string defaultConfigFile = tempPath + "XMRigConfig.json";
 
 				if (!Directory.Exists(tempPath))
@@ -332,8 +370,12 @@ namespace ChillinRoomGMG.Forms
 			if (statisticsForm == null)
 			{
 				statisticsForm = new Statistics();
+				statisticsForm.Show();
 			}
-			statisticsForm.Show();
+			else
+			{
+				statisticsForm.BringToFront();
+			}
 		}
 
 		// # = #
@@ -397,5 +439,46 @@ namespace ChillinRoomGMG.Forms
 
 			settings.Save();
 		}
+
+		private void timer_refreshXmrPrice_Tick(object sender, EventArgs e)
+		{
+			RefreshXmrValue();
+		}
+
+		private void label_xmrValue_Paint(object sender, PaintEventArgs e)
+		{
+			decimal change = Math.Round(Convert.ToDecimal(latestXmrRequest.ticker.change.Replace('.', ',')), 2);
+			bool negative = change < 0;
+			string changeString = ((!negative ? "+" : null) + change).Replace(',', '.');
+
+			if (latestXmrRequest.success)
+			{
+				e.Graphics.Clear(Color.FromArgb(54, 57, 63));
+
+				Font font = new Font("Roboto", 15.75f, FontStyle.Bold);
+
+				SolidBrush brush = new SolidBrush(Color.Snow);
+				SolidBrush changeBrush = new SolidBrush(!negative ? Color.Green : Color.Firebrick);
+
+				string print1 = $"XMR Value: {FixAfterDot(Math.Round(Convert.ToDouble(latestXmrRequest.ticker.price.Replace('.', ',')), 2).ToString().Replace(",", "."))} {GetCurrenyString()} (";
+
+				const int locFix = 16;
+
+				float point2 = e.Graphics.MeasureString(print1, font).Width - locFix;
+				float point3 = e.Graphics.MeasureString(print1 + changeString, font).Width - locFix;
+
+				e.Graphics.DrawString(print1, font, brush, 0, 0);
+				e.Graphics.DrawString(FixAfterDot(changeString), font, changeBrush, point2, 0);
+				e.Graphics.DrawString(")", font, brush, point3, 0);
+			}
+		}
+
+		private string FixAfterDot(string number)
+		{
+			string[] splitNum = number.Split('.');
+
+			return splitNum.Length > 1 ? splitNum[1].Length == 1 ? splitNum[1] + "0" : number : splitNum[0] + ".00";
+		}
 	}
 }
+

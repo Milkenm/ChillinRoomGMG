@@ -32,6 +32,9 @@
 			this.panel_background = new System.Windows.Forms.Panel();
 			this.titleBar = new ChillinRoomGMG.Controls.PixelTitleBar();
 			this.groupBox_general = new System.Windows.Forms.GroupBox();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.comboBox_currencies = new System.Windows.Forms.ComboBox();
+			this.label3 = new System.Windows.Forms.Label();
 			this.panel_mineForChillinroom = new System.Windows.Forms.Panel();
 			this.pixelCheckBox_mineForChillinroom = new ChillinRoomGMG.Controls.PixelCheckBox();
 			this.label_mineForChillinroom = new System.Windows.Forms.Label();
@@ -59,6 +62,9 @@
 			this.pixelCheckBox_invalidShareNotification = new ChillinRoomGMG.Controls.PixelCheckBox();
 			this.pixelNumberPicker_invalidShareNotificationCount = new ChillinRoomGMG.Controls.PixelNumberPicker();
 			this.label_invalidShareNotification = new System.Windows.Forms.Label();
+			this.panel_hideNotifications = new System.Windows.Forms.Panel();
+			this.pixelCheckBox_hideNotifications = new ChillinRoomGMG.Controls.PixelCheckBox();
+			this.label_hideNotifications = new System.Windows.Forms.Label();
 			this.groupBox_runOnInactivity = new System.Windows.Forms.GroupBox();
 			this.panel_automineDelay = new System.Windows.Forms.Panel();
 			this.label_delay = new System.Windows.Forms.Label();
@@ -76,21 +82,19 @@
 			this.panel_buttons = new System.Windows.Forms.Panel();
 			this.button_cancel = new System.Windows.Forms.Button();
 			this.button_save = new System.Windows.Forms.Button();
-			this.label_hideNotifications = new System.Windows.Forms.Label();
-			this.pixelCheckBox_hideNotifications = new ChillinRoomGMG.Controls.PixelCheckBox();
-			this.panel_hideNotifications = new System.Windows.Forms.Panel();
 			this.panel_background.SuspendLayout();
 			this.groupBox_general.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this.panel_mineForChillinroom.SuspendLayout();
 			this.panel_minerInfo.SuspendLayout();
 			this.panel_minerSettings.SuspendLayout();
 			this.panel_tray.SuspendLayout();
 			this.panel_sharesNotification.SuspendLayout();
+			this.panel_hideNotifications.SuspendLayout();
 			this.groupBox_runOnInactivity.SuspendLayout();
 			this.panel_automineDelay.SuspendLayout();
 			this.panel_automineNotifications.SuspendLayout();
 			this.panel_buttons.SuspendLayout();
-			this.panel_hideNotifications.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel_background
@@ -106,7 +110,7 @@
 			this.panel_background.Location = new System.Drawing.Point(0, 0);
 			this.panel_background.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_background.Name = "panel_background";
-			this.panel_background.Size = new System.Drawing.Size(755, 504);
+			this.panel_background.Size = new System.Drawing.Size(755, 536);
 			this.panel_background.TabIndex = 0;
 			// 
 			// titleBar
@@ -123,6 +127,7 @@
 			// 
 			// groupBox_general
 			// 
+			this.groupBox_general.Controls.Add(this.panel1);
 			this.groupBox_general.Controls.Add(this.panel_mineForChillinroom);
 			this.groupBox_general.Controls.Add(this.panel_minerInfo);
 			this.groupBox_general.Controls.Add(this.panel_minerSettings);
@@ -133,10 +138,45 @@
 			this.groupBox_general.ForeColor = System.Drawing.Color.Snow;
 			this.groupBox_general.Location = new System.Drawing.Point(11, 28);
 			this.groupBox_general.Name = "groupBox_general";
-			this.groupBox_general.Size = new System.Drawing.Size(731, 329);
+			this.groupBox_general.Size = new System.Drawing.Size(731, 361);
 			this.groupBox_general.TabIndex = 19;
 			this.groupBox_general.TabStop = false;
 			this.groupBox_general.Text = "General";
+			// 
+			// panel1
+			// 
+			this.panel1.AutoSize = true;
+			this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.panel1.Controls.Add(this.comboBox_currencies);
+			this.panel1.Controls.Add(this.label3);
+			this.panel1.Location = new System.Drawing.Point(6, 327);
+			this.panel1.Margin = new System.Windows.Forms.Padding(0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(193, 27);
+			this.panel1.TabIndex = 30;
+			// 
+			// comboBox_currencies
+			// 
+			this.comboBox_currencies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+			this.comboBox_currencies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox_currencies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.comboBox_currencies.ForeColor = System.Drawing.Color.Snow;
+			this.comboBox_currencies.FormattingEnabled = true;
+			this.comboBox_currencies.Location = new System.Drawing.Point(69, 3);
+			this.comboBox_currencies.Name = "comboBox_currencies";
+			this.comboBox_currencies.Size = new System.Drawing.Size(121, 21);
+			this.comboBox_currencies.TabIndex = 20;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
+			this.label3.Location = new System.Drawing.Point(2, 5);
+			this.label3.Margin = new System.Windows.Forms.Padding(0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(65, 15);
+			this.label3.TabIndex = 28;
+			this.label3.Text = "Currency:";
 			// 
 			// panel_mineForChillinroom
 			// 
@@ -466,6 +506,40 @@
 			this.label_invalidShareNotification.TabIndex = 37;
 			this.label_invalidShareNotification.Text = "invalid share";
 			// 
+			// panel_hideNotifications
+			// 
+			this.panel_hideNotifications.AutoSize = true;
+			this.panel_hideNotifications.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.panel_hideNotifications.Controls.Add(this.pixelCheckBox_hideNotifications);
+			this.panel_hideNotifications.Controls.Add(this.label_hideNotifications);
+			this.panel_hideNotifications.Location = new System.Drawing.Point(9, 297);
+			this.panel_hideNotifications.Margin = new System.Windows.Forms.Padding(0);
+			this.panel_hideNotifications.Name = "panel_hideNotifications";
+			this.panel_hideNotifications.Size = new System.Drawing.Size(282, 19);
+			this.panel_hideNotifications.TabIndex = 30;
+			// 
+			// pixelCheckBox_hideNotifications
+			// 
+			this.pixelCheckBox_hideNotifications.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_hideNotifications.BackgroundImage")));
+			this.pixelCheckBox_hideNotifications.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pixelCheckBox_hideNotifications.Checked = false;
+			this.pixelCheckBox_hideNotifications.Location = new System.Drawing.Point(0, -1);
+			this.pixelCheckBox_hideNotifications.Margin = new System.Windows.Forms.Padding(0);
+			this.pixelCheckBox_hideNotifications.Name = "pixelCheckBox_hideNotifications";
+			this.pixelCheckBox_hideNotifications.Size = new System.Drawing.Size(20, 20);
+			this.pixelCheckBox_hideNotifications.TabIndex = 32;
+			// 
+			// label_hideNotifications
+			// 
+			this.label_hideNotifications.AutoSize = true;
+			this.label_hideNotifications.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
+			this.label_hideNotifications.Location = new System.Drawing.Point(24, 2);
+			this.label_hideNotifications.Margin = new System.Windows.Forms.Padding(0);
+			this.label_hideNotifications.Name = "label_hideNotifications";
+			this.label_hideNotifications.Size = new System.Drawing.Size(258, 15);
+			this.label_hideNotifications.TabIndex = 33;
+			this.label_hideNotifications.Text = "Hide notifications when the miner has focus";
+			// 
 			// groupBox_runOnInactivity
 			// 
 			this.groupBox_runOnInactivity.Controls.Add(this.panel_automineDelay);
@@ -473,7 +547,7 @@
 			this.groupBox_runOnInactivity.Controls.Add(this.pixelSlider_autoMine);
 			this.groupBox_runOnInactivity.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox_runOnInactivity.ForeColor = System.Drawing.Color.Snow;
-			this.groupBox_runOnInactivity.Location = new System.Drawing.Point(11, 360);
+			this.groupBox_runOnInactivity.Location = new System.Drawing.Point(11, 392);
 			this.groupBox_runOnInactivity.Margin = new System.Windows.Forms.Padding(0);
 			this.groupBox_runOnInactivity.Name = "groupBox_runOnInactivity";
 			this.groupBox_runOnInactivity.Size = new System.Drawing.Size(731, 92);
@@ -492,7 +566,7 @@
 			this.panel_automineDelay.Location = new System.Drawing.Point(6, 19);
 			this.panel_automineDelay.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_automineDelay.Name = "panel_automineDelay";
-			this.panel_automineDelay.Size = new System.Drawing.Size(415, 29);
+			this.panel_automineDelay.Size = new System.Drawing.Size(418, 29);
 			this.panel_automineDelay.TabIndex = 23;
 			// 
 			// label_delay
@@ -531,7 +605,7 @@
             "second",
             "minute",
             "hour"});
-			this.comboBox_timeUnit.Location = new System.Drawing.Point(170, 4);
+			this.comboBox_timeUnit.Location = new System.Drawing.Point(173, 4);
 			this.comboBox_timeUnit.Name = "comboBox_timeUnit";
 			this.comboBox_timeUnit.Size = new System.Drawing.Size(121, 21);
 			this.comboBox_timeUnit.TabIndex = 19;
@@ -540,7 +614,7 @@
 			// 
 			this.label_minutes.AutoSize = true;
 			this.label_minutes.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label_minutes.Location = new System.Drawing.Point(295, 7);
+			this.label_minutes.Location = new System.Drawing.Point(298, 7);
 			this.label_minutes.Margin = new System.Windows.Forms.Padding(0);
 			this.label_minutes.Name = "label_minutes";
 			this.label_minutes.Size = new System.Drawing.Size(120, 15);
@@ -632,7 +706,7 @@
 			// 
 			this.label_version.AutoSize = true;
 			this.label_version.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label_version.Location = new System.Drawing.Point(14, 479);
+			this.label_version.Location = new System.Drawing.Point(14, 512);
 			this.label_version.Margin = new System.Windows.Forms.Padding(0);
 			this.label_version.Name = "label_version";
 			this.label_version.Size = new System.Drawing.Size(64, 15);
@@ -645,7 +719,7 @@
 			this.panel_buttons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.panel_buttons.Controls.Add(this.button_cancel);
 			this.panel_buttons.Controls.Add(this.button_save);
-			this.panel_buttons.Location = new System.Drawing.Point(563, 466);
+			this.panel_buttons.Location = new System.Drawing.Point(563, 499);
 			this.panel_buttons.Margin = new System.Windows.Forms.Padding(0);
 			this.panel_buttons.Name = "panel_buttons";
 			this.panel_buttons.Size = new System.Drawing.Size(179, 28);
@@ -679,45 +753,11 @@
 			this.button_save.UseVisualStyleBackColor = true;
 			this.button_save.Click += new System.EventHandler(this.button_save_Click);
 			// 
-			// label_hideNotifications
-			// 
-			this.label_hideNotifications.AutoSize = true;
-			this.label_hideNotifications.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label_hideNotifications.Location = new System.Drawing.Point(24, 2);
-			this.label_hideNotifications.Margin = new System.Windows.Forms.Padding(0);
-			this.label_hideNotifications.Name = "label_hideNotifications";
-			this.label_hideNotifications.Size = new System.Drawing.Size(258, 15);
-			this.label_hideNotifications.TabIndex = 33;
-			this.label_hideNotifications.Text = "Hide notifications when the miner has focus";
-			// 
-			// pixelCheckBox_hideNotifications
-			// 
-			this.pixelCheckBox_hideNotifications.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pixelCheckBox_hideNotifications.BackgroundImage")));
-			this.pixelCheckBox_hideNotifications.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pixelCheckBox_hideNotifications.Checked = false;
-			this.pixelCheckBox_hideNotifications.Location = new System.Drawing.Point(0, -1);
-			this.pixelCheckBox_hideNotifications.Margin = new System.Windows.Forms.Padding(0);
-			this.pixelCheckBox_hideNotifications.Name = "pixelCheckBox_hideNotifications";
-			this.pixelCheckBox_hideNotifications.Size = new System.Drawing.Size(20, 20);
-			this.pixelCheckBox_hideNotifications.TabIndex = 32;
-			// 
-			// panel_hideNotifications
-			// 
-			this.panel_hideNotifications.AutoSize = true;
-			this.panel_hideNotifications.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.panel_hideNotifications.Controls.Add(this.pixelCheckBox_hideNotifications);
-			this.panel_hideNotifications.Controls.Add(this.label_hideNotifications);
-			this.panel_hideNotifications.Location = new System.Drawing.Point(9, 297);
-			this.panel_hideNotifications.Margin = new System.Windows.Forms.Padding(0);
-			this.panel_hideNotifications.Name = "panel_hideNotifications";
-			this.panel_hideNotifications.Size = new System.Drawing.Size(282, 19);
-			this.panel_hideNotifications.TabIndex = 30;
-			// 
 			// Options
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(755, 504);
+			this.ClientSize = new System.Drawing.Size(755, 536);
 			this.Controls.Add(this.panel_background);
 			this.ForeColor = System.Drawing.Color.Snow;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -731,6 +771,8 @@
 			this.panel_background.PerformLayout();
 			this.groupBox_general.ResumeLayout(false);
 			this.groupBox_general.PerformLayout();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.panel_mineForChillinroom.ResumeLayout(false);
 			this.panel_mineForChillinroom.PerformLayout();
 			this.panel_minerInfo.ResumeLayout(false);
@@ -741,6 +783,8 @@
 			this.panel_tray.PerformLayout();
 			this.panel_sharesNotification.ResumeLayout(false);
 			this.panel_sharesNotification.PerformLayout();
+			this.panel_hideNotifications.ResumeLayout(false);
+			this.panel_hideNotifications.PerformLayout();
 			this.groupBox_runOnInactivity.ResumeLayout(false);
 			this.groupBox_runOnInactivity.PerformLayout();
 			this.panel_automineDelay.ResumeLayout(false);
@@ -748,8 +792,6 @@
 			this.panel_automineNotifications.ResumeLayout(false);
 			this.panel_automineNotifications.PerformLayout();
 			this.panel_buttons.ResumeLayout(false);
-			this.panel_hideNotifications.ResumeLayout(false);
-			this.panel_hideNotifications.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -806,5 +848,8 @@
 		private System.Windows.Forms.Panel panel_hideNotifications;
 		private System.Windows.Forms.Label label_hideNotifications;
 		private Controls.PixelCheckBox pixelCheckBox_hideNotifications;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.ComboBox comboBox_currencies;
+		private System.Windows.Forms.Label label3;
 	}
 }

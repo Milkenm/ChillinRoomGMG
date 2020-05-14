@@ -118,65 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pixelCheckBox_hideNotifications.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUAAAAFACAYAAADNkKWqAAAABGdBTUEAALGPC/xhBQAADJJJREFUeF7t
-        1MFpJEAQBEE5sTas/xbqOOhnvAVDZUI4UND9U1VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
-        VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf9nn8/lNkv/uLeykEZJsurew
-        k0ZIsunewk4aIcmmews7aYQkm+4t7KQRkmy6t7CTRkiy6d7CThohyaZ7CztphCSb7i3spBGSbLq3sJNG
-        kO/3m+RRumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
-        Rkiy6d7CThohyaZ7CztphCSb7i3spBGSbLq3sJNGSLLp3sJOGiHJpnsLO2mEJJvuLeykEZJsurewk0ZI
-        sunewk4aIcmmewtVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
-        VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVfUH/fz8A0Aij9o7t36EAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="pixelCheckBox_mineForChillinroom.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUAAAAFACAYAAADNkKWqAAAABGdBTUEAALGPC/xhBQAADJJJREFUeF7t
@@ -532,6 +473,65 @@
 </value>
   </data>
   <data name="pixelCheckBox_invalidShareNotification.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAUAAAAFACAYAAADNkKWqAAAABGdBTUEAALGPC/xhBQAADJJJREFUeF7t
+        1MFpJEAQBEE5sTas/xbqOOhnvAVDZUI4UND9U1VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+        VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf9nn8/lNkv/uLeykEZJsurew
+        k0ZIsunewk4aIcmmews7aYQkm+4t7KQRkmy6t7CTRkiy6d7CThohyaZ7CztphCSb7i3spBGSbLq3sJNG
+        kO/3m+RRumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        RhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CTRhCNmuQNumm5t7CT
+        Rkiy6d7CThohyaZ7CztphCSb7i3spBGSbLq3sJNGSLLp3sJOGiHJpnsLO2mEJJvuLeykEZJsurewk0ZI
+        sunewk4aIcmmewtVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+        VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVfUH/fz8A0Aij9o7t36EAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pixelCheckBox_hideNotifications.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUAAAAFACAYAAADNkKWqAAAABGdBTUEAALGPC/xhBQAADJJJREFUeF7t
         1MFpJEAQBEE5sTas/xbqOOhnvAVDZUI4UND9U1VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV

@@ -43,11 +43,12 @@
 			this.label_lastValid = new System.Windows.Forms.Label();
 			this.label_shares = new System.Windows.Forms.Label();
 			this.label_sharesInfo = new System.Windows.Forms.Label();
-			this.label_userId = new System.Windows.Forms.Label();
+			this.label_xmrValue = new System.Windows.Forms.Label();
 			this.button_statistics = new System.Windows.Forms.Button();
 			this.timer_refreshLatestShareTimer = new System.Windows.Forms.Timer(this.components);
 			this.timer_miningTimeCounter = new System.Windows.Forms.Timer(this.components);
 			this.timer_save = new System.Windows.Forms.Timer(this.components);
+			this.timer_refreshXmrPrice = new System.Windows.Forms.Timer(this.components);
 			this.panel_background.SuspendLayout();
 			this.panel_controls.SuspendLayout();
 			this.groupBox_hashRate.SuspendLayout();
@@ -61,7 +62,7 @@
 			this.panel_background.Controls.Add(this.button_options);
 			this.panel_background.Controls.Add(this.listBox_log);
 			this.panel_background.Controls.Add(this.panel_controls);
-			this.panel_background.Controls.Add(this.label_userId);
+			this.panel_background.Controls.Add(this.label_xmrValue);
 			this.panel_background.Controls.Add(this.button_statistics);
 			this.panel_background.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel_background.Location = new System.Drawing.Point(0, 0);
@@ -89,7 +90,7 @@
 			this.button_options.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button_options.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold);
 			this.button_options.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
-			this.button_options.Location = new System.Drawing.Point(568, 384);
+			this.button_options.Location = new System.Drawing.Point(569, 384);
 			this.button_options.Name = "button_options";
 			this.button_options.Size = new System.Drawing.Size(34, 34);
 			this.button_options.TabIndex = 18;
@@ -143,7 +144,7 @@
 			this.groupBox_hashRate.Controls.Add(this.label_maxHashRate);
 			this.groupBox_hashRate.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold);
 			this.groupBox_hashRate.ForeColor = System.Drawing.Color.Snow;
-			this.groupBox_hashRate.Location = new System.Drawing.Point(3, 6);
+			this.groupBox_hashRate.Location = new System.Drawing.Point(11, 6);
 			this.groupBox_hashRate.Name = "groupBox_hashRate";
 			this.groupBox_hashRate.Size = new System.Drawing.Size(240, 80);
 			this.groupBox_hashRate.TabIndex = 21;
@@ -179,7 +180,7 @@
 			this.groupBox_shares.Controls.Add(this.label_sharesInfo);
 			this.groupBox_shares.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold);
 			this.groupBox_shares.ForeColor = System.Drawing.Color.Snow;
-			this.groupBox_shares.Location = new System.Drawing.Point(502, 6);
+			this.groupBox_shares.Location = new System.Drawing.Point(494, 6);
 			this.groupBox_shares.Name = "groupBox_shares";
 			this.groupBox_shares.Size = new System.Drawing.Size(240, 80);
 			this.groupBox_shares.TabIndex = 20;
@@ -219,16 +220,18 @@
 			this.label_sharesInfo.Text = "Valid / Invalid";
 			this.label_sharesInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label_userId
+			// label_xmrValue
 			// 
-			this.label_userId.AutoEllipsis = true;
-			this.label_userId.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label_userId.ForeColor = System.Drawing.Color.Snow;
-			this.label_userId.Location = new System.Drawing.Point(4, 388);
-			this.label_userId.Name = "label_userId";
-			this.label_userId.Size = new System.Drawing.Size(552, 25);
-			this.label_userId.TabIndex = 12;
-			this.label_userId.Text = "Miner name:";
+			this.label_xmrValue.AutoEllipsis = true;
+			this.label_xmrValue.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_xmrValue.ForeColor = System.Drawing.Color.Snow;
+			this.label_xmrValue.Location = new System.Drawing.Point(4, 388);
+			this.label_xmrValue.Name = "label_xmrValue";
+			this.label_xmrValue.Size = new System.Drawing.Size(559, 25);
+			this.label_xmrValue.TabIndex = 12;
+			this.label_xmrValue.Text = "XMR Value: 0.00 (+0.00) EUR";
+			this.label_xmrValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.label_xmrValue.Paint += new System.Windows.Forms.PaintEventHandler(this.label_xmrValue_Paint);
 			// 
 			// button_statistics
 			// 
@@ -259,6 +262,12 @@
 			this.timer_save.Interval = 30000;
 			this.timer_save.Tick += new System.EventHandler(this.timer_save_Tick);
 			// 
+			// timer_refreshXmrPrice
+			// 
+			this.timer_refreshXmrPrice.Enabled = true;
+			this.timer_refreshXmrPrice.Interval = 10000;
+			this.timer_refreshXmrPrice.Tick += new System.EventHandler(this.timer_refreshXmrPrice_Tick);
+			// 
 			// Miner
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,7 +293,6 @@
 		#endregion
 
 		private System.Windows.Forms.Panel panel_background;
-		private System.Windows.Forms.Label label_userId;
 		private Controls.PixelTitleBar titleBar;
 		private System.Windows.Forms.ListBox listBox_log;
 		private System.Windows.Forms.Label label_shares;
@@ -301,6 +309,8 @@
 		private System.Windows.Forms.Timer timer_miningTimeCounter;
 		private System.Windows.Forms.Button button_options;
 		private System.Windows.Forms.Timer timer_save;
+		private System.Windows.Forms.Timer timer_refreshXmrPrice;
+		private System.Windows.Forms.Label label_xmrValue;
 	}
 }
 
