@@ -32,9 +32,9 @@
 			this.panel_background = new System.Windows.Forms.Panel();
 			this.titleBar = new ChillinRoomGMG.Controls.PixelTitleBar();
 			this.groupBox_general = new System.Windows.Forms.GroupBox();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel_currency = new System.Windows.Forms.Panel();
 			this.comboBox_currencies = new System.Windows.Forms.ComboBox();
-			this.label3 = new System.Windows.Forms.Label();
+			this.label_currency = new System.Windows.Forms.Label();
 			this.panel_mineForChillinroom = new System.Windows.Forms.Panel();
 			this.pixelCheckBox_mineForChillinroom = new ChillinRoomGMG.Controls.PixelCheckBox();
 			this.label_mineForChillinroom = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
 			this.button_save = new System.Windows.Forms.Button();
 			this.panel_background.SuspendLayout();
 			this.groupBox_general.SuspendLayout();
-			this.panel1.SuspendLayout();
+			this.panel_currency.SuspendLayout();
 			this.panel_mineForChillinroom.SuspendLayout();
 			this.panel_minerInfo.SuspendLayout();
 			this.panel_minerSettings.SuspendLayout();
@@ -127,7 +127,7 @@
 			// 
 			// groupBox_general
 			// 
-			this.groupBox_general.Controls.Add(this.panel1);
+			this.groupBox_general.Controls.Add(this.panel_currency);
 			this.groupBox_general.Controls.Add(this.panel_mineForChillinroom);
 			this.groupBox_general.Controls.Add(this.panel_minerInfo);
 			this.groupBox_general.Controls.Add(this.panel_minerSettings);
@@ -143,17 +143,17 @@
 			this.groupBox_general.TabStop = false;
 			this.groupBox_general.Text = "General";
 			// 
-			// panel1
+			// panel_currency
 			// 
-			this.panel1.AutoSize = true;
-			this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.panel1.Controls.Add(this.comboBox_currencies);
-			this.panel1.Controls.Add(this.label3);
-			this.panel1.Location = new System.Drawing.Point(6, 327);
-			this.panel1.Margin = new System.Windows.Forms.Padding(0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(193, 27);
-			this.panel1.TabIndex = 30;
+			this.panel_currency.AutoSize = true;
+			this.panel_currency.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.panel_currency.Controls.Add(this.comboBox_currencies);
+			this.panel_currency.Controls.Add(this.label_currency);
+			this.panel_currency.Location = new System.Drawing.Point(6, 327);
+			this.panel_currency.Margin = new System.Windows.Forms.Padding(0);
+			this.panel_currency.Name = "panel_currency";
+			this.panel_currency.Size = new System.Drawing.Size(193, 27);
+			this.panel_currency.TabIndex = 30;
 			// 
 			// comboBox_currencies
 			// 
@@ -167,16 +167,16 @@
 			this.comboBox_currencies.Size = new System.Drawing.Size(121, 21);
 			this.comboBox_currencies.TabIndex = 20;
 			// 
-			// label3
+			// label_currency
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
-			this.label3.Location = new System.Drawing.Point(2, 5);
-			this.label3.Margin = new System.Windows.Forms.Padding(0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(65, 15);
-			this.label3.TabIndex = 28;
-			this.label3.Text = "Currency:";
+			this.label_currency.AutoSize = true;
+			this.label_currency.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
+			this.label_currency.Location = new System.Drawing.Point(2, 5);
+			this.label_currency.Margin = new System.Windows.Forms.Padding(0);
+			this.label_currency.Name = "label_currency";
+			this.label_currency.Size = new System.Drawing.Size(65, 15);
+			this.label_currency.TabIndex = 28;
+			this.label_currency.Text = "Currency:";
 			// 
 			// panel_mineForChillinroom
 			// 
@@ -771,8 +771,8 @@
 			this.panel_background.PerformLayout();
 			this.groupBox_general.ResumeLayout(false);
 			this.groupBox_general.PerformLayout();
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
+			this.panel_currency.ResumeLayout(false);
+			this.panel_currency.PerformLayout();
 			this.panel_mineForChillinroom.ResumeLayout(false);
 			this.panel_mineForChillinroom.PerformLayout();
 			this.panel_minerInfo.ResumeLayout(false);
@@ -848,8 +848,8 @@
 		private System.Windows.Forms.Panel panel_hideNotifications;
 		private System.Windows.Forms.Label label_hideNotifications;
 		private Controls.PixelCheckBox pixelCheckBox_hideNotifications;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel panel_currency;
 		private System.Windows.Forms.ComboBox comboBox_currencies;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label_currency;
 	}
 }
