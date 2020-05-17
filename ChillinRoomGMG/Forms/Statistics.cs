@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using static ChillinRoomGMG.Code;
@@ -31,38 +32,42 @@ namespace ChillinRoomGMG.Forms
 		{
 			RefreshStatistics(null, null);
 
-			Global workersStats = JsonConvert.DeserializeObject<Global>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/chart/hashrate/allWorkers"));
-			MinerStats minerStats = JsonConvert.DeserializeObject<MinerStats>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/stats/{settings.MinerName}"));
-			moneroInfo = JsonConvert.DeserializeObject<MoneroInfo>(GET("https://moneroblocks.info/api/get_stats"));
+			comboBox_hashRates.SelectedIndex = 0;
 
-			label_totalHashes.Text = (minerStats.totalHash != null ? ThousandsSeparator(minerStats.totalHash) : "0") + " H";
-			label_totalPoolShares.Text = (minerStats.validShares ?? 0) + " / " + (minerStats.invalidShares ?? 0);
-
-			if (workersStats.global.Count > 0)
+			new Task(new Action(() =>
 			{
-				long hashSum = 0;
-				foreach (PoolHashRateChart chart in workersStats.global)
+				Global workersStats = JsonConvert.DeserializeObject<Global>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/chart/hashrate/allWorkers"));
+				MinerStats minerStats = JsonConvert.DeserializeObject<MinerStats>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/stats/{settings.MinerName}"));
+				moneroInfo = JsonConvert.DeserializeObject<MoneroInfo>(GET("https://moneroblocks.info/api/get_stats"));
+
+				Invoke(new Action(() =>
 				{
-					hashSum += chart.hs;
-				}
+					label_totalHashes.Text = (minerStats.totalHash != null ? ThousandsSeparator(minerStats.totalHash) : "0") + " H";
+					label_totalPoolShares.Text = (minerStats.validShares ?? 0) + " / " + (minerStats.invalidShares ?? 0);
 
-				float averageHashRate = hashSum / workersStats.global.Count;
+					if (workersStats.global.Count > 0)
+					{
+						long hashSum = 0;
+						foreach (PoolHashRateChart chart in workersStats.global)
+						{
+							hashSum += chart.hs;
+						}
 
-				label_averageHashRate.Text = ThousandsSeparator(averageHashRate) + " H/s";
+						float averageHashRate = hashSum / workersStats.global.Count;
 
-				int index = 0;
-				while (averageHashRate / 1000 >= 1)
-				{
-					averageHashRate /= 1000;
-					index++;
-				}
-				comboBox_hashRates.SelectedIndex = index;
-				numeric_hashRate.Value = (decimal)averageHashRate;
-			}
-			else
-			{
-				comboBox_hashRates.SelectedIndex = 0;
-			}
+						label_averageHashRate.Text = ThousandsSeparator(averageHashRate) + " H/s";
+
+						int index = 0;
+						while (averageHashRate / 1000 >= 1)
+						{
+							averageHashRate /= 1000;
+							index++;
+						}
+						comboBox_hashRates.SelectedIndex = index;
+						numeric_hashRate.Value = (decimal)averageHashRate;
+					}
+				}));
+			})).Start();
 		}
 
 		public class Global
@@ -111,22 +116,25 @@ namespace ChillinRoomGMG.Forms
 
 		private void CalculateEarnings(object sender, EventArgs e)
 		{
-			float latestBlockReward = moneroInfo.last_reward;
-			float minerHashRate = (float)numeric_hashRate.Value * (float)Math.Pow(10, comboBox_hashRates.SelectedIndex * 3);
-			float netHashRate = (float)Math.Round(moneroInfo.hashrate, 0);
-
-			float hourlyEarnings = (30 * latestBlockReward / (float)Math.Pow(10, 12) * minerHashRate) / netHashRate;
-			float dailyEarnings = hourlyEarnings * 24;
-			float weeklyEarnings = dailyEarnings * 7;
-			float monthlyEarnings = dailyEarnings * 30;
-			float yearlyEarnings = dailyEarnings * 365;
-
-			Label[] labels = new Label[] { label_hourlyEarnings, label_dailyEarnings, label_weeklyEarnings, label_monthlyEarnings, label_yearlyEarnings };
-			float[] vars = new float[] { hourlyEarnings, dailyEarnings, weeklyEarnings, monthlyEarnings, yearlyEarnings };
-
-			for (int i = 0; i < labels.Length; i++)
+			if (moneroInfo != null)
 			{
-				labels[i].Text = Math.Truncate(vars[i]) >= 10 ? AbbreviateNumber(vars[i]) : vars[i].ToString("F7");
+				float latestBlockReward = moneroInfo.last_reward;
+				float minerHashRate = (float)numeric_hashRate.Value * (float)Math.Pow(10, comboBox_hashRates.SelectedIndex * 3);
+				float netHashRate = (float)Math.Round(moneroInfo.hashrate, 0);
+
+				float hourlyEarnings = (30 * latestBlockReward / (float)Math.Pow(10, 12) * minerHashRate) / netHashRate;
+				float dailyEarnings = hourlyEarnings * 24;
+				float weeklyEarnings = dailyEarnings * 7;
+				float monthlyEarnings = dailyEarnings * 30;
+				float yearlyEarnings = dailyEarnings * 365;
+
+				Label[] labels = new Label[] { label_hourlyEarnings, label_dailyEarnings, label_weeklyEarnings, label_monthlyEarnings, label_yearlyEarnings };
+				float[] vars = new float[] { hourlyEarnings, dailyEarnings, weeklyEarnings, monthlyEarnings, yearlyEarnings };
+
+				for (int i = 0; i < labels.Length; i++)
+				{
+					labels[i].Text = Math.Truncate(vars[i]) >= 10 ? AbbreviateNumber(vars[i]) : vars[i].ToString("F7");
+				}
 			}
 		}
 

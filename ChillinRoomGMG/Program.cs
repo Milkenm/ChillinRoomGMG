@@ -1,5 +1,5 @@
 ﻿using ChillinRoomGMG.Forms;
-
+using ChillinRoomGMG.Properties;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -40,7 +40,7 @@ namespace ChillinRoomGMG
 
 				trayIcon = new NotifyIcon();
 				trayIcon.Text = "ChillinRoom GMG";
-				trayIcon.Icon = Properties.Resources.ChillinRoom_ICO;
+				trayIcon.Icon = Resources.ChillinRoom_ICO;
 				trayIcon.Visible = true;
 
 				ContextMenu menu = new ContextMenu();

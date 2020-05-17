@@ -6,6 +6,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using static ChillinRoomGMG.Code;
@@ -69,15 +70,21 @@ namespace ChillinRoomGMG.Forms
 
 		internal void RefreshXmrValue()
 		{
-			string request = GET("https://api.cryptonator.com/api/ticker/xmr-" + GetCurrenyString().ToLower());
-			XmrRequest response = JsonConvert.DeserializeObject<XmrRequest>(request);
-
-			if (response != latestXmrRequest)
+			new Task(new Action(() =>
 			{
-				latestXmrRequest = response;
+				string request = GET("https://api.cryptonator.com/api/ticker/xmr-" + GetCurrenyString().ToLower());
+				XmrRequest response = JsonConvert.DeserializeObject<XmrRequest>(request);
 
-				label_xmrValue.Refresh();
-			}
+				if (response != latestXmrRequest)
+				{
+					latestXmrRequest = response;
+
+					Invoke(new Action(() =>
+					{
+						label_xmrValue.Refresh();
+					}));
+				}
+			})).Start();
 		}
 
 		internal XmrRequest latestXmrRequest;
@@ -435,29 +442,33 @@ namespace ChillinRoomGMG.Forms
 
 		private void label_xmrValue_Paint(object sender, PaintEventArgs e)
 		{
-			decimal change = Math.Round(Convert.ToDecimal(latestXmrRequest.ticker.change.Replace('.', ',')), 2);
-			bool negative = change < 0;
-			string changeString = ((!negative ? "+" : null) + change).Replace(',', '.');
-
-			if (latestXmrRequest.success)
+			if (latestXmrRequest != null)
 			{
-				e.Graphics.Clear(Color.FromArgb(54, 57, 63));
+				decimal change = Math.Round(Convert.ToDecimal(latestXmrRequest.ticker.change.Replace('.', ',')), 2);
+				bool negative = change < 0;
+				string changeString = ((!negative ? "+" : null) + change).Replace(',', '.');
 
-				Font font = new Font("Roboto", 15.75f, FontStyle.Bold);
+				if (latestXmrRequest.success)
+				{
+					e.Graphics.Clear(Color.FromArgb(54, 57, 63));
 
-				SolidBrush brush = new SolidBrush(Color.Snow);
-				SolidBrush changeBrush = new SolidBrush(!negative ? Color.Green : Color.Firebrick);
+					Font font = new Font("Roboto", 15.75f, FontStyle.Bold);
 
-				string print1 = $"XMR Value: {FixAfterDot(Math.Round(Convert.ToDouble(latestXmrRequest.ticker.price.Replace('.', ',')), 2).ToString().Replace(",", "."))} {GetCurrenyString()} (";
+					SolidBrush brush = new SolidBrush(Color.Snow);
+					SolidBrush changeBrush = new SolidBrush(!negative ? Color.Green : Color.Firebrick);
 
-				const int locFix = 16;
+					string print1 = $"XMR Value: {FixAfterDot(Math.Round(Convert.ToDouble(latestXmrRequest.ticker.price.Replace('.', ',')), 2).ToString().Replace(",", "."))} {GetCurrenyString()} (";
 
-				float point2 = e.Graphics.MeasureString(print1, font).Width - locFix;
-				float point3 = e.Graphics.MeasureString(print1 + changeString, font).Width - locFix;
+					const int preLocFix = 2;
+					const int locFix = 16 - preLocFix;
 
-				e.Graphics.DrawString(print1, font, brush, 0, 0);
-				e.Graphics.DrawString(FixAfterDot(changeString), font, changeBrush, point2, 0);
-				e.Graphics.DrawString(")", font, brush, point3, 0);
+					float point2 = e.Graphics.MeasureString(print1, font).Width - locFix;
+					float point3 = e.Graphics.MeasureString(print1 + changeString, font).Width - locFix;
+
+					e.Graphics.DrawString(print1, font, brush, preLocFix, 0);
+					e.Graphics.DrawString(FixAfterDot(changeString), font, changeBrush, point2, 0);
+					e.Graphics.DrawString(")", font, brush, point3, 0);
+				}
 			}
 		}
 
