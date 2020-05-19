@@ -64,13 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0445AF16589284FA0157BC19EB116FF9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C5544CC94BF02FC3A9E7F01754AFF169"
+        "OwnerKey" = "8:_1171A35A0B3B4C4A83E2C21E8363F5A8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,7 +76,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1171A35A0B3B4C4A83E2C21E8363F5A8"
+        "OwnerKey" = "8:_C5544CC94BF02FC3A9E7F01754AFF169"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0445AF16589284FA0157BC19EB116FF9"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -187,11 +187,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
-                    "_0445AF16589284FA0157BC19EB116FF9"
-                    {
-                    "Name" = "8:System.IO.Compression.FileSystem.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.Compression.FileSystem.dll"
             "TargetName" = "8:"
@@ -218,11 +213,6 @@
             "AssemblyAsmDisplayName" = "8:ScriptsLib, Version=6.3.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_08310D487015AB5E61EE209AEA4F9905"
-                    {
-                    "Name" = "8:ScriptsLib.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:ScriptsLib.dll"
             "TargetName" = "8:"
@@ -249,11 +239,6 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_1171A35A0B3B4C4A83E2C21E8363F5A8"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
@@ -391,15 +376,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Chillin'Room GMG"
-        "ProductCode" = "8:{422E9A2E-512B-4702-9A9E-8B49AC14CC60}"
-        "PackageCode" = "8:{98C29938-B301-425C-AF29-DC3C9F712DF5}"
+        "ProductCode" = "8:{4D5E7C49-E97A-458B-9405-E6009B576721}"
+        "PackageCode" = "8:{6A0A26FF-8DA2-43CD-8626-863D403E021A}"
         "UpgradeCode" = "8:{A8A7BD5D-697E-47C7-9B96-62D11CAD0AAD}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.2.0"
+        "ProductVersion" = "8:1.2.1"
         "Manufacturer" = "8:Milkenm"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://discord.gg/j3xEXZn"
