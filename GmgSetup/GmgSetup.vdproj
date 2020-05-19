@@ -391,15 +391,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Chillin'Room GMG"
-        "ProductCode" = "8:{D743A3F4-CC6A-4062-BAE0-581A571D4D6D}"
-        "PackageCode" = "8:{71029D04-D09A-4E02-B38C-63F454800BC7}"
+        "ProductCode" = "8:{422E9A2E-512B-4702-9A9E-8B49AC14CC60}"
+        "PackageCode" = "8:{98C29938-B301-425C-AF29-DC3C9F712DF5}"
         "UpgradeCode" = "8:{A8A7BD5D-697E-47C7-9B96-62D11CAD0AAD}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.2.0"
         "Manufacturer" = "8:Milkenm"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://discord.gg/j3xEXZn"
@@ -941,7 +941,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_63FD5680805C41E49032CDE2FD3A329C"
             {
-            "SourcePath" = "8:..\\ChillinRoomGMG\\obj\\Release\\ChillinRoomGMG.exe"
+            "SourcePath" = "8:..\\ChillinRoomGMG\\obj\\Debug\\ChillinRoomGMG.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_29FCD9C8611040019088804C186B7E90"
