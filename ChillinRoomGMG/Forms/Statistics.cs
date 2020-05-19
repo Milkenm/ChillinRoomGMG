@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,11 +40,15 @@ namespace ChillinRoomGMG.Forms
 				Global workersStats = JsonConvert.DeserializeObject<Global>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/chart/hashrate/allWorkers"));
 				MinerStats minerStats = JsonConvert.DeserializeObject<MinerStats>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/stats/{settings.MinerName}"));
 				moneroInfo = JsonConvert.DeserializeObject<MoneroInfo>(GET("https://moneroblocks.info/api/get_stats"));
+				WalletInfo walletInfo = JsonConvert.DeserializeObject<WalletInfo>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/stats/"));
 
 				Invoke(new Action(() =>
 				{
-					label_totalHashes.Text = (minerStats.totalHash != null ? ThousandsSeparator(minerStats.totalHash) : "0") + " H";
-					label_totalPoolShares.Text = (minerStats.validShares ?? 0) + " / " + (minerStats.invalidShares ?? 0);
+					label_totalHashes.Text = (minerStats.totalHash != null ? AbbreviateNumber(Convert.ToSingle(minerStats.totalHash), false, true) : "0") + "H";
+
+					string poolValidShares = minerStats.validShares != null ? AbbreviateNumber(Convert.ToSingle(minerStats.validShares)) : "0";
+					string poolInvalidShares = minerStats.invalidShares != null ? AbbreviateNumber(Convert.ToSingle(minerStats.invalidShares)) : "0";
+					label_totalPoolShares.Text = poolValidShares + " / " + poolInvalidShares;
 
 					if (workersStats.global.Count > 0)
 					{
@@ -55,7 +60,7 @@ namespace ChillinRoomGMG.Forms
 
 						float averageHashRate = hashSum / workersStats.global.Count;
 
-						label_averageHashRate.Text = ThousandsSeparator(averageHashRate) + " H/s";
+						label_averageHashRate.Text = AbbreviateNumber(averageHashRate, addSpaceAtEndIfNotRounded: true) + "H/s";
 
 						int index = 0;
 						while (averageHashRate / 1000 >= 1)
@@ -66,6 +71,10 @@ namespace ChillinRoomGMG.Forms
 						comboBox_hashRates.SelectedIndex = index;
 						numeric_hashRate.Value = (decimal)averageHashRate;
 					}
+
+					label_height.Text = "Height: " + ThousandsSeparator(moneroInfo.height);
+					label_difficulty.Text = "Difficulty: " + ThousandsSeparator(moneroInfo.difficulty);
+					label_pendingXmr.Text = $"Pending XMR: {(walletInfo.amtDue / pow).ToString("F8").Replace(',', '.')} XMR";
 				}));
 			})).Start();
 		}
@@ -90,29 +99,67 @@ namespace ChillinRoomGMG.Forms
 
 		public class MoneroInfo
 		{
-			public float difficulty;
+			public BigInteger difficulty;
+			public float height;
 			public float hashrate;
 			public float total_emission;
 			public float last_reward;
 		}
 
+		public class WalletInfo
+		{
+			public float amtDue;
+		}
+
 		private void RefreshStatistics(object sender, EventArgs e)
 		{
-			label_totalShares.Text = $"{ThousandsSeparator(minerForm.totalValidShares)} / {ThousandsSeparator(minerForm.totalInvalidShares)}";
-			label_hashRateRecord.Text = ThousandsSeparator(minerForm.recordHashRate) + " H/s";
+			label_totalShares.Text = $"{AbbreviateNumber(minerForm.totalValidShares)} / {AbbreviateNumber(minerForm.totalInvalidShares)}";
+			label_hashRateRecord.Text = AbbreviateNumber(Convert.ToSingle(minerForm.recordHashRate)) + "H/s";
+			if (minerForm.recordHashRateDate != default(DateTime))
+			{
+				DateTime recordDate = minerForm.recordHashRateDate;
+				label_hashRateRecordInfo.Text = $"Record H/s (set on: {FormatDate(recordDate)})";
+			}
 
-			long days = minerForm.totalMinedSeconds / 60 / 60 / 24;
-			long hours = (minerForm.totalMinedSeconds / 60 / 60) - (days * 24);
-			long minutes = (minerForm.totalMinedSeconds / 60) - ((hours + (days * 24)) * 60);
-			long seconds = minerForm.totalMinedSeconds - ((minutes + ((hours + (days * 24)) * 60)) * 60);
+			FormatTimeLabel(label_timeMined, minerForm.totalMinedSeconds);
+			FormatTimeLabel(label_longestTimeMining, minerForm.longestTimeMining);
 
-			label_timeMined.Text = $"{days.ToString("000")} - {hours.ToString("00")}:{minutes.ToString("00")}:{seconds.ToString("00")}";
+			label_recordValidSharesInOneSession.Text = AbbreviateNumber(Convert.ToSingle(minerForm.sessionValidSharesRecord));
+			label_recordInvalidSharesInOneSession.Text = AbbreviateNumber(Convert.ToSingle(minerForm.sessionInvalidSharesRecord));
+
+			if (minerForm.sessionValidSharesRecordDate != default(DateTime))
+			{
+				DateTime recordDate = minerForm.sessionValidSharesRecordDate;
+				label_recordValidSharesInOneSessionInfo.Text = $"Valid ({FormatDate(recordDate)})";
+			}
+			if (minerForm.sessionInvalidSharesRecordDate != default(DateTime))
+			{
+				DateTime recordDate = minerForm.sessionInvalidSharesRecordDate;
+				label_recordInvalidSharesInOneSessionInfo.Text = $"Invalid ({FormatDate(recordDate)})";
+			}
+		}
+
+		private void FormatTimeLabel(Label label, long totalSeconds)
+		{
+			long days = totalSeconds / 60 / 60 / 24;
+			long hours = (totalSeconds / 60 / 60) - (days * 24);
+			long minutes = (totalSeconds / 60) - ((hours + (days * 24)) * 60);
+			long seconds = totalSeconds - ((minutes + ((hours + (days * 24)) * 60)) * 60);
+
+			label.Text = $"{days.ToString("000")} - {hours.ToString("00")}:{minutes.ToString("00")}:{seconds.ToString("00")}";
+		}
+
+		private string FormatDate(DateTime date)
+		{
+			return $"{date.Day}/{date.Month}/{date.Year}";
 		}
 
 		private void Statistics_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			statisticsForm = null;
 		}
+
+		private float pow = (float)Math.Pow(10, 12);
 
 		private void CalculateEarnings(object sender, EventArgs e)
 		{
@@ -122,7 +169,7 @@ namespace ChillinRoomGMG.Forms
 				float minerHashRate = (float)numeric_hashRate.Value * (float)Math.Pow(10, comboBox_hashRates.SelectedIndex * 3);
 				float netHashRate = (float)Math.Round(moneroInfo.hashrate, 0);
 
-				float hourlyEarnings = (30 * latestBlockReward / (float)Math.Pow(10, 12) * minerHashRate) / netHashRate;
+				float hourlyEarnings = (30 * latestBlockReward / pow * minerHashRate) / netHashRate;
 				float dailyEarnings = hourlyEarnings * 24;
 				float weeklyEarnings = dailyEarnings * 7;
 				float monthlyEarnings = dailyEarnings * 30;
@@ -138,7 +185,7 @@ namespace ChillinRoomGMG.Forms
 			}
 		}
 
-		private string AbbreviateNumber(float number)
+		private string AbbreviateNumber(float number, bool decimals = true, bool noDecimalsRoundUp = false, bool addSpaceAtEndIfNotRounded = false)
 		{
 			string[] numSplit = ThousandsSeparator(number.ToString("F4").Split('.')[0]).Split(',');
 
@@ -146,27 +193,34 @@ namespace ChillinRoomGMG.Forms
 			{
 				StringBuilder numString = new StringBuilder(numSplit[0]);
 
-				if (numSplit[1][1] != '0')
+				if (decimals)
 				{
-					numString.Append('.').Append(numSplit[1][0]).Append(numSplit[1][1]);
+					if (numSplit[1][1] != '0')
+					{
+						numString.Append('.').Append(numSplit[1][0]).Append(numSplit[1][1]);
+					}
+				}
+				else
+				{
+					if (noDecimalsRoundUp && Convert.ToInt16(numSplit[1][0]) >= 5)
+					{
+						numString = new StringBuilder((Convert.ToInt64(numSplit[0]) + 1).ToString());
+					}
 				}
 
-				numString.Append(' ').Append("K");
+				numString.Append(' ').Append(new char[] { 'K', 'M', 'B', 'T' }[numSplit.Length - 2]);
 
 				return numString.ToString();
 			}
 			else
 			{
-				return numSplit[0];
+				return numSplit[0].Split('.', ',')[0] + (addSpaceAtEndIfNotRounded ? " " : "");
 			}
 		}
 
-		private float Monerofloat(float number)
+		private void button_close_Click(object sender, EventArgs e)
 		{
-			float divide = (float)Math.Pow(10, 12);
-			float value = number / divide;
-
-			return (float)Math.Round(value, 4, MidpointRounding.AwayFromZero);
+			Close();
 		}
 	}
 }

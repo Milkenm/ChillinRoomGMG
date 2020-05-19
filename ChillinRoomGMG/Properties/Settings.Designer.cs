@@ -286,5 +286,85 @@ namespace ChillinRoomGMG.Properties {
                 this["Currency"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long SessionValidSharesRecord {
+            get {
+                return ((long)(this["SessionValidSharesRecord"]));
+            }
+            set {
+                this["SessionValidSharesRecord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long SessionInvalidSharesRecord {
+            get {
+                return ((long)(this["SessionInvalidSharesRecord"]));
+            }
+            set {
+                this["SessionInvalidSharesRecord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime HashRateRecordDate {
+            get {
+                return ((global::System.DateTime)(this["HashRateRecordDate"]));
+            }
+            set {
+                this["HashRateRecordDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime SessionValidSharesRecordDate {
+            get {
+                return ((global::System.DateTime)(this["SessionValidSharesRecordDate"]));
+            }
+            set {
+                this["SessionValidSharesRecordDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime SessionInvalidSharesRecordDate {
+            get {
+                return ((global::System.DateTime)(this["SessionInvalidSharesRecordDate"]));
+            }
+            set {
+                this["SessionInvalidSharesRecordDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long LongestTimeMining {
+            get {
+                return ((long)(this["LongestTimeMining"]));
+            }
+            set {
+                this["LongestTimeMining"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LongestTimeMiningDate {
+            get {
+                return ((global::System.DateTime)(this["LongestTimeMiningDate"]));
+            }
+            set {
+                this["LongestTimeMiningDate"] = value;
+            }
+        }
     }
 }

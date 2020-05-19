@@ -23,6 +23,13 @@ namespace ChillinRoomGMG.Forms
 		internal decimal recordHashRate = settings.RecordHashRate;
 		internal long totalValidShares = settings.TotalValidShares;
 		internal long totalInvalidShares = settings.TotalInvalidShares;
+		internal long sessionValidSharesRecord = settings.SessionValidSharesRecord;
+		internal DateTime sessionValidSharesRecordDate = settings.SessionValidSharesRecordDate;
+		internal long sessionInvalidSharesRecord = settings.SessionInvalidSharesRecord;
+		internal DateTime sessionInvalidSharesRecordDate = settings.SessionInvalidSharesRecordDate;
+		internal DateTime recordHashRateDate = settings.HashRateRecordDate;
+		internal long longestTimeMining = settings.LongestTimeMining;
+		internal DateTime longestTimeMiningDate = settings.LongestTimeMiningDate;
 
 		private static bool inactivityEnabled;
 		private static bool validSettings;
@@ -79,10 +86,7 @@ namespace ChillinRoomGMG.Forms
 				{
 					latestXmrRequest = response;
 
-					Invoke(new Action(() =>
-					{
-						label_xmrValue.Refresh();
-					}));
+					Invoke(new Action(() => label_xmrValue.Refresh()));
 				}
 			})).Start();
 		}
@@ -167,6 +171,7 @@ namespace ChillinRoomGMG.Forms
 					if (Convert.ToDecimal(hashRates[3].Replace(".", ",")) > recordHashRate)
 					{
 						recordHashRate = Convert.ToDecimal(hashRates[3].Replace(".", ","));
+						recordHashRateDate = DateTime.Now;
 					}
 
 					Invoke(new Action(() =>
@@ -211,6 +216,12 @@ namespace ChillinRoomGMG.Forms
 					timer_refreshLatestShareTimer.Start();
 				}));
 
+				if (validShares > sessionValidSharesRecord)
+				{
+					sessionValidSharesRecord = validShares;
+					sessionValidSharesRecordDate = DateTime.Now;
+				}
+
 				if (settings.NotificationValidShare && SendNotification() && validShares % settings.ValidShareNotificationCount == 0)
 				{
 					trayIcon.ShowBalloonTip(0, $"Valid share [x{settings.ValidShareNotificationCount}]", $"Total: {validShares} valid shares", ToolTipIcon.Info);
@@ -220,6 +231,12 @@ namespace ChillinRoomGMG.Forms
 			{
 				totalInvalidShares++;
 				invalidShares++;
+
+				if (invalidShares > sessionInvalidSharesRecord)
+				{
+					sessionInvalidSharesRecord = invalidShares;
+					sessionInvalidSharesRecordDate = DateTime.Now;
+				}
 
 				if (settings.NotificationInvalidShare && SendNotification() && invalidShares % settings.InvalidShareNotificationCount == 0)
 				{
@@ -415,9 +432,18 @@ namespace ChillinRoomGMG.Forms
 			SetLastShareText(latestValidShareTime);
 		}
 
+		private long sessionMinedSeconds;
+
 		private void timer_miningTimeCounter_Tick(object sender, EventArgs e)
 		{
 			totalMinedSeconds++;
+			sessionMinedSeconds++;
+
+			if (sessionMinedSeconds > longestTimeMining)
+			{
+				longestTimeMining = sessionMinedSeconds;
+				longestTimeMiningDate = DateTime.Now;
+			}
 		}
 
 		private void timer_save_Tick(object sender, EventArgs e)
@@ -431,6 +457,13 @@ namespace ChillinRoomGMG.Forms
 			settings.RecordHashRate = recordHashRate;
 			settings.TotalValidShares = totalValidShares;
 			settings.TotalInvalidShares = totalInvalidShares;
+			settings.SessionValidSharesRecord = sessionValidSharesRecord;
+			settings.SessionInvalidSharesRecordDate = sessionValidSharesRecordDate;
+			settings.SessionInvalidSharesRecord = sessionInvalidSharesRecord;
+			settings.SessionInvalidSharesRecordDate = sessionInvalidSharesRecordDate;
+			settings.HashRateRecordDate = recordHashRateDate;
+			settings.LongestTimeMining = longestTimeMining;
+			settings.LongestTimeMiningDate = longestTimeMiningDate;
 
 			settings.Save();
 		}

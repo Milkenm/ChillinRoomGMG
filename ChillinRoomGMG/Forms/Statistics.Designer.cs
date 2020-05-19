@@ -31,7 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statistics));
 			this.panel_background = new System.Windows.Forms.Panel();
-			this.titleBar = new ChillinRoomGMG.Controls.PixelTitleBar();
 			this.groupBox_totalShares = new System.Windows.Forms.GroupBox();
 			this.label_totalShares = new System.Windows.Forms.Label();
 			this.label_totalSharesInfo = new System.Windows.Forms.Label();
@@ -50,6 +49,11 @@
 			this.groupBox_totalHashes = new System.Windows.Forms.GroupBox();
 			this.label_totalHashes = new System.Windows.Forms.Label();
 			this.label_totalHashesInfo = new System.Windows.Forms.Label();
+			this.groupBox_recordSharesInOneSession = new System.Windows.Forms.GroupBox();
+			this.label_recordValidSharesInOneSession = new System.Windows.Forms.Label();
+			this.label_recordValidSharesInOneSessionInfo = new System.Windows.Forms.Label();
+			this.label_recordInvalidSharesInOneSession = new System.Windows.Forms.Label();
+			this.label_recordInvalidSharesInOneSessionInfo = new System.Windows.Forms.Label();
 			this.groupBox_calculator = new System.Windows.Forms.GroupBox();
 			this.label_earningsHashRate = new System.Windows.Forms.Label();
 			this.numeric_hashRate = new System.Windows.Forms.NumericUpDown();
@@ -75,7 +79,15 @@
 			this.panel_yearlyEarnings = new System.Windows.Forms.Panel();
 			this.label_yearlyEarnings = new System.Windows.Forms.Label();
 			this.label_yearlyInfo = new System.Windows.Forms.Label();
+			this.button_close = new System.Windows.Forms.Button();
 			this.timer_refresh = new System.Windows.Forms.Timer(this.components);
+			this.groupBox_longestTimeMining = new System.Windows.Forms.GroupBox();
+			this.label_longestTimeMining = new System.Windows.Forms.Label();
+			this.label_longestTimeMiningInfo = new System.Windows.Forms.Label();
+			this.label_pendingXmr = new System.Windows.Forms.Label();
+			this.label_height = new System.Windows.Forms.Label();
+			this.label_difficulty = new System.Windows.Forms.Label();
+			this.titleBar = new ChillinRoomGMG.Controls.PixelTitleBar();
 			this.panel_background.SuspendLayout();
 			this.groupBox_totalShares.SuspendLayout();
 			this.groupBox_totalPoolShares.SuspendLayout();
@@ -83,6 +95,7 @@
 			this.groupBox_hashRateRecord.SuspendLayout();
 			this.groupBox_timeMined.SuspendLayout();
 			this.groupBox_totalHashes.SuspendLayout();
+			this.groupBox_recordSharesInOneSession.SuspendLayout();
 			this.groupBox_calculator.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_hashRate)).BeginInit();
 			this.panel_earnings.SuspendLayout();
@@ -91,6 +104,7 @@
 			this.panel_weeklyEarnings.SuspendLayout();
 			this.panel_monthlyEarnings.SuspendLayout();
 			this.panel_yearlyEarnings.SuspendLayout();
+			this.groupBox_longestTimeMining.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel_background
@@ -102,24 +116,19 @@
 			this.panel_background.Controls.Add(this.groupBox_averageHashRate);
 			this.panel_background.Controls.Add(this.groupBox_hashRateRecord);
 			this.panel_background.Controls.Add(this.groupBox_timeMined);
+			this.panel_background.Controls.Add(this.groupBox_longestTimeMining);
+			this.panel_background.Controls.Add(this.groupBox_recordSharesInOneSession);
 			this.panel_background.Controls.Add(this.groupBox_totalHashes);
 			this.panel_background.Controls.Add(this.groupBox_calculator);
+			this.panel_background.Controls.Add(this.label_height);
+			this.panel_background.Controls.Add(this.label_difficulty);
+			this.panel_background.Controls.Add(this.label_pendingXmr);
+			this.panel_background.Controls.Add(this.button_close);
 			this.panel_background.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel_background.Location = new System.Drawing.Point(0, 0);
 			this.panel_background.Name = "panel_background";
-			this.panel_background.Size = new System.Drawing.Size(524, 432);
+			this.panel_background.Size = new System.Drawing.Size(524, 579);
 			this.panel_background.TabIndex = 1;
-			// 
-			// titleBar
-			// 
-			this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-			this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
-			this.titleBar.Location = new System.Drawing.Point(0, 0);
-			this.titleBar.Name = "titleBar";
-			this.titleBar.ShowMinimizeButton = false;
-			this.titleBar.Size = new System.Drawing.Size(522, 22);
-			this.titleBar.TabIndex = 16;
-			this.titleBar.TitleExtension = "Options";
 			// 
 			// groupBox_totalShares
 			// 
@@ -252,14 +261,14 @@
 			// 
 			// label_hashRateRecordInfo
 			// 
-			this.label_hashRateRecordInfo.AutoSize = true;
 			this.label_hashRateRecordInfo.Font = new System.Drawing.Font("Roboto", 8.25F);
 			this.label_hashRateRecordInfo.ForeColor = System.Drawing.Color.Snow;
-			this.label_hashRateRecordInfo.Location = new System.Drawing.Point(88, 53);
+			this.label_hashRateRecordInfo.Location = new System.Drawing.Point(6, 53);
 			this.label_hashRateRecordInfo.Name = "label_hashRateRecordInfo";
-			this.label_hashRateRecordInfo.Size = new System.Drawing.Size(64, 13);
+			this.label_hashRateRecordInfo.Size = new System.Drawing.Size(228, 13);
 			this.label_hashRateRecordInfo.TabIndex = 17;
 			this.label_hashRateRecordInfo.Text = "Record H/s";
+			this.label_hashRateRecordInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// groupBox_timeMined
 			// 
@@ -302,7 +311,7 @@
 			this.groupBox_totalHashes.Controls.Add(this.label_totalHashesInfo);
 			this.groupBox_totalHashes.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold);
 			this.groupBox_totalHashes.ForeColor = System.Drawing.Color.Snow;
-			this.groupBox_totalHashes.Location = new System.Drawing.Point(270, 200);
+			this.groupBox_totalHashes.Location = new System.Drawing.Point(270, 286);
 			this.groupBox_totalHashes.Name = "groupBox_totalHashes";
 			this.groupBox_totalHashes.Size = new System.Drawing.Size(240, 80);
 			this.groupBox_totalHashes.TabIndex = 25;
@@ -331,6 +340,65 @@
 			this.label_totalHashesInfo.TabIndex = 17;
 			this.label_totalHashesInfo.Text = "Total Hashes";
 			// 
+			// groupBox_recordSharesInOneSession
+			// 
+			this.groupBox_recordSharesInOneSession.Controls.Add(this.label_recordValidSharesInOneSession);
+			this.groupBox_recordSharesInOneSession.Controls.Add(this.label_recordValidSharesInOneSessionInfo);
+			this.groupBox_recordSharesInOneSession.Controls.Add(this.label_recordInvalidSharesInOneSession);
+			this.groupBox_recordSharesInOneSession.Controls.Add(this.label_recordInvalidSharesInOneSessionInfo);
+			this.groupBox_recordSharesInOneSession.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold);
+			this.groupBox_recordSharesInOneSession.ForeColor = System.Drawing.Color.Snow;
+			this.groupBox_recordSharesInOneSession.Location = new System.Drawing.Point(12, 286);
+			this.groupBox_recordSharesInOneSession.Name = "groupBox_recordSharesInOneSession";
+			this.groupBox_recordSharesInOneSession.Size = new System.Drawing.Size(240, 80);
+			this.groupBox_recordSharesInOneSession.TabIndex = 25;
+			this.groupBox_recordSharesInOneSession.TabStop = false;
+			this.groupBox_recordSharesInOneSession.Text = "Record shares got in one session";
+			// 
+			// label_recordValidSharesInOneSession
+			// 
+			this.label_recordValidSharesInOneSession.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_recordValidSharesInOneSession.ForeColor = System.Drawing.Color.Snow;
+			this.label_recordValidSharesInOneSession.Location = new System.Drawing.Point(6, 19);
+			this.label_recordValidSharesInOneSession.Name = "label_recordValidSharesInOneSession";
+			this.label_recordValidSharesInOneSession.Size = new System.Drawing.Size(112, 34);
+			this.label_recordValidSharesInOneSession.TabIndex = 20;
+			this.label_recordValidSharesInOneSession.Text = "0";
+			this.label_recordValidSharesInOneSession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label_recordValidSharesInOneSessionInfo
+			// 
+			this.label_recordValidSharesInOneSessionInfo.Font = new System.Drawing.Font("Roboto", 8.25F);
+			this.label_recordValidSharesInOneSessionInfo.ForeColor = System.Drawing.Color.Snow;
+			this.label_recordValidSharesInOneSessionInfo.Location = new System.Drawing.Point(6, 53);
+			this.label_recordValidSharesInOneSessionInfo.Name = "label_recordValidSharesInOneSessionInfo";
+			this.label_recordValidSharesInOneSessionInfo.Size = new System.Drawing.Size(112, 13);
+			this.label_recordValidSharesInOneSessionInfo.TabIndex = 17;
+			this.label_recordValidSharesInOneSessionInfo.Text = "Valid";
+			this.label_recordValidSharesInOneSessionInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label_recordInvalidSharesInOneSession
+			// 
+			this.label_recordInvalidSharesInOneSession.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_recordInvalidSharesInOneSession.ForeColor = System.Drawing.Color.Snow;
+			this.label_recordInvalidSharesInOneSession.Location = new System.Drawing.Point(122, 19);
+			this.label_recordInvalidSharesInOneSession.Name = "label_recordInvalidSharesInOneSession";
+			this.label_recordInvalidSharesInOneSession.Size = new System.Drawing.Size(112, 34);
+			this.label_recordInvalidSharesInOneSession.TabIndex = 21;
+			this.label_recordInvalidSharesInOneSession.Text = "0";
+			this.label_recordInvalidSharesInOneSession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label_recordInvalidSharesInOneSessionInfo
+			// 
+			this.label_recordInvalidSharesInOneSessionInfo.Font = new System.Drawing.Font("Roboto", 8.25F);
+			this.label_recordInvalidSharesInOneSessionInfo.ForeColor = System.Drawing.Color.Snow;
+			this.label_recordInvalidSharesInOneSessionInfo.Location = new System.Drawing.Point(122, 53);
+			this.label_recordInvalidSharesInOneSessionInfo.Name = "label_recordInvalidSharesInOneSessionInfo";
+			this.label_recordInvalidSharesInOneSessionInfo.Size = new System.Drawing.Size(112, 13);
+			this.label_recordInvalidSharesInOneSessionInfo.TabIndex = 22;
+			this.label_recordInvalidSharesInOneSessionInfo.Text = "Invalid";
+			this.label_recordInvalidSharesInOneSessionInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// groupBox_calculator
 			// 
 			this.groupBox_calculator.Controls.Add(this.label_earningsHashRate);
@@ -344,7 +412,7 @@
 			this.groupBox_calculator.Controls.Add(this.panel_earnings);
 			this.groupBox_calculator.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold);
 			this.groupBox_calculator.ForeColor = System.Drawing.Color.Snow;
-			this.groupBox_calculator.Location = new System.Drawing.Point(12, 286);
+			this.groupBox_calculator.Location = new System.Drawing.Point(12, 384);
 			this.groupBox_calculator.Name = "groupBox_calculator";
 			this.groupBox_calculator.Size = new System.Drawing.Size(499, 134);
 			this.groupBox_calculator.TabIndex = 25;
@@ -644,18 +712,114 @@
 			this.label_yearlyInfo.TabIndex = 29;
 			this.label_yearlyInfo.Text = "XMR/year";
 			// 
+			// button_close
+			// 
+			this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button_close.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button_close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
+			this.button_close.Location = new System.Drawing.Point(430, 541);
+			this.button_close.Margin = new System.Windows.Forms.Padding(0);
+			this.button_close.Name = "button_close";
+			this.button_close.Size = new System.Drawing.Size(81, 28);
+			this.button_close.TabIndex = 27;
+			this.button_close.Text = "CLOSE";
+			this.button_close.UseVisualStyleBackColor = true;
+			this.button_close.Click += new System.EventHandler(this.button_close_Click);
+			// 
 			// timer_refresh
 			// 
 			this.timer_refresh.Enabled = true;
 			this.timer_refresh.Interval = 1000;
 			this.timer_refresh.Tick += new System.EventHandler(this.RefreshStatistics);
 			// 
+			// groupBox_longestTimeMining
+			// 
+			this.groupBox_longestTimeMining.Controls.Add(this.label_longestTimeMining);
+			this.groupBox_longestTimeMining.Controls.Add(this.label_longestTimeMiningInfo);
+			this.groupBox_longestTimeMining.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold);
+			this.groupBox_longestTimeMining.ForeColor = System.Drawing.Color.Snow;
+			this.groupBox_longestTimeMining.Location = new System.Drawing.Point(270, 200);
+			this.groupBox_longestTimeMining.Name = "groupBox_longestTimeMining";
+			this.groupBox_longestTimeMining.Size = new System.Drawing.Size(240, 80);
+			this.groupBox_longestTimeMining.TabIndex = 25;
+			this.groupBox_longestTimeMining.TabStop = false;
+			this.groupBox_longestTimeMining.Text = "Longest time spent mining";
+			// 
+			// label_longestTimeMining
+			// 
+			this.label_longestTimeMining.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_longestTimeMining.ForeColor = System.Drawing.Color.Snow;
+			this.label_longestTimeMining.Location = new System.Drawing.Point(6, 19);
+			this.label_longestTimeMining.Name = "label_longestTimeMining";
+			this.label_longestTimeMining.Size = new System.Drawing.Size(228, 34);
+			this.label_longestTimeMining.TabIndex = 20;
+			this.label_longestTimeMining.Text = "000 - 00:00:00";
+			this.label_longestTimeMining.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label_longestTimeMiningInfo
+			// 
+			this.label_longestTimeMiningInfo.AutoSize = true;
+			this.label_longestTimeMiningInfo.Font = new System.Drawing.Font("Roboto", 8.25F);
+			this.label_longestTimeMiningInfo.ForeColor = System.Drawing.Color.Snow;
+			this.label_longestTimeMiningInfo.Location = new System.Drawing.Point(34, 53);
+			this.label_longestTimeMiningInfo.Name = "label_longestTimeMiningInfo";
+			this.label_longestTimeMiningInfo.Size = new System.Drawing.Size(172, 13);
+			this.label_longestTimeMiningInfo.TabIndex = 17;
+			this.label_longestTimeMiningInfo.Text = "Days - Hours : Minutes : Seconds";
+			// 
+			// label_pendingXmr
+			// 
+			this.label_pendingXmr.AutoEllipsis = true;
+			this.label_pendingXmr.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_pendingXmr.ForeColor = System.Drawing.Color.Snow;
+			this.label_pendingXmr.Location = new System.Drawing.Point(8, 550);
+			this.label_pendingXmr.Name = "label_pendingXmr";
+			this.label_pendingXmr.Size = new System.Drawing.Size(384, 19);
+			this.label_pendingXmr.TabIndex = 26;
+			this.label_pendingXmr.Text = "Pending XMR: 0.00000000 XMR";
+			this.label_pendingXmr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label_height
+			// 
+			this.label_height.AutoEllipsis = true;
+			this.label_height.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_height.ForeColor = System.Drawing.Color.Snow;
+			this.label_height.Location = new System.Drawing.Point(8, 526);
+			this.label_height.Name = "label_height";
+			this.label_height.Size = new System.Drawing.Size(154, 19);
+			this.label_height.TabIndex = 28;
+			this.label_height.Text = "Height: 0";
+			this.label_height.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label_difficulty
+			// 
+			this.label_difficulty.AutoEllipsis = true;
+			this.label_difficulty.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_difficulty.ForeColor = System.Drawing.Color.Snow;
+			this.label_difficulty.Location = new System.Drawing.Point(168, 526);
+			this.label_difficulty.Name = "label_difficulty";
+			this.label_difficulty.Size = new System.Drawing.Size(238, 19);
+			this.label_difficulty.TabIndex = 29;
+			this.label_difficulty.Text = "Difficulty: 0";
+			this.label_difficulty.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// titleBar
+			// 
+			this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+			this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.titleBar.Location = new System.Drawing.Point(0, 0);
+			this.titleBar.Name = "titleBar";
+			this.titleBar.ShowMinimizeButton = false;
+			this.titleBar.Size = new System.Drawing.Size(522, 22);
+			this.titleBar.TabIndex = 16;
+			this.titleBar.TitleExtension = "Options";
+			// 
 			// Statistics
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-			this.ClientSize = new System.Drawing.Size(524, 432);
+			this.ClientSize = new System.Drawing.Size(524, 579);
 			this.Controls.Add(this.panel_background);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -673,11 +837,11 @@
 			this.groupBox_averageHashRate.ResumeLayout(false);
 			this.groupBox_averageHashRate.PerformLayout();
 			this.groupBox_hashRateRecord.ResumeLayout(false);
-			this.groupBox_hashRateRecord.PerformLayout();
 			this.groupBox_timeMined.ResumeLayout(false);
 			this.groupBox_timeMined.PerformLayout();
 			this.groupBox_totalHashes.ResumeLayout(false);
 			this.groupBox_totalHashes.PerformLayout();
+			this.groupBox_recordSharesInOneSession.ResumeLayout(false);
 			this.groupBox_calculator.ResumeLayout(false);
 			this.groupBox_calculator.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_hashRate)).EndInit();
@@ -692,6 +856,8 @@
 			this.panel_monthlyEarnings.PerformLayout();
 			this.panel_yearlyEarnings.ResumeLayout(false);
 			this.panel_yearlyEarnings.PerformLayout();
+			this.groupBox_longestTimeMining.ResumeLayout(false);
+			this.groupBox_longestTimeMining.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -744,5 +910,17 @@
 		private System.Windows.Forms.Label label_monthlyInfo;
 		private System.Windows.Forms.Label label_yearlyInfo;
 		private System.Windows.Forms.NumericUpDown numeric_hashRate;
+		private System.Windows.Forms.GroupBox groupBox_recordSharesInOneSession;
+		private System.Windows.Forms.Label label_recordValidSharesInOneSession;
+		private System.Windows.Forms.Label label_recordValidSharesInOneSessionInfo;
+		private System.Windows.Forms.Button button_close;
+		private System.Windows.Forms.Label label_recordInvalidSharesInOneSessionInfo;
+		private System.Windows.Forms.Label label_recordInvalidSharesInOneSession;
+		private System.Windows.Forms.GroupBox groupBox_longestTimeMining;
+		private System.Windows.Forms.Label label_longestTimeMining;
+		private System.Windows.Forms.Label label_longestTimeMiningInfo;
+		private System.Windows.Forms.Label label_pendingXmr;
+		private System.Windows.Forms.Label label_height;
+		private System.Windows.Forms.Label label_difficulty;
 	}
 }
