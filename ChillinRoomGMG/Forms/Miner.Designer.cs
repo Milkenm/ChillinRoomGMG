@@ -159,7 +159,7 @@
 			this.label_hashRate.Name = "label_hashRate";
 			this.label_hashRate.Size = new System.Drawing.Size(228, 34);
 			this.label_hashRate.TabIndex = 19;
-			this.label_hashRate.Text = "-.- H/s";
+			this.label_hashRate.Text = "- H/s";
 			this.label_hashRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label_maxHashRate
@@ -170,7 +170,7 @@
 			this.label_maxHashRate.Name = "label_maxHashRate";
 			this.label_maxHashRate.Size = new System.Drawing.Size(228, 12);
 			this.label_maxHashRate.TabIndex = 19;
-			this.label_maxHashRate.Text = "Session record : -.- H/s";
+			this.label_maxHashRate.Text = "Session record: - H/s";
 			this.label_maxHashRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// groupBox_shares
@@ -195,7 +195,7 @@
 			this.label_lastValid.Name = "label_lastValid";
 			this.label_lastValid.Size = new System.Drawing.Size(228, 12);
 			this.label_lastValid.TabIndex = 20;
-			this.label_lastValid.Text = "Last valid : - s ago";
+			this.label_lastValid.Text = "Last valid: - s ago";
 			this.label_lastValid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label_shares

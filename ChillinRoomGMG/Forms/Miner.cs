@@ -176,8 +176,8 @@ namespace ChillinRoomGMG.Forms
 
 					Invoke(new Action(() =>
 					{
-						label_hashRate.Text = ThousandsSeparator(hashRates[0]) + " H/s";
-						label_maxHashRate.Text = "Max : " + ThousandsSeparator(hashRates[3]) + " H/s";
+						label_hashRate.Text = ThousandsSeparator(hashRates[0].Split(',', '.')[0]) + " H/s";
+						label_maxHashRate.Text = "Session record: " + ThousandsSeparator(hashRates[3].Split(',', '.')[0]) + " H/s";
 					}));
 				}
 			}
@@ -320,7 +320,7 @@ namespace ChillinRoomGMG.Forms
 
 		private void SetLastShareText(int seconds)
 		{
-			label_lastValid.Text = $"Last valid : {seconds} s ago";
+			label_lastValid.Text = $"Last valid: {seconds} s ago";
 		}
 
 		private void button_mine_Click(object sender, EventArgs e)
@@ -360,7 +360,7 @@ namespace ChillinRoomGMG.Forms
 				button_mine.Text = "START MINING";
 				button_mine.BackColor = Color.FromArgb(74, 57, 63);
 				timer_miningTimeCounter.Stop();
-				label_hashRate.Text = "-.- H/s";
+				label_hashRate.Text = "- H/s";
 
 				listBox_log.ForeColor = Color.DimGray;
 
