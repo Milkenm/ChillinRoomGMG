@@ -7,12 +7,11 @@
 <br>
 <br>
 ## Stuff
-* **Miner**: XMRig
+* **Embedded Miner**: XMRig (tested with 5.9.0)
 * **Pool**: SupportXMR (pool.supportxmr.com:443)
-* **Performance**: Idk, but I get more hash rate, don't ask me how
 <br/>
 
 * **Random features:**
   * **Auto-mining**: start mining after *x* seconds/minutes/hours of user inactivity
-  * **Statistics**: total valid and invalid shares, record hash rate and total mined time
+  * **Statistics**: total valid and invalid shares, record hash rate, total mined time, ...
   * **Desktop notifications**: notifications when auto-mining starts/stops and after *x* valid/invalid shares
