@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chillin'Room GMG", "ChillinRoomGMG\Chillin'Room GMG.csproj", "{4B2FF0B8-3B12-4107-BE7B-2620F53F78AC}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Gmg Setup", "GmgSetup\GmgSetup.vdproj", "{4C041570-940C-4157-A1E6-B57371F5BCF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMG WPF", "GMG WPF\GMG WPF.csproj", "{848E6D01-C3A0-4411-B88A-FC4F2D0E92B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMG Core", "GMG Core\GMG Core.csproj", "{09DA6D15-604E-4D70-AE6B-B9E8F5302AC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{848E6D01-C3A0-4411-B88A-FC4F2D0E92B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{848E6D01-C3A0-4411-B88A-FC4F2D0E92B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{848E6D01-C3A0-4411-B88A-FC4F2D0E92B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09DA6D15-604E-4D70-AE6B-B9E8F5302AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09DA6D15-604E-4D70-AE6B-B9E8F5302AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09DA6D15-604E-4D70-AE6B-B9E8F5302AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09DA6D15-604E-4D70-AE6B-B9E8F5302AC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

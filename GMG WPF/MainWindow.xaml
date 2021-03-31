@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GMG_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="GMG Miner" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" StateChanged="Window_StateChanged" Icon="Resources/ChillinRoom_PNG.png" Closing="Window_Closing">
+	<Window.Background>
+		<ImageBrush ImageSource="Resources/Background.png" Stretch="UniformToFill"/>
+	</Window.Background>
+	<Grid Height="246" Width="384">
+		<TextBlock Name="textBlock_statisticsLink" Text="Statistics" MouseLeftButtonDown="textBlock_statisticsLink_MouseLeftButtonDown" Foreground="#33BBBBBB" FontFamily="Arial" Margin="10,26,333,208" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline"/>
+		<TextBlock Name="textBlock_calculatorLink" Text="Calculator" MouseLeftButtonDown="textBlock_calculatorLink_MouseLeftButtonDown" Foreground="#33BBBBBB" FontFamily="Arial" Margin="10,10,329,224" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline"/>
+		<TextBlock Name="textBlock_settingsLink" Text="Options" MouseLeftButtonDown="textBlock_settingsLink_MouseLeftButtonDown" Foreground="#33BBBBBB" FontFamily="Arial" Margin="10,43,339,191" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline"/>
+		<ProgressBar Name="progressBar_mining" HorizontalAlignment="Left" Height="3" Margin="86,0,0,0" VerticalAlignment="Top" Width="211"/>
+		<Rectangle HorizontalAlignment="Center" Height="197" Margin="86.5,-135,86.5,0" VerticalAlignment="Top" Width="211" RadiusY="9.94" RadiusX="9.94">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFBDBDBD" Offset="0"/>
+					<GradientStop Color="#262E2E2E" Offset="1"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+		<TextBlock Name="textBlock_hashrate" Text="0 H/s" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" Margin="86,17,86,187" Width="212" Height="42" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+		<Canvas HorizontalAlignment="Left" Height="76" Margin="10,75,0,0" VerticalAlignment="Top" Width="364" Background="#19383838">
+			<Grid Width="330" Height="15" Grid.Column="2" Canvas.Left="15" Canvas.Top="46">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+					<TextBlock Name="textBlock_xmrEarnings" Text="Pending Balance: 0.000000000000 XMR" Canvas.Left="15" Canvas.Top="45" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+					<TextBlock Name="textBlock_withdrawLink" Text="Withdraw" MouseLeftButtonDown="textBlock_withdrawLink_MouseLeftButtonDown" Foreground="DarkOliveGreen" FontFamily="Arial" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline" Canvas.Left="277" Canvas.Top="47" Margin="10,0,0,0"/>
+				</StackPanel>
+			</Grid>
+			<Grid HorizontalAlignment="Left" Height="14" Canvas.Left="15" Width="172" Canvas.Top="15">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+					<TextBlock Name="textBlock_validShares" Text="Valid Shares: 0" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+					<TextBlock Text="(" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="5,-1,0,0"/>
+					<TextBlock Name="textBlock_totalValidShares" Text="0" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+					<TextBlock Text=")" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="0,-1,0,0"/>
+				</StackPanel>
+			</Grid>
+			<Grid HorizontalAlignment="Left" Height="14" Canvas.Left="187" Width="172" Canvas.Top="15">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+					<TextBlock Name="textBlock_invalidShares" Text="Invalid Shares: 0" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+					<TextBlock Text="(" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="5,-1,0,0"/>
+					<TextBlock Name="textBlock_totalInvalidShares" Text="0" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+					<TextBlock Text=")" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="0,-1,0,0"/>
+				</StackPanel>
+			</Grid>
+		</Canvas>
+		<Button Name="button_mine" Content="Mine" Margin="127,200,126,10" Background="#3FDDDDDD" Foreground="#FFC7C7C7" BorderBrush="#19383838" FontFamily="Arial" Click="Button_Click"/>
+		<TextBlock Name="textBlock_minerState" Text="Stopped" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="15,223,257,1" FontSize="11"/>
+	</Grid>
 </Window>

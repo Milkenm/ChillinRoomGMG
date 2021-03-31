@@ -26,12 +26,12 @@ namespace ChillinRoomGMG.Forms
 
 		public Statistics()
 		{
-			InitializeComponent();
+			this.InitializeComponent();
 		}
 
 		private void Statistics_Load(object sender, EventArgs e)
 		{
-			RefreshStatistics(null, null);
+			this.RefreshStatistics(null, null);
 
 			comboBox_hashRates.SelectedIndex = 0;
 
@@ -42,12 +42,12 @@ namespace ChillinRoomGMG.Forms
 				moneroInfo = JsonConvert.DeserializeObject<MoneroInfo>(GET("https://moneroblocks.info/api/get_stats"));
 				WalletInfo walletInfo = JsonConvert.DeserializeObject<WalletInfo>(GET($"https://supportxmr.com/api/miner/{settings.WalletAddress}/stats/"));
 
-				Invoke(new Action(() =>
+				this.Invoke(new Action(() =>
 				{
-					label_totalHashes.Text = (minerStats.totalHash != null ? AbbreviateNumber(Convert.ToSingle(minerStats.totalHash), false, true) : "0") + "H";
+					label_totalHashes.Text = (minerStats.totalHash != null ? this.AbbreviateNumber(Convert.ToSingle(minerStats.totalHash), false, true) : "0") + "H";
 
-					string poolValidShares = minerStats.validShares != null ? AbbreviateNumber(Convert.ToSingle(minerStats.validShares)) : "0";
-					string poolInvalidShares = minerStats.invalidShares != null ? AbbreviateNumber(Convert.ToSingle(minerStats.invalidShares)) : "0";
+					string poolValidShares = minerStats.validShares != null ? this.AbbreviateNumber(Convert.ToSingle(minerStats.validShares)) : "0";
+					string poolInvalidShares = minerStats.invalidShares != null ? this.AbbreviateNumber(Convert.ToSingle(minerStats.invalidShares)) : "0";
 					label_totalPoolShares.Text = poolValidShares + " / " + poolInvalidShares;
 
 					if (workersStats.global.Count > 0)
@@ -60,7 +60,7 @@ namespace ChillinRoomGMG.Forms
 
 						float averageHashRate = hashSum / workersStats.global.Count;
 
-						label_averageHashRate.Text = AbbreviateNumber(averageHashRate, addSpaceAtEndIfNotRounded: true) + "H/s";
+						label_averageHashRate.Text = this.AbbreviateNumber(averageHashRate, addSpaceAtEndIfNotRounded: true) + "H/s";
 
 						int index = 0;
 						while (averageHashRate / 1000 >= 1)
@@ -113,29 +113,29 @@ namespace ChillinRoomGMG.Forms
 
 		private void RefreshStatistics(object sender, EventArgs e)
 		{
-			label_totalShares.Text = $"{AbbreviateNumber(minerForm.totalValidShares)} / {AbbreviateNumber(minerForm.totalInvalidShares)}";
-			label_hashRateRecord.Text = AbbreviateNumber(Convert.ToSingle(minerForm.recordHashRate)) + "H/s";
-			if (minerForm.recordHashRateDate != default(DateTime))
+			label_totalShares.Text = $"{this.AbbreviateNumber(minerForm.totalValidShares)} / {this.AbbreviateNumber(minerForm.totalInvalidShares)}";
+			label_hashRateRecord.Text = this.AbbreviateNumber(Convert.ToSingle(minerForm.recordHashRate)) + "H/s";
+			if (minerForm.recordHashRateDate != default)
 			{
 				DateTime recordDate = minerForm.recordHashRateDate;
-				label_hashRateRecordInfo.Text = $"Record H/s (set on: {FormatDate(recordDate)})";
+				label_hashRateRecordInfo.Text = $"Record H/s (set on: {this.FormatDate(recordDate)})";
 			}
 
-			FormatTimeLabel(label_timeMined, minerForm.totalMinedSeconds);
-			FormatTimeLabel(label_longestTimeMining, minerForm.longestTimeMining);
+			this.FormatTimeLabel(label_timeMined, minerForm.totalMinedSeconds);
+			this.FormatTimeLabel(label_longestTimeMining, minerForm.longestTimeMining);
 
-			label_recordValidSharesInOneSession.Text = AbbreviateNumber(Convert.ToSingle(minerForm.sessionValidSharesRecord));
-			label_recordInvalidSharesInOneSession.Text = AbbreviateNumber(Convert.ToSingle(minerForm.sessionInvalidSharesRecord));
+			label_recordValidSharesInOneSession.Text = this.AbbreviateNumber(Convert.ToSingle(minerForm.sessionValidSharesRecord));
+			label_recordInvalidSharesInOneSession.Text = this.AbbreviateNumber(Convert.ToSingle(minerForm.sessionInvalidSharesRecord));
 
-			if (minerForm.sessionValidSharesRecordDate != default(DateTime))
+			if (minerForm.sessionValidSharesRecordDate != default)
 			{
 				DateTime recordDate = minerForm.sessionValidSharesRecordDate;
-				label_recordValidSharesInOneSessionInfo.Text = $"Valid ({FormatDate(recordDate)})";
+				label_recordValidSharesInOneSessionInfo.Text = $"Valid ({this.FormatDate(recordDate)})";
 			}
-			if (minerForm.sessionInvalidSharesRecordDate != default(DateTime))
+			if (minerForm.sessionInvalidSharesRecordDate != default)
 			{
 				DateTime recordDate = minerForm.sessionInvalidSharesRecordDate;
-				label_recordInvalidSharesInOneSessionInfo.Text = $"Invalid ({FormatDate(recordDate)})";
+				label_recordInvalidSharesInOneSessionInfo.Text = $"Invalid ({this.FormatDate(recordDate)})";
 			}
 		}
 
@@ -146,7 +146,7 @@ namespace ChillinRoomGMG.Forms
 			long minutes = (totalSeconds / 60) - ((hours + (days * 24)) * 60);
 			long seconds = totalSeconds - ((minutes + ((hours + (days * 24)) * 60)) * 60);
 
-			label.Text = $"{days.ToString("000")} - {hours.ToString("00")}:{minutes.ToString("00")}:{seconds.ToString("00")}";
+			label.Text = $"{days:000} - {hours:00}:{minutes:00}:{seconds:00}";
 		}
 
 		private string FormatDate(DateTime date)
@@ -169,7 +169,7 @@ namespace ChillinRoomGMG.Forms
 				float minerHashRate = (float)numeric_hashRate.Value * (float)Math.Pow(10, comboBox_hashRates.SelectedIndex * 3);
 				float netHashRate = (float)Math.Round(moneroInfo.hashrate, 0);
 
-				float hourlyEarnings = (30 * latestBlockReward / pow * minerHashRate) / netHashRate;
+				float hourlyEarnings = 30 * latestBlockReward / pow * minerHashRate / netHashRate;
 				float dailyEarnings = hourlyEarnings * 24;
 				float weeklyEarnings = dailyEarnings * 7;
 				float monthlyEarnings = dailyEarnings * 30;
@@ -180,7 +180,7 @@ namespace ChillinRoomGMG.Forms
 
 				for (int i = 0; i < labels.Length; i++)
 				{
-					labels[i].Text = Math.Truncate(vars[i]) >= 10 ? AbbreviateNumber(vars[i]) : vars[i].ToString("F7");
+					labels[i].Text = Math.Truncate(vars[i]) >= 10 ? this.AbbreviateNumber(vars[i]) : vars[i].ToString("F7");
 				}
 			}
 		}
@@ -220,7 +220,7 @@ namespace ChillinRoomGMG.Forms
 
 		private void button_close_Click(object sender, EventArgs e)
 		{
-			Close();
+			this.Close();
 		}
 	}
 }

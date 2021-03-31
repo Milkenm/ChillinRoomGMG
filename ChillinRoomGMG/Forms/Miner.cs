@@ -37,7 +37,7 @@ namespace ChillinRoomGMG.Forms
 		// INITIALIZE
 		public Miner()
 		{
-			InitializeComponent();
+			this.InitializeComponent();
 		}
 
 		// LOAD THE MINER AND DISCORD ID LABEL
@@ -57,17 +57,17 @@ namespace ChillinRoomGMG.Forms
 				}
 			}
 
-			xmrig.ValidShare += () => UpdateShares(true);
-			xmrig.InvalidShare += () => UpdateShares(false);
-			xmrig.LoggedLine += Xmrig_LoggedLine;
+			xmrig.ValidShare += () => this.UpdateShares(true);
+			xmrig.InvalidShare += () => this.UpdateShares(false);
+			xmrig.LoggedLine += this.Xmrig_LoggedLine;
 
-			InitClickEvent(Controls);
+			this.InitClickEvent(this.Controls);
 
 			inactivity = new InputInactivity();
-			inactivity.InactivityTimeReached += Inactivity_InactivityTimeReached;
-			inactivity.InputReceived += Inactivity_InputReceived;
+			inactivity.InactivityTimeReached += this.Inactivity_InactivityTimeReached;
+			inactivity.InputReceived += this.Inactivity_InputReceived;
 
-			LoadConfig();
+			this.LoadConfig();
 		}
 
 		internal string GetCurrenyString()
@@ -79,14 +79,17 @@ namespace ChillinRoomGMG.Forms
 		{
 			new Task(new Action(() =>
 			{
-				string request = GET("https://api.cryptonator.com/api/ticker/xmr-" + GetCurrenyString().ToLower());
+				string request = GET("https://api.cryptonator.com/api/ticker/xmr-" + this.GetCurrenyString().ToLower());
 				XmrRequest response = JsonConvert.DeserializeObject<XmrRequest>(request);
 
 				if (response != latestXmrRequest)
 				{
 					latestXmrRequest = response;
 
-					Invoke(new Action(() => label_xmrValue.Refresh()));
+					this.Invoke(new Action(() =>
+					{
+						label_xmrValue.Refresh();
+					}));
 				}
 			})).Start();
 		}
@@ -108,7 +111,7 @@ namespace ChillinRoomGMG.Forms
 
 		public void LoadConfig()
 		{
-			RefreshXmrValue();
+			this.RefreshXmrValue();
 
 			if (settings.WalletAddress == null)
 			{
@@ -174,7 +177,7 @@ namespace ChillinRoomGMG.Forms
 						recordHashRateDate = DateTime.Now;
 					}
 
-					Invoke(new Action(() =>
+					this.Invoke(new Action(() =>
 					{
 						label_hashRate.Text = ThousandsSeparator(hashRates[0].Split(',', '.')[0]) + " H/s";
 						label_maxHashRate.Text = "Session record: " + ThousandsSeparator(hashRates[3].Split(',', '.')[0]) + " H/s";
@@ -183,7 +186,7 @@ namespace ChillinRoomGMG.Forms
 			}
 			else if (!(line.Contains("configuration") || line.Contains("resumed") || line.Contains("paused")))
 			{
-				Invoke(new Action(() =>
+				this.Invoke(new Action(() =>
 				{
 					listBox_log.Items.Add(line);
 
@@ -205,9 +208,9 @@ namespace ChillinRoomGMG.Forms
 
 				latestValidShareTime = 0;
 
-				Invoke(new Action(() =>
+				this.Invoke(new Action(() =>
 				{
-					SetLastShareText(0);
+					this.SetLastShareText(0);
 
 					if (timer_refreshLatestShareTimer.Enabled)
 					{
@@ -222,7 +225,7 @@ namespace ChillinRoomGMG.Forms
 					sessionValidSharesRecordDate = DateTime.Now;
 				}
 
-				if (settings.NotificationValidShare && SendNotification() && validShares % settings.ValidShareNotificationCount == 0)
+				if (settings.NotificationValidShare && this.SendNotification() && validShares % settings.ValidShareNotificationCount == 0)
 				{
 					trayIcon.ShowBalloonTip(0, $"Valid share [x{settings.ValidShareNotificationCount}]", $"Total: {validShares} valid shares", ToolTipIcon.Info);
 				}
@@ -238,23 +241,13 @@ namespace ChillinRoomGMG.Forms
 					sessionInvalidSharesRecordDate = DateTime.Now;
 				}
 
-				if (settings.NotificationInvalidShare && SendNotification() && invalidShares % settings.InvalidShareNotificationCount == 0)
+				if (settings.NotificationInvalidShare && this.SendNotification() && invalidShares % settings.InvalidShareNotificationCount == 0)
 				{
 					trayIcon.ShowBalloonTip(0, $"Invalid share [x{settings.InvalidShareNotificationCount}]", $"Total: { invalidShares} invalid shares", ToolTipIcon.Info);
 				}
 			}
 
-			Invoke(new Action(() => label_shares.Text = $"{ThousandsSeparator(validShares)} / {ThousandsSeparator(invalidShares)}"));
-		}
-
-		private void Xmrig_ValidShare()
-		{
-			MessageBox.Show("valid share");
-		}
-
-		private void Xmrig_InvalidShare()
-		{
-			MessageBox.Show("invalid share");
+			this.Invoke(new Action(() => label_shares.Text = $"{ThousandsSeparator(validShares)} / {ThousandsSeparator(invalidShares)}"));
 		}
 
 		private void Inactivity_InactivityTimeReached()
@@ -265,9 +258,9 @@ namespace ChillinRoomGMG.Forms
 				button_mine.Text = "AUTO MINING";
 
 				inactivityEnabled = true;
-				Mine();
+				this.Mine();
 
-				if (settings.NotificationAutoStart && SendNotification())
+				if (settings.NotificationAutoStart && this.SendNotification())
 				{
 					trayIcon.ShowBalloonTip(0, "Automatic mining started.", "Automatic mining has started due to system inactivity.", ToolTipIcon.Info);
 				}
@@ -282,9 +275,9 @@ namespace ChillinRoomGMG.Forms
 				button_mine.Text = "START MINING";
 
 				inactivityEnabled = false;
-				Mine();
+				this.Mine();
 
-				if (settings.NotificationAutoStop && SendNotification())
+				if (settings.NotificationAutoStop && this.SendNotification())
 				{
 					trayIcon.ShowBalloonTip(0, "Mining stopped.", "Automatic mining has stopped.", ToolTipIcon.Info);
 				}
@@ -325,7 +318,7 @@ namespace ChillinRoomGMG.Forms
 
 		private void button_mine_Click(object sender, EventArgs e)
 		{
-			Mine();
+			this.Mine();
 		}
 
 		internal void Mine()
@@ -402,7 +395,7 @@ namespace ChillinRoomGMG.Forms
 					control.MouseClick += (sender, e) => listBox_log.ClearSelected();
 				}
 
-				InitClickEvent(control.Controls);
+				this.InitClickEvent(control.Controls);
 			}
 		}
 
@@ -412,7 +405,7 @@ namespace ChillinRoomGMG.Forms
 
 			if (settings.CloseToTray)
 			{
-				Hide();
+				this.Hide();
 			}
 			else
 			{
@@ -422,14 +415,14 @@ namespace ChillinRoomGMG.Forms
 
 		private bool SendNotification()
 		{
-			return !(ContainsFocus && settings.HideNotificationsWhileFocused);
+			return !(this.ContainsFocus && settings.HideNotificationsWhileFocused);
 		}
 
 		private void timer_refreshLatestShareTimer_Tick(object sender, EventArgs e)
 		{
 			latestValidShareTime++;
 
-			SetLastShareText(latestValidShareTime);
+			this.SetLastShareText(latestValidShareTime);
 		}
 
 		private long sessionMinedSeconds;
@@ -448,7 +441,7 @@ namespace ChillinRoomGMG.Forms
 
 		private void timer_save_Tick(object sender, EventArgs e)
 		{
-			SaveSettings();
+			this.SaveSettings();
 		}
 
 		internal void SaveSettings()
@@ -470,7 +463,7 @@ namespace ChillinRoomGMG.Forms
 
 		private void timer_refreshXmrPrice_Tick(object sender, EventArgs e)
 		{
-			RefreshXmrValue();
+			this.RefreshXmrValue();
 		}
 
 		private void label_xmrValue_Paint(object sender, PaintEventArgs e)
@@ -490,7 +483,7 @@ namespace ChillinRoomGMG.Forms
 					SolidBrush brush = new SolidBrush(Color.Snow);
 					SolidBrush changeBrush = new SolidBrush(!negative ? Color.Green : Color.Firebrick);
 
-					string print1 = $"XMR Value: {FixAfterDot(Math.Round(Convert.ToDouble(latestXmrRequest.ticker.price.Replace('.', ',')), 2).ToString().Replace(",", "."))} {GetCurrenyString()} (";
+					string print1 = $"XMR Value: {this.FixAfterDot(Math.Round(Convert.ToDouble(latestXmrRequest.ticker.price.Replace('.', ',')), 2).ToString().Replace(",", "."))} {this.GetCurrenyString()} (";
 
 					const int preLocFix = 2;
 					const int locFix = 16 - preLocFix;
@@ -499,7 +492,7 @@ namespace ChillinRoomGMG.Forms
 					float point3 = e.Graphics.MeasureString(print1 + changeString, font).Width - locFix;
 
 					e.Graphics.DrawString(print1, font, brush, preLocFix, 0);
-					e.Graphics.DrawString(FixAfterDot(changeString), font, changeBrush, point2, 0);
+					e.Graphics.DrawString(this.FixAfterDot(changeString), font, changeBrush, point2, 0);
 					e.Graphics.DrawString(")", font, brush, point3, 0);
 				}
 			}

@@ -1,0 +1,47 @@
+﻿<Window x:Class="GMG_WPF.CalculatorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GMG_WPF"
+        mc:Ignorable="d"
+        Title="Calculator" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="Resources/ChillinRoom_PNG.png" Loaded="Window_Loaded">
+	<Window.Background>
+		<ImageBrush ImageSource="/GMG WPF;component/Resources/Background.png" Stretch="UniformToFill" />
+	</Window.Background>
+	<Grid Width="303" Height="244">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="15"/>
+			<RowDefinition Height="35"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="30"/>
+			<ColumnDefinition Width="5"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="35"/>
+		</Grid.ColumnDefinitions>
+		<Label Content="Hashrate" Foreground="#FFBBBBBB" FontFamily="Arial" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" />
+		<TextBox MaxLength="6" Name="textBox_hashrate" HorizontalAlignment="Left" Height="24" Margin="0,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Background="#19FFFFFF" Foreground="White" Grid.Row="1" Grid.Column="2" Text="0" />
+		<Button Content="Close" Margin="180,8,0,0" Background="#3FDDDDDD" Foreground="#FFC7C7C7" BorderBrush="#19383838" FontFamily="Arial" Click="Button_Click" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" />
+		<TextBlock Text="XMR Earnings" Foreground="#FF555555" FontFamily="Arial" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="154" FontSize="10" Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" />
+		<TextBlock Name="textBlock_xmrEarnings" Text="0.000000000000 XMR" Foreground="#FFBBBBBB" FontFamily="Arial" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="154" Grid.Row="4" Grid.Column="2" FontSize="14" />
+		<ComboBox Name="comboBox_hashrates" SelectedIndex="0" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="70" Height="23">
+			<TextBlock Text="H/s"/>
+			<TextBlock Text="KH/s"/>
+			<TextBlock Text="MH/s"/>
+			<TextBlock Text="GH/s"/>
+		</ComboBox>
+		<ComboBox Name="comboBox_times" SelectedIndex="0" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="96" Margin="75,0,0,0" Height="23">
+			<TextBlock Text="per Hour"/>
+			<TextBlock Text="per Day"/>
+			<TextBlock Text="per Week"/>
+			<TextBlock Text="per Month"/>
+			<TextBlock Text="per Year"/>
+		</ComboBox>
+		<TextBlock Text="Reset" MouseLeftButtonDown="textBlock_resetLink_MouseLeftButtonDown" Foreground="#33BBBBBB" FontFamily="Arial" Margin="176,12,31,37" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline" Grid.Column="2" Grid.Row="2"/>
+	</Grid>
+</Window>

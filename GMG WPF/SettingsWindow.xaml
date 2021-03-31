@@ -1,0 +1,197 @@
+﻿<Window x:Class="GMG_WPF.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Settings" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="Resources/ChillinRoom_PNG.png">
+	<Window.Background>
+		<ImageBrush ImageSource="/GMG WPF;component/Resources/Background.png" Stretch="UniformToFill" />
+	</Window.Background>
+	<Grid Height="450" Width="800">
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<TabControl Name="tab_settings" HorizontalAlignment="Left" Width="800" Background="{x:Null}" Margin="0,2,0,46" BorderThickness="0,1,0,0" BorderBrush="#33ACACAC">
+			<TabItem Header="General" Width="60" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="30"/>
+						<ColumnDefinition Width="5"/>
+						<ColumnDefinition Width="345"/>
+						<ColumnDefinition Width="416"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="45"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="45"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="45"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<CheckBox Name="checkBox_mineOnStart" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="224" Grid.Row="1" Height="15" Grid.Column="2">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0" Text="Automatically start mining on open"/>
+					</CheckBox>
+					<CheckBox Name="checkBox_replacePauseWithStop" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="190" Grid.Row="2" Height="15" Grid.Column="2">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0" Text="Replace pause miner with stop miner"/>
+					</CheckBox>
+					<CheckBox Name="checkBox_closeToTray" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="224" Grid.Row="3" Height="15" Grid.Column="2">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<TextBlock Text="Close to tray" FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0"/>
+					</CheckBox>
+					<CheckBox Name="checkBox_minimizeToTray" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="190" Grid.Row="4" Height="15" Grid.Column="2">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<TextBlock Text="Minimize to tray" FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0"/>
+					</CheckBox>
+					<CheckBox Name="checkBox_desktopNotificationOnValidShare" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="284" Grid.Row="5" Height="15" Grid.Column="2">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+							<TextBlock Text="Send a desktop notification every"  FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB"/>
+							<TextBox TextChanged="textBox_amountOfSharesForNotification_TextChanged" MaxLength="5" FontSize="9" Name="textBox_amountOfValidSharesForNotification" Margin="3,-1,3,0" HorizontalAlignment="Left" Height="13" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Background="#19FFFFFF" Foreground="White"></TextBox>
+							<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="valid shares"/>
+						</StackPanel>
+					</CheckBox>
+					<CheckBox Name="checkBox_desktopNotificationOnInvalidShare" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="284" Grid.Row="6" Height="15" Grid.Column="2">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+							<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="Send a desktop notification every"/>
+							<TextBox TextChanged="textBox_amountOfSharesForNotification_TextChanged" MaxLength="5" FontSize="9" Name="textBox_amountOfInvalidSharesForNotification" Margin="3,-1,3,0" HorizontalAlignment="Left" Height="13" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Background="#19FFFFFF" Foreground="White"/>
+							<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="valid shares"/>
+						</StackPanel>
+					</CheckBox>
+					<Label Content="Currency" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.Row="7" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176" Grid.ColumnSpan="2" />
+					<RadioButton Name="radioButton_eur" Grid.Column="2" HorizontalAlignment="Right" Margin="0,24,305,0" Grid.Row="7" VerticalAlignment="Top">
+						<TextBlock Margin="0,3,0,0"  FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="EUR"/>
+					</RadioButton>
+					<RadioButton Name="radioButton_usd" Grid.Column="2" HorizontalAlignment="Left" Margin="60,24,0,0" Grid.Row="7" VerticalAlignment="Top">
+						<TextBlock Margin="0,3,0,0"  FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="USD"/>
+					</RadioButton>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Pool" Width="60" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="60"/>
+						<RowDefinition Height="60"/>
+						<RowDefinition Height="228"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="30" />
+						<ColumnDefinition Width="5" />
+						<ColumnDefinition Width="761" />
+					</Grid.ColumnDefinitions>
+					<Label Content="Wallet Address" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176" />
+					<TextBox Name="textBox_walletAddress" HorizontalAlignment="Left" Height="24" Margin="0,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="718" Grid.Column="2" Background="#19FFFFFF" Foreground="White" Grid.Row="1" />
+					<Label Content="Miner Name" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Left" Width="176" Height="26" VerticalAlignment="Top" />
+					<TextBox Name="textBox_minerName" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="0,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Background="#19FFFFFF" Foreground="White" Grid.Row="2" />
+					<Label Content="Mining Cores" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" />
+					<Border Height="160" Margin="0,25,0,0" VerticalAlignment="Top" Width="106" BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Left" Background="#19FFFFFF" Grid.Column="2" Grid.Row="3">
+						<ScrollViewer VerticalScrollBarVisibility="Visible">
+							<StackPanel Name="stackPanel_miningCores" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+								<StackPanel.Resources>
+									<Style TargetType="{x:Type CheckBox}">
+										<Setter Property="Margin" Value="4,3,0,0"/>
+									</Style>
+								</StackPanel.Resources>
+							</StackPanel>
+						</ScrollViewer>
+					</Border>
+				</Grid>
+			</TabItem>
+			<TabItem Header="AFK Mining" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="30"/>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="761"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="40"/>
+						<RowDefinition Height="70"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<CheckBox Name="checkBox_afkMiningEnabled" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="179" Height="15" Grid.Row="1" Grid.Column="2">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<TextBlock Text="Enable AFK Mining" FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0"/>
+					</CheckBox>
+					<Grid Margin="0,45,0,0" Grid.Row="2" Grid.Column="2" Height="17" VerticalAlignment="Top" HorizontalAlignment="Left" Width="332">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+							<TextBlock x:Name="textBlock_sliderValue" HorizontalAlignment="Center" Text="0 " Foreground="#FFBBBBBB" FontFamily="Arial"/>
+							<TextBlock x:Name="textBlock_sliderUnit" HorizontalAlignment="Center" Text="seconds" Foreground="#FFBBBBBB" FontFamily="Arial" MouseLeftButtonUp="textBlock_sliderUnit_MouseLeftButtonUp" TextDecorations="Underline"/>
+						</StackPanel>
+					</Grid>
+					<Slider x:Name="slider_timeout" Margin="0,25,0,0" Minimum="1" Maximum="60" Foreground="White" ValueChanged="Slider_ValueChanged" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="332" Height="27" VerticalAlignment="Top"/>
+					<Label Content="Automatic Mining Delay" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="228" />
+					<Label Content="AFK Mining Cores" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" />
+					<Border Height="160" Margin="0,25,0,0" VerticalAlignment="Top" Width="106" BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Left" Background="#19FFFFFF" Grid.Column="2" Grid.Row="3">
+						<ScrollViewer VerticalScrollBarVisibility="Visible">
+							<StackPanel Name="stackPanel_afkMiningCores" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+								<StackPanel.Resources>
+									<Style TargetType="{x:Type CheckBox}">
+										<Setter Property="Margin" Value="4,3,0,0"/>
+									</Style>
+								</StackPanel.Resources>
+							</StackPanel>
+						</ScrollViewer>
+					</Border>
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<Button Name="button_save" Content="Save" Margin="712,414,0,0" Background="#3FDDDDDD" Foreground="#FFC7C7C7" BorderBrush="#19383838" FontFamily="Arial" Click="button_save_Click" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" />
+	</Grid>
+</Window>

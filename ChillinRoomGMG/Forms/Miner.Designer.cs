@@ -88,7 +88,7 @@
 			this.button_options.FlatAppearance.BorderSize = 0;
 			this.button_options.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
 			this.button_options.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button_options.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold);
+			this.button_options.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
 			this.button_options.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
 			this.button_options.Location = new System.Drawing.Point(569, 384);
 			this.button_options.Name = "button_options";
@@ -128,7 +128,7 @@
 			this.button_mine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
 			this.button_mine.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
 			this.button_mine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button_mine.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold);
+			this.button_mine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
 			this.button_mine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
 			this.button_mine.Location = new System.Drawing.Point(273, 21);
 			this.button_mine.Name = "button_mine";
@@ -142,7 +142,7 @@
 			// 
 			this.groupBox_hashRate.Controls.Add(this.label_hashRate);
 			this.groupBox_hashRate.Controls.Add(this.label_maxHashRate);
-			this.groupBox_hashRate.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold);
+			this.groupBox_hashRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
 			this.groupBox_hashRate.ForeColor = System.Drawing.Color.Snow;
 			this.groupBox_hashRate.Location = new System.Drawing.Point(11, 6);
 			this.groupBox_hashRate.Name = "groupBox_hashRate";
@@ -153,7 +153,7 @@
 			// 
 			// label_hashRate
 			// 
-			this.label_hashRate.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_hashRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label_hashRate.ForeColor = System.Drawing.Color.Snow;
 			this.label_hashRate.Location = new System.Drawing.Point(6, 17);
 			this.label_hashRate.Name = "label_hashRate";
@@ -164,7 +164,7 @@
 			// 
 			// label_maxHashRate
 			// 
-			this.label_maxHashRate.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_maxHashRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label_maxHashRate.ForeColor = System.Drawing.Color.Snow;
 			this.label_maxHashRate.Location = new System.Drawing.Point(6, 51);
 			this.label_maxHashRate.Name = "label_maxHashRate";
@@ -178,7 +178,7 @@
 			this.groupBox_shares.Controls.Add(this.label_lastValid);
 			this.groupBox_shares.Controls.Add(this.label_shares);
 			this.groupBox_shares.Controls.Add(this.label_sharesInfo);
-			this.groupBox_shares.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold);
+			this.groupBox_shares.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
 			this.groupBox_shares.ForeColor = System.Drawing.Color.Snow;
 			this.groupBox_shares.Location = new System.Drawing.Point(494, 6);
 			this.groupBox_shares.Name = "groupBox_shares";
@@ -189,7 +189,7 @@
 			// 
 			// label_lastValid
 			// 
-			this.label_lastValid.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_lastValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label_lastValid.ForeColor = System.Drawing.Color.Snow;
 			this.label_lastValid.Location = new System.Drawing.Point(6, 59);
 			this.label_lastValid.Name = "label_lastValid";
@@ -200,7 +200,7 @@
 			// 
 			// label_shares
 			// 
-			this.label_shares.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_shares.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label_shares.ForeColor = System.Drawing.Color.Snow;
 			this.label_shares.Location = new System.Drawing.Point(6, 10);
 			this.label_shares.Name = "label_shares";
@@ -211,7 +211,7 @@
 			// 
 			// label_sharesInfo
 			// 
-			this.label_sharesInfo.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_sharesInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label_sharesInfo.ForeColor = System.Drawing.Color.Snow;
 			this.label_sharesInfo.Location = new System.Drawing.Point(6, 43);
 			this.label_sharesInfo.Name = "label_sharesInfo";
@@ -223,7 +223,7 @@
 			// label_xmrValue
 			// 
 			this.label_xmrValue.AutoEllipsis = true;
-			this.label_xmrValue.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_xmrValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label_xmrValue.ForeColor = System.Drawing.Color.Snow;
 			this.label_xmrValue.Location = new System.Drawing.Point(4, 388);
 			this.label_xmrValue.Name = "label_xmrValue";
@@ -236,7 +236,7 @@
 			// button_statistics
 			// 
 			this.button_statistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button_statistics.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button_statistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button_statistics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
 			this.button_statistics.Location = new System.Drawing.Point(609, 387);
 			this.button_statistics.Name = "button_statistics";
