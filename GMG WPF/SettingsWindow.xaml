@@ -131,7 +131,6 @@
 					<TextBox Name="textBox_walletAddress" HorizontalAlignment="Left" Height="24" Margin="0,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="718" Grid.Column="2" Background="#19FFFFFF" Foreground="White" Grid.Row="1" />
 					<Label Content="Miner Name" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Left" Width="176" Height="26" VerticalAlignment="Top" />
 					<TextBox Name="textBox_minerName" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="0,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Background="#19FFFFFF" Foreground="White" Grid.Row="2" />
-					<Label Content="Mining Cores" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" />
 					<Border Height="160" Margin="0,25,0,0" VerticalAlignment="Top" Width="106" BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Left" Background="#19FFFFFF" Grid.Column="2" Grid.Row="3">
 						<ScrollViewer VerticalScrollBarVisibility="Visible">
 							<StackPanel Name="stackPanel_miningCores" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -143,6 +142,14 @@
 							</StackPanel>
 						</ScrollViewer>
 					</Border>
+					<Grid HorizontalAlignment="Left" Margin="0,6,0,208" Grid.Column="2" Grid.Row="3">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+							<TextBlock Text="Mining Cores" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+							<TextBlock Text="(" Foreground="#FF595959" FontFamily="Arial" Margin="5,-1,0,0"/>
+							<TextBlock Name="textBlock_recommendedMiningCores" Text="best: x0 cores" Foreground="#FF595959" FontFamily="Arial"/>
+							<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
+						</StackPanel>
+					</Grid>
 				</Grid>
 			</TabItem>
 			<TabItem Header="AFK Mining" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">
@@ -177,7 +184,6 @@
 					</Grid>
 					<Slider x:Name="slider_timeout" Margin="0,25,0,0" Minimum="1" Maximum="60" Foreground="White" ValueChanged="Slider_ValueChanged" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="332" Height="27" VerticalAlignment="Top"/>
 					<Label Content="Automatic Mining Delay" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="228" />
-					<Label Content="AFK Mining Cores" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" />
 					<Border Height="160" Margin="0,25,0,0" VerticalAlignment="Top" Width="106" BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Left" Background="#19FFFFFF" Grid.Column="2" Grid.Row="3">
 						<ScrollViewer VerticalScrollBarVisibility="Visible">
 							<StackPanel Name="stackPanel_afkMiningCores" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -189,6 +195,14 @@
 							</StackPanel>
 						</ScrollViewer>
 					</Border>
+					<Grid HorizontalAlignment="Left" Margin="0,6,0,215" Grid.Column="2" Grid.Row="3">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+							<TextBlock Text="AFK Mining Cores" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+							<TextBlock Text="(" Foreground="#FF595959" FontFamily="Arial" Margin="5,-1,0,0"/>
+							<TextBlock x:Name="textBlock_recommendedAfkMiningCores" Text="best: x0 cores" Foreground="#FF595959" FontFamily="Arial"/>
+							<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
+						</StackPanel>
+					</Grid>
 				</Grid>
 			</TabItem>
 		</TabControl>

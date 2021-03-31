@@ -16,6 +16,9 @@ namespace GMG_WPF
 	/// </summary>
 	public partial class SettingsWindow : Window
 	{
+		private readonly string MinningCoresLabelPlaceholder = "best: x{0} cores";
+		private readonly string AfkMinningCoresLabelPlaceholder = "best: x{0} cores";
+
 		private readonly SolidColorBrush UnselectedBrush = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 		private readonly SolidColorBrush SelectedBrush = new SolidColorBrush(Color.FromRgb(50, 50, 50));
 
@@ -32,6 +35,10 @@ namespace GMG_WPF
 
 			this.PaintTabHeaders();
 			this.LoadSettings();
+
+			int recommendedCoreCount = Convert.ToInt32(Utils.GetCPUCacheSize() / 2);
+			textBlock_recommendedMiningCores.Text = string.Format(MinningCoresLabelPlaceholder, recommendedCoreCount);
+			textBlock_recommendedAfkMiningCores.Text = string.Format(AfkMinningCoresLabelPlaceholder, recommendedCoreCount);
 		}
 
 		private void LoadSettings()

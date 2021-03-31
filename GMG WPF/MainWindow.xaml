@@ -33,17 +33,17 @@
 			<Grid HorizontalAlignment="Left" Height="14" Canvas.Left="15" Width="172" Canvas.Top="15">
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 					<TextBlock Name="textBlock_validShares" Text="Valid Shares: 0" Foreground="#FFBBBBBB" FontFamily="Arial"/>
-					<TextBlock Text="(" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="5,-1,0,0"/>
-					<TextBlock Name="textBlock_totalValidShares" Text="0" Foreground="#FFBBBBBB" FontFamily="Arial"/>
-					<TextBlock Text=")" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="0,-1,0,0"/>
+					<TextBlock Text="(" Foreground="#FF595959" FontFamily="Arial" Margin="5,-1,0,0"/>
+					<TextBlock Name="textBlock_totalValidShares" Text="0" Foreground="#FF595959" FontFamily="Arial"/>
+					<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
 				</StackPanel>
 			</Grid>
 			<Grid HorizontalAlignment="Left" Height="14" Canvas.Left="187" Width="172" Canvas.Top="15">
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 					<TextBlock Name="textBlock_invalidShares" Text="Invalid Shares: 0" Foreground="#FFBBBBBB" FontFamily="Arial"/>
-					<TextBlock Text="(" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="5,-1,0,0"/>
-					<TextBlock Name="textBlock_totalInvalidShares" Text="0" Foreground="#FFBBBBBB" FontFamily="Arial"/>
-					<TextBlock Text=")" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="0,-1,0,0"/>
+					<TextBlock Text="(" Foreground="#FF595959" FontFamily="Arial" Margin="5,-1,0,0"/>
+					<TextBlock Name="textBlock_totalInvalidShares" Text="0" Foreground="#FF595959" FontFamily="Arial"/>
+					<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
 				</StackPanel>
 			</Grid>
 		</Canvas>
