@@ -37,6 +37,10 @@ namespace GMG_WPF
 			this.LoadSettings();
 
 			int recommendedCoreCount = Convert.ToInt32(Utils.GetCPUCacheSize() / 2);
+			if (recommendedCoreCount > Environment.ProcessorCount)
+			{
+				recommendedCoreCount = Environment.ProcessorCount;
+			}
 			textBlock_recommendedMiningCores.Text = string.Format(MinningCoresLabelPlaceholder, recommendedCoreCount);
 			textBlock_recommendedAfkMiningCores.Text = string.Format(AfkMinningCoresLabelPlaceholder, recommendedCoreCount);
 		}
