@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="DisableMaximizeBox.cs" />
     <Compile Include="FixWindow.cs" />
+    <Compile Include="GetXmrPrice.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>

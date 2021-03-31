@@ -1,4 +1,6 @@
 ﻿
+using GMG_Core;
+
 using System;
 using System.Windows;
 
@@ -12,10 +14,12 @@ namespace GMG_WPF
 	public partial class CalculatorWindow : Window
 	{
 		private readonly string XmrEarningsPlaceholder = "{0} XMR";
+		private readonly string CurrencyEarningsPlaceholder = "{0} {1}";
+
+		private readonly char CurrencyChar = GData.SettingsManager.Settings.Currency == XMR.Currency.EUR ? '€' : '$';
+		private readonly float Pow = (float)Math.Pow(10, 12);
 
 		private readonly MoneroInfo MoneroInfo = GetMoneroInfo();
-
-		private readonly float Pow = (float)Math.Pow(10, 12);
 
 		public CalculatorWindow()
 		{
@@ -29,33 +33,44 @@ namespace GMG_WPF
 			comboBox_hashrates.SelectionChanged += this.comboBox_SelectionChanged;
 			comboBox_times.SelectionChanged += this.comboBox_SelectionChanged;
 			textBox_hashrate.TextChanged += this.textBox_hashrate_TextChanged;
+
+			this.SetCalculations(0, 0);
 		}
 
 		private void CalculateEarnings()
 		{
 			if (MoneroInfo != null)
 			{
-				float earnings = 0;
+				float xmrEarnings = 0;
 				switch (comboBox_times.SelectedIndex)
 				{
 					case 0: // Hourly
-						earnings = this.GetEarnings(Times.Hourly);
+						xmrEarnings = this.GetEarnings(Times.Hourly);
 						break;
 					case 1: // Daily
-						earnings = this.GetEarnings(Times.Daily);
+						xmrEarnings = this.GetEarnings(Times.Daily);
 						break;
 					case 2: // Weekly
-						earnings = this.GetEarnings(Times.Weekly);
+						xmrEarnings = this.GetEarnings(Times.Weekly);
 						break;
 					case 3: // Monthly
-						earnings = this.GetEarnings(Times.Monthly);
+						xmrEarnings = this.GetEarnings(Times.Monthly);
 						break;
 					case 4: // Yearly
-						earnings = this.GetEarnings(Times.Yearly);
+						xmrEarnings = this.GetEarnings(Times.Yearly);
 						break;
 				}
-				textBlock_xmrEarnings.Text = string.Format(XmrEarningsPlaceholder, earnings.ToString("0.000000000000"));
+
+				float currencyEarnings = xmrEarnings * (float)GetXmrPrice.GetPrice();
+
+				this.SetCalculations(xmrEarnings, currencyEarnings);
 			}
+		}
+
+		private void SetCalculations(float xmrEarnings, float currencyEarnings)
+		{
+			textBlock_xmrEarnings.Text = string.Format(XmrEarningsPlaceholder, xmrEarnings.ToString("0.000000000000"));
+			textBlock_currencyEarnings.Text = string.Format(CurrencyEarningsPlaceholder, CurrencyChar, Math.Round(currencyEarnings, 2, MidpointRounding.ToEven).ToString("0.00"));
 		}
 
 		private enum Times

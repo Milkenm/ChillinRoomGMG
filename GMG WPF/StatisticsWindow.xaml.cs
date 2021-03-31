@@ -57,7 +57,7 @@ namespace GMG_WPF
 			textBlock_recordHashrate.Text = string.Format(RecordHashrateLabelPlaceholder, string.Format(RecordHashrateLabelPlaceholder, NumberFormating.AbbreviateNumber(GData.SettingsManager.Settings.Statistics.RecordHashRate, true, true)));
 			textBlock_totalHashes.Text = string.Format(TotalHashesLabelPlaceholder, NumberFormating.AbbreviateNumber(AddressStats.TotalHashes), this.GetPlural(AddressStats.TotalHashes, true));
 			textBlock_totalXmrPaid.Text = string.Format(TotalXmrPaidLabelPlaceholder, AddressStats.AmountPaid / 12);
-			textBlock_xmrPrice.Text = string.Format(XmrPriceLabelPlaceholder, this.GetCurrencyChar(), this.GetXmrPrice());
+			textBlock_xmrPrice.Text = string.Format(XmrPriceLabelPlaceholder, this.GetCurrencyChar(), GetXmrPrice.GetPrice().ToString("0.00"));
 		}
 
 		private void UpdateMiningTimes()
@@ -96,14 +96,6 @@ namespace GMG_WPF
 			{
 				return '$';
 			}
-		}
-
-		private string GetXmrPrice()
-		{
-			decimal price = XMR.GetPrice(GData.SettingsManager.Settings.Currency);
-			decimal round = Math.Round(price, 2, MidpointRounding.ToEven);
-
-			return round.ToString();
 		}
 
 		private Tuple<long, long, long, long> ConvertSecondsToDate(long totalSeconds)
