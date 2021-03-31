@@ -50,18 +50,10 @@ namespace GMG_WPF
 
 		private long SessionMiningSeconds = 0;
 
-
-
-
-
 		public MainWindow()
 		{
 			this.InitializeComponent();
 		}
-
-
-
-
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -193,7 +185,7 @@ namespace GMG_WPF
 			SessionValidSharesCount++;
 			GData.SettingsManager.Settings.Statistics.TotalValidShares++;
 			this.UpdateValidSharesTextBlock();
-			if (SessionValidSharesCount % GData.SettingsManager.Settings.ValidSharesAmountForNotification == 0)
+			if (SessionValidSharesCount % GData.SettingsManager.Settings.ValidSharesAmountForNotification == 0 && GData.SettingsManager.Settings.DesktopNotificationOnValidShare)
 			{
 				NotifyIcon.ShowBalloonTip(5000, $"+{GData.SettingsManager.Settings.ValidSharesAmountForNotification} Valid Shares", $"Total: {SessionValidSharesCount}", ToolTipIcon.None);
 			}
@@ -219,7 +211,7 @@ namespace GMG_WPF
 			SessionInvalidSharesCount++;
 			GData.SettingsManager.Settings.Statistics.TotalInvalidShares++;
 			this.UpdateInvalidSharesTextBlock();
-			if (SessionInvalidSharesCount % GData.SettingsManager.Settings.InvalidSharesAmountForNotification == 0)
+			if (SessionInvalidSharesCount % GData.SettingsManager.Settings.InvalidSharesAmountForNotification == 0 && GData.SettingsManager.Settings.DesktopNotificationOnInvalidShare)
 			{
 				NotifyIcon.ShowBalloonTip(5000, $"+{GData.SettingsManager.Settings.InvalidSharesAmountForNotification} Invalid Shares", $"Total: {SessionInvalidSharesCount}", ToolTipIcon.None);
 			}
