@@ -7,7 +7,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GMG Miner")]
-[assembly: AssemblyDescription("XMRig with a GUI, auto-mining and other stuff")]
+[assembly: AssemblyDescription("XMRig with a GUI, auto-mining and other stuff.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Milkenm")]
 [assembly: AssemblyProduct("GMG Miner")]
