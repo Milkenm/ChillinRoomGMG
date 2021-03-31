@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,6 +20,7 @@ namespace GMG_WPF
 	{
 		private readonly string MinningCoresLabelPlaceholder = "best: x{0} cores";
 		private readonly string AfkMinningCoresLabelPlaceholder = "best: x{0} cores";
+		private readonly string VersionLabelPlaceholder = "v{0}";
 
 		private readonly SolidColorBrush UnselectedBrush = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 		private readonly SolidColorBrush SelectedBrush = new SolidColorBrush(Color.FromRgb(50, 50, 50));
@@ -43,6 +46,11 @@ namespace GMG_WPF
 			}
 			textBlock_recommendedMiningCores.Text = string.Format(MinningCoresLabelPlaceholder, recommendedCoreCount);
 			textBlock_recommendedAfkMiningCores.Text = string.Format(AfkMinningCoresLabelPlaceholder, recommendedCoreCount);
+
+			Assembly assembly = Assembly.GetExecutingAssembly();
+			FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+			string version = fvi.FileVersion;
+			label_version.Content = string.Format(VersionLabelPlaceholder, fvi.FileVersion);
 		}
 
 		private void LoadSettings()

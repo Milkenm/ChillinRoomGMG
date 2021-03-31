@@ -207,5 +207,6 @@
 			</TabItem>
 		</TabControl>
 		<Button Name="button_save" Content="Save" Margin="712,414,0,0" Background="#3FDDDDDD" Foreground="#FFC7C7C7" BorderBrush="#19383838" FontFamily="Arial" Click="button_save_Click" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" />
+		<Label Name="label_version" Content="v0.0.0" Foreground="#FF2E2E2E" FontFamily="Arial" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176" Margin="10,416,0,0" />
 	</Grid>
 </Window>
