@@ -114,7 +114,7 @@
 					</RadioButton>
 				</Grid>
 			</TabItem>
-			<TabItem Header="Pool" Width="60" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">
+			<TabItem Header="Miner" Width="60" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">
 				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="30"/>
