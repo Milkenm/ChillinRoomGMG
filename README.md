@@ -7,11 +7,11 @@
 <br>
 <br>
 ## Stuff
-* **Embedded Miner**: XMRig (tested with 5.9.0)
-* **Pool**: SupportXMR (pool.supportxmr.com:443)
+* **Embedded Miner**: XMRig (v6.10.0)
+* **Pool**: SupportXMR (pool.supportxmr.com:3333)
 <br/>
 
 * **Random features:**
-  * **Auto-mining**: start mining after *x* seconds/minutes/hours of user inactivity
+  * **AFK Mining**: start mining after 1 to 60 seconds/minutes/hours of user inactivity
   * **Statistics**: total valid and invalid shares, record hash rate, total mined time, ...
   * **Desktop notifications**: notifications when auto-mining starts/stops and after *x* valid/invalid shares
