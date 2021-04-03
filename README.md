@@ -7,7 +7,7 @@
 <br>
 <br>
 ## Stuff
-* **Embedded Miner**: XMRig (v6.10.0)
+* **"Embedded" Miner**: XMRig (v6.10.0)
 * **Pool**: SupportXMR (pool.supportxmr.com:3333)
 <br/>
 
