@@ -59,11 +59,11 @@ namespace GMG_Core.Xmrig
 	public class HTTP
 	{
 		/// <summary>Enable or disable HTTP API.</summary>
-		[JsonProperty("enabled")] public bool Enabled { get; set; } = false;
+		[JsonProperty("enabled")] public bool Enabled { get; set; } = true;
 		/// <summary>Bind host (IP address) for HTTP API.</summary>
 		[JsonProperty("host")] public string Host { get; set; } = "127.0.0.1";
 		/// <summary>Bind port.</summary>
-		[JsonProperty("port")] public int Port { get; set; } = 0;
+		[JsonProperty("port")] public int Port { get; set; } = 38486;
 		/// <summary>Access token.</summary>
 		[JsonProperty("access-token")] public string AccessToken { get; set; } = null;
 		/// <summary>Enable (only if access token set) or disable full access to HTTP API.</summary>

@@ -39,6 +39,8 @@ namespace GMG_Core
 				cores.Add(i);
 			}
 			this.Settings.XmrigConfig.CPU.RXWoW = cores.ToArray();
+			this.Settings.XmrigConfig.HTTP.Enabled = true;
+			this.Settings.XmrigConfig.HTTP.Port = 38486;
 		}
 
 		private void LoadDefaults()
@@ -122,6 +124,7 @@ namespace GMG_Core
 		public int InvalidSharesAmountForNotification = 1;
 		public Currency Currency = Currency.EUR;
 		public Statistics Statistics = new Statistics();
+		public bool MinimizeOnStart = false;
 	}
 
 	[Serializable]

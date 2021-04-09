@@ -1,11 +1,15 @@
 ﻿using Newtonsoft.Json;
 
+using ScriptsLib.Network;
+
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using static GMG_Core.Xmrig.XMRigApi;
 using static ScriptsLib.PInvoke.User32;
 
 namespace GMG_Core.Xmrig
@@ -82,7 +86,7 @@ namespace GMG_Core.Xmrig
 					}
 				}
 
-				new Task(new Action(() =>
+				Task.Run(() =>
 				{
 					while (!p.StandardOutput.EndOfStream)
 					{
@@ -93,7 +97,7 @@ namespace GMG_Core.Xmrig
 							this.LogLine(line);
 						}
 					}
-				})).Start();
+				});
 
 				if (run == false)
 				{
@@ -104,6 +108,8 @@ namespace GMG_Core.Xmrig
 					this.SetState(MinerState.Initializing);
 				}
 			}
+
+			this.GetApi();
 		}
 
 		public void Resume()
@@ -284,6 +290,21 @@ namespace GMG_Core.Xmrig
 		private void SendKey(Keys key)
 		{
 			PostMessage(this.XmrigHandle, 0x0100, (int)key, 0);
+		}
+
+		private void GetApi()
+		{
+			Task.Run(() =>
+			{
+				while (true)
+				{
+					string request = Requests.GET("http://127.0.0.1:38486/1/summary");
+					XMRigAPI xmrigApi = JsonConvert.DeserializeObject<XMRigAPI>(request);
+					Console.WriteLine(xmrigApi.CPU.Brand);
+					
+					Thread.Sleep(1);
+				}
+			});
 		}
 	}
 }

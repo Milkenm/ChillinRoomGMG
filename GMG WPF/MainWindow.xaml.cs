@@ -5,6 +5,7 @@ using ScriptsLib.Unsorted;
 
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -98,6 +99,17 @@ namespace GMG_WPF
 
 			NotifyIcon.Icon = new System.Drawing.Icon("GMG_Icon.ico");
 			NotifyIcon.Visible = true;
+
+			Task.Run(() =>
+			{
+				if (GData.SettingsManager.Settings.MinimizeOnStart)
+				{
+					this.Dispatcher.Invoke(() =>
+					{
+						this.WindowState = WindowState.Minimized;
+					});
+				}
+			});
 		}
 
 		private void Timer_Timings_Tick(object sender, EventArgs e)

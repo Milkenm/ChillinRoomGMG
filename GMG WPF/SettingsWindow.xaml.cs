@@ -68,6 +68,7 @@ namespace GMG_WPF
 			checkBox_replacePauseWithStop.IsChecked = GData.SettingsManager.Settings.StopInsteadOfPause;
 			checkBox_closeToTray.IsChecked = GData.SettingsManager.Settings.CloseToTray;
 			checkBox_minimizeToTray.IsChecked = GData.SettingsManager.Settings.MinimizeToTray;
+			checkBox_minimizeOnStart.IsChecked = GData.SettingsManager.Settings.MinimizeOnStart;
 			checkBox_desktopNotificationOnValidShare.IsChecked = GData.SettingsManager.Settings.DesktopNotificationOnValidShare;
 			checkBox_desktopNotificationOnInvalidShare.IsChecked = GData.SettingsManager.Settings.DesktopNotificationOnInvalidShare;
 			textBox_amountOfValidSharesForNotification.Text = GData.SettingsManager.Settings.ValidSharesAmountForNotification.ToString();
@@ -95,8 +96,9 @@ namespace GMG_WPF
 			GData.SettingsManager.Settings.AfkMiningDelay = Convert.ToInt32(slider_timeout.Value);
 			GData.SettingsManager.Settings.RunOnAppStart = Convert.ToBoolean(checkBox_mineOnStart.IsChecked);
 			GData.SettingsManager.Settings.StopInsteadOfPause = Convert.ToBoolean(checkBox_replacePauseWithStop.IsChecked);
-			GData.SettingsManager.Settings.CloseToTray = (bool)checkBox_closeToTray.IsChecked;
-			GData.SettingsManager.Settings.MinimizeToTray = (bool)checkBox_minimizeToTray.IsChecked;
+			GData.SettingsManager.Settings.CloseToTray = Convert.ToBoolean(checkBox_closeToTray.IsChecked);
+			GData.SettingsManager.Settings.MinimizeToTray = Convert.ToBoolean(checkBox_minimizeToTray.IsChecked);
+			GData.SettingsManager.Settings.MinimizeOnStart = Convert.ToBoolean(checkBox_minimizeOnStart.IsChecked);
 			GData.SettingsManager.Settings.DesktopNotificationOnValidShare = Convert.ToBoolean(checkBox_desktopNotificationOnValidShare.IsChecked);
 			GData.SettingsManager.Settings.DesktopNotificationOnInvalidShare = Convert.ToBoolean(checkBox_desktopNotificationOnInvalidShare.IsChecked);
 			GData.SettingsManager.Settings.ValidSharesAmountForNotification = Convert.ToInt32(textBox_amountOfValidSharesForNotification.Text);

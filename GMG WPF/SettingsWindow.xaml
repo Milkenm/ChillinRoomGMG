@@ -26,6 +26,7 @@
 						<RowDefinition Height="30"/>
 						<RowDefinition Height="45"/>
 						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
 						<RowDefinition Height="45"/>
 						<RowDefinition Height="30"/>
 						<RowDefinition Height="45"/>
@@ -75,7 +76,7 @@
 						</CheckBox.RenderTransform>
 						<TextBlock Text="Minimize to tray" FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0"/>
 					</CheckBox>
-					<CheckBox Name="checkBox_desktopNotificationOnValidShare" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="284" Grid.Row="5" Height="15" Grid.Column="2">
+					<CheckBox Name="checkBox_desktopNotificationOnValidShare" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="284" Grid.Row="6" Height="15" Grid.Column="2">
 						<CheckBox.RenderTransform>
 							<TransformGroup>
 								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
@@ -90,7 +91,7 @@
 							<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="valid shares"/>
 						</StackPanel>
 					</CheckBox>
-					<CheckBox Name="checkBox_desktopNotificationOnInvalidShare" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="284" Grid.Row="6" Height="15" Grid.Column="2">
+					<CheckBox Name="checkBox_desktopNotificationOnInvalidShare" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="284" Grid.Row="7" Height="15" Grid.Column="2">
 						<CheckBox.RenderTransform>
 							<TransformGroup>
 								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
@@ -105,13 +106,24 @@
 							<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="valid shares"/>
 						</StackPanel>
 					</CheckBox>
-					<Label Content="Currency" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.Row="7" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176" Grid.ColumnSpan="2" />
-					<RadioButton Name="radioButton_eur" Grid.Column="2" HorizontalAlignment="Right" Margin="0,24,305,0" Grid.Row="7" VerticalAlignment="Top">
+					<Label Content="Currency" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.Row="8" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176" Grid.ColumnSpan="2" />
+					<RadioButton Name="radioButton_eur" Grid.Column="2" HorizontalAlignment="Right" Margin="0,24,305,0" Grid.Row="8" VerticalAlignment="Top" Height="14" Width="40">
 						<TextBlock Margin="0,3,0,0"  FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="EUR"/>
 					</RadioButton>
-					<RadioButton Name="radioButton_usd" Grid.Column="2" HorizontalAlignment="Left" Margin="60,24,0,0" Grid.Row="7" VerticalAlignment="Top">
+					<RadioButton Name="radioButton_usd" Grid.Column="2" HorizontalAlignment="Left" Margin="60,24,0,0" Grid.Row="8" VerticalAlignment="Top" Height="14" Width="40">
 						<TextBlock Margin="0,3,0,0"  FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Text="USD"/>
 					</RadioButton>
+					<CheckBox Name="checkBox_minimizeOnStart" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="190" Grid.Row="5" Height="15" Grid.Column="2">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0"><Run Text="Minimize "/><Run Text="on start"/></TextBlock>
+					</CheckBox>
 				</Grid>
 			</TabItem>
 			<TabItem Header="Miner" Width="60" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">
