@@ -122,7 +122,7 @@
 								<TranslateTransform/>
 							</TransformGroup>
 						</CheckBox.RenderTransform>
-						<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0"><Run Text="Minimize "/><Run Text="on start"/></TextBlock>
+						<TextBlock FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0"><Run Text="Minimize "/><Run Text="to tray "/><Run Text="on start"/></TextBlock>
 					</CheckBox>
 				</Grid>
 			</TabItem>

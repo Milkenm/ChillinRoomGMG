@@ -4,13 +4,18 @@ namespace GMG_WPF
 {
 	public static class FixWindow
 	{
-		public static void Fix(Window w)
+		public static void Fix(Window w, double width, double height)
 		{
 			DisableMaximizeBox.Disable(w);
-			w.MaxWidth = w.Width;
-			w.MaxHeight = w.Height;
-			w.MinWidth = w.Width;
-			w.MinHeight = w.Height;
+			w.MaxWidth = width;
+			w.MaxHeight = height;
+			w.MinWidth = width;
+			w.MinHeight = height;
+		}
+
+		public static void Fix(Window w)
+		{
+			Fix(w, w.Width, w.Height);
 		}
 	}
 }

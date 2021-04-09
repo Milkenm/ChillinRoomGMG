@@ -5,7 +5,6 @@ using ScriptsLib.Unsorted;
 
 using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -51,16 +50,23 @@ namespace GMG_WPF
 
 		private long SessionMiningSeconds = 0;
 
-		public MainWindow()
+		public MainWindow(bool startMinimized)
 		{
 			this.InitializeComponent();
+
+			if (startMinimized == false)
+			{
+				this.Show();
+			}
+			else
+			{
+				this.Window_Loaded(null, null);
+			}
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			FixWindow.Fix(this);
-
-			Core core = new Core();
+			FixWindow.Fix(this, 400, 280);
 
 			this.SetupTrayIcon();
 
@@ -99,17 +105,6 @@ namespace GMG_WPF
 
 			NotifyIcon.Icon = new System.Drawing.Icon("GMG_Icon.ico");
 			NotifyIcon.Visible = true;
-
-			Task.Run(() =>
-			{
-				if (GData.SettingsManager.Settings.MinimizeOnStart)
-				{
-					this.Dispatcher.Invoke(() =>
-					{
-						this.WindowState = WindowState.Minimized;
-					});
-				}
-			});
 		}
 
 		private void Timer_Timings_Tick(object sender, EventArgs e)
@@ -567,8 +562,7 @@ namespace GMG_WPF
 			{
 				this.WindowState = WindowState.Normal;
 			}
-
-			if (this.WindowState == WindowState.Minimized)
+			else if (this.WindowState == WindowState.Minimized)
 			{
 				if (GData.SettingsManager.Settings.MinimizeToTray)
 				{
