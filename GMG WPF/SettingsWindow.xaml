@@ -132,7 +132,8 @@
 						<RowDefinition Height="30"/>
 						<RowDefinition Height="60"/>
 						<RowDefinition Height="60"/>
-						<RowDefinition Height="228"/>
+						<RowDefinition Height="165"/>
+						<RowDefinition Height="63"/>
 					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="30" />
@@ -143,7 +144,7 @@
 					<TextBox Name="textBox_walletAddress" HorizontalAlignment="Left" Height="24" Margin="0,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="718" Grid.Column="2" Background="#19FFFFFF" Foreground="White" Grid.Row="1" />
 					<Label Content="Miner Name" Foreground="#FFBBBBBB" FontFamily="Arial" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Left" Width="176" Height="26" VerticalAlignment="Top" />
 					<TextBox Name="textBox_minerName" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="0,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Background="#19FFFFFF" Foreground="White" Grid.Row="2" />
-					<Border Height="160" Margin="0,25,0,0" VerticalAlignment="Top" Width="106" BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Left" Background="#19FFFFFF" Grid.Column="2" Grid.Row="3">
+					<Border Height="130" Margin="0,25,0,0" VerticalAlignment="Top" Width="106" BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Left" Background="#19FFFFFF" Grid.Column="2" Grid.Row="3">
 						<ScrollViewer VerticalScrollBarVisibility="Visible">
 							<StackPanel Name="stackPanel_miningCores" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 								<StackPanel.Resources>
@@ -154,7 +155,7 @@
 							</StackPanel>
 						</ScrollViewer>
 					</Border>
-					<Grid HorizontalAlignment="Left" Margin="0,6,0,208" Grid.Column="2" Grid.Row="3">
+					<Grid HorizontalAlignment="Left" Margin="0,6,0,0" Grid.Column="2" Grid.Row="3" Height="14" VerticalAlignment="Top" Width="159">
 						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 							<TextBlock Text="Mining Cores" Foreground="#FFBBBBBB" FontFamily="Arial"/>
 							<TextBlock Text="(" Foreground="#FF595959" FontFamily="Arial" Margin="5,-1,0,0"/>
@@ -162,6 +163,15 @@
 							<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
 						</StackPanel>
 					</Grid>
+					<TextBlock Text="Mining Process Priority" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="0,7,0,0" Grid.Column="2" Grid.Row="4" Height="14" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+					<ComboBox Name="comboBox_processPriority" Grid.Column="2" HorizontalAlignment="Left" Margin="0,26,0,0" Grid.Row="4" VerticalAlignment="Top" Width="159" Height="22">
+						<ComboBoxItem Content="Realtime" HorizontalAlignment="Left" Width="157"/>
+						<ComboBoxItem Content="High" HorizontalAlignment="Left" Width="157"/>
+						<ComboBoxItem Content="Above normal" HorizontalAlignment="Left" Width="157"/>
+						<ComboBoxItem Content="Normal" HorizontalAlignment="Left" Width="157"/>
+						<ComboBoxItem Content="Below normal" HorizontalAlignment="Left" Width="157"/>
+						<ComboBoxItem Content="Low" HorizontalAlignment="Left" Width="157"/>
+					</ComboBox>
 				</Grid>
 			</TabItem>
 			<TabItem Header="AFK Mining" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">

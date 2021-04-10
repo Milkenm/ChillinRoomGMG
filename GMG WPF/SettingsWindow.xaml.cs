@@ -82,7 +82,47 @@ namespace GMG_WPF
 				radioButton_usd.IsChecked = true;
 			}
 
+			comboBox_processPriority.SelectedIndex = this.ConvertPriorityToInteger(GData.SettingsManager.Settings.XmrigPriority);
+
 			this.ChangeTimeUnit(GData.SettingsManager.Settings.AfkMiningTimeUnit);
+		}
+
+		public int ConvertPriorityToInteger(ProcessPriorityClass priorityClass)
+		{
+			switch (priorityClass)
+			{
+				case ProcessPriorityClass.RealTime:
+					return 0;
+				case ProcessPriorityClass.High:
+					return 1;
+				case ProcessPriorityClass.AboveNormal:
+					return 2;
+				case ProcessPriorityClass.Normal:
+					return 3;
+				case ProcessPriorityClass.BelowNormal:
+					return 4;
+				default: /// ProcessPriorityClass.Idle
+					return 5;
+			}
+		}
+
+		public ProcessPriorityClass ConvertIntegerToPriority(int priorityIndex)
+		{
+			switch (priorityIndex)
+			{
+				case 0:
+					return ProcessPriorityClass.RealTime;
+				case 1:
+					return ProcessPriorityClass.High;
+				case 2:
+					return ProcessPriorityClass.AboveNormal;
+				case 3:
+					return ProcessPriorityClass.Normal;
+				case 4:
+					return ProcessPriorityClass.BelowNormal;
+				default: /// 5
+					return ProcessPriorityClass.Idle;
+			}
 		}
 
 		private void SaveSettings()
@@ -111,6 +151,7 @@ namespace GMG_WPF
 			{
 				GData.SettingsManager.Settings.Currency = XMR.Currency.USD;
 			}
+			GData.SettingsManager.Settings.XmrigPriority = this.ConvertIntegerToPriority(comboBox_processPriority.SelectedIndex);
 
 			GData.SettingsManager.SaveSettings();
 		}

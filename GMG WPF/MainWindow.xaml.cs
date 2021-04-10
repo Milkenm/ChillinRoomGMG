@@ -84,7 +84,16 @@ namespace GMG_WPF
 			this.SetControlStates();
 			progressBar_mining.Value = progressBar_mining.Maximum;
 
-			this.RefreshApi();
+			try
+			{
+				this.RefreshApi();
+			}
+			catch
+			{
+				System.Windows.MessageBox.Show("It looks like you don't have an internet connection.\nThe program will now close.", "GMG Miner - Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				this.AppClose();
+			}
+
 			if (SupportXmrAPI != null)
 			{
 				StartingValidSharesCount = SupportXmrAPI.GetAddressStats().ValidShares;
@@ -140,6 +149,7 @@ namespace GMG_WPF
 			if (string.IsNullOrEmpty(GData.SettingsManager.Settings.XmrigConfig.Pools[0].User) == false)
 			{
 				SupportXmrAPI = new SupportXmrAPI(GData.SettingsManager.Settings.XmrigConfig.Pools[0].User);
+				SupportXmrAPI.GetAddressStats();
 			}
 		}
 

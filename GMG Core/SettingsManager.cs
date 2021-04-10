@@ -4,6 +4,7 @@ using ScriptsLib.Extensions;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 using static GMG_Core.Enums;
@@ -125,6 +126,7 @@ namespace GMG_Core
 		public Currency Currency = Currency.EUR;
 		public Statistics Statistics = new Statistics();
 		public bool MinimizeOnStart = false;
+		public ProcessPriorityClass XmrigPriority = ProcessPriorityClass.Normal;
 	}
 
 	[Serializable]

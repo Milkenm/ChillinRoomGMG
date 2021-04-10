@@ -2,6 +2,8 @@
 
 using ScriptsLib.Network;
 
+using System.Windows.Forms;
+
 namespace GMG_Core
 {
 	public class SupportXmrAPI
@@ -18,13 +20,20 @@ namespace GMG_Core
 
 		public AddressStats GetAddressStats()
 		{
-			string response = Requests.GET(string.Format(this.ApiAddressStats, this.XmrAddress));
+			try
+			{
+				string response = Requests.GET(string.Format(this.ApiAddressStats, this.XmrAddress));
 
-			AddressStats stats = JsonConvert.DeserializeObject<AddressStats>(response);
-			stats.AmountPaid /= 1000000000000;
-			stats.AmountDue /= 1000000000000;
+				AddressStats stats = JsonConvert.DeserializeObject<AddressStats>(response);
+				stats.AmountPaid /= 1000000000000;
+				stats.AmountDue /= 1000000000000;
 
-			return stats;
+				return stats;
+			}
+			catch
+			{
+				throw new System.Exception();
+			}
 		}
 	}
 

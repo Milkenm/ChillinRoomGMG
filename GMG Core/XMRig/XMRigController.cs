@@ -65,6 +65,7 @@ namespace GMG_Core.Xmrig
 				p.StartInfo.RedirectStandardOutput = true;
 				p.StartInfo.UseShellExecute = false;
 				p.Start();
+				p.PriorityClass = GData.SettingsManager.Settings.XmrigPriority;
 
 				while (this.XmrigHandle == new IntPtr())
 				{
@@ -108,8 +109,8 @@ namespace GMG_Core.Xmrig
 					this.SetState(MinerState.Initializing);
 				}
 			}
-
-			this.GetApi();
+			/*
+			this.GetApi();*/
 		}
 
 		public void Resume()
