@@ -1,4 +1,4 @@
-﻿namespace GMG_Core
+﻿namespace GMG_Core.Settings
 {
 	public static class AssignNewCores
 	{

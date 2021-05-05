@@ -1,12 +1,15 @@
 ﻿
 using GMG_Core;
+using GMG_Core.APIs;
+
+using GMG_WPF.Utils;
 
 using System;
 using System.Windows;
 
-using static GMG_Core.MoneroInfoAPI;
+using static GMG_Core.APIs.MoneroBlocksAPI;
 
-namespace GMG_WPF
+namespace GMG_WPF.Windows
 {
 	/// <summary>
 	/// Interaction logic for CalculatorWindow.xaml
@@ -16,10 +19,10 @@ namespace GMG_WPF
 		private readonly string XmrEarningsPlaceholder = "{0} XMR";
 		private readonly string CurrencyEarningsPlaceholder = "{0} {1}";
 
-		private readonly char CurrencyChar = GData.SettingsManager.Settings.Currency == XMR.Currency.EUR ? '€' : '$';
+		private readonly char CurrencyChar = GData.SettingsManager.Settings.Currency == CryptonatorAPI.Currency.EUR ? '€' : '$';
 		private readonly float Pow = (float)Math.Pow(10, 12);
 
-		private readonly MoneroInfo MoneroInfo = GetMoneroInfo();
+		private readonly MoneroInfo MoneroInfo = GetXMRInfo();
 
 		public CalculatorWindow()
 		{
@@ -28,7 +31,7 @@ namespace GMG_WPF
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			FixWindow.Fix(this);
+			WindowUtils.FixWindow(this);
 
 			comboBox_hashrates.SelectionChanged += this.comboBox_SelectionChanged;
 			comboBox_times.SelectionChanged += this.comboBox_SelectionChanged;
@@ -61,7 +64,7 @@ namespace GMG_WPF
 						break;
 				}
 
-				float currencyEarnings = xmrEarnings * (float)GetXmrPrice.GetPrice();
+				float currencyEarnings = xmrEarnings * (float)XMR.GetPrice();
 
 				this.SetCalculations(xmrEarnings, currencyEarnings);
 			}
@@ -114,7 +117,7 @@ namespace GMG_WPF
 
 		private void textBox_hashrate_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
 		{
-			TextBoxRemoveNumbers.RemoveNumbers(textBox_hashrate);
+			TextBoxUtils.RemoveNumbers(textBox_hashrate);
 
 			this.CalculateEarnings();
 		}

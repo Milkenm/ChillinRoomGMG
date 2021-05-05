@@ -3,9 +3,9 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace GMG_WPF
+namespace GMG_WPF.Utils
 {
-	public class DisableMaximizeBox
+	public static partial class WindowUtils
 	{
 		[DllImport("user32.dll")]
 		public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
@@ -15,11 +15,11 @@ namespace GMG_WPF
 		public const int GWL_STYLE = -16;
 		public const int WS_MAXIMIZEBOX = 0x10000;
 
-		public static void Disable(Window w)
+		public static void DisableMaximizeBox(Window w)
 		{
 			var hwnd = new WindowInteropHelper(w).Handle;
 			var value = GetWindowLong(hwnd, GWL_STYLE);
-			SetWindowLong(hwnd, GWL_STYLE, (int)(value & ~WS_MAXIMIZEBOX));
+			SetWindowLong(hwnd, GWL_STYLE, value & ~WS_MAXIMIZEBOX);
 		}
 	}
 }

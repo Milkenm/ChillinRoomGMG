@@ -4,11 +4,11 @@ using ScriptsLib.Network;
 
 using System.Numerics;
 
-namespace GMG_Core
+namespace GMG_Core.APIs
 {
-	public static class MoneroInfoAPI
+	public static class MoneroBlocksAPI
 	{
-		public static MoneroInfo GetMoneroInfo()
+		public static MoneroInfo GetXMRInfo()
 		{
 			string request = Requests.GET("https://moneroblocks.info/api/get_stats");
 			MoneroInfo moneroInfo = JsonConvert.DeserializeObject<MoneroInfo>(request);

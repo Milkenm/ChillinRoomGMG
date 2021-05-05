@@ -1,35 +1,34 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 
-using ScriptsLib.Network;
+using RestSharp;
 
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-using static GMG_Core.Xmrig.XMRigApi;
-using static ScriptsLib.PInvoke.User32;
+using static GMG_Core.APIs.XMRigAPI;
 
 namespace GMG_Core.Xmrig
 {
 	public class XMRig
 	{
+		private static string APILocalhost => "http://localhost:38486";
+		private static string APISummary => APILocalhost + "/1/summary";
+		private static string APIJsonRPC => APILocalhost + "/json_rpc";
+
 		public delegate void ShareEvent();
 		public event ShareEvent OnValidShare;
 		public event ShareEvent OnInvalidShare;
-
-		public delegate void LoggedLineEvent(string line);
-		public event LoggedLineEvent OnLoggedLine;
 		public delegate void LoggedHashRateEvent(decimal hashrate);
 		public event LoggedHashRateEvent OnLoggedHashRate;
-
 		public delegate void MinerStateChangeEvent(MinerState newState);
 		public event MinerStateChangeEvent OnMinerStateChange;
 
-		private IntPtr XmrigHandle { get; set; } = new IntPtr();
 		private Process XmrigProcess { get; set; }
+		private RestClient APIClient => new RestClient();
 
 		private string MinerExePath { get; }
 		private string ConfigPath { get; }
@@ -38,7 +37,6 @@ namespace GMG_Core.Xmrig
 		public bool IsReady { get; private set; }
 		public bool IsRunning { get; private set; }
 
-		public decimal HashRate { get; private set; }
 		public int ValidShares { get; private set; }
 		public int InvalidShares { get; private set; }
 
@@ -52,172 +50,134 @@ namespace GMG_Core.Xmrig
 
 		~XMRig()
 		{
-			this.Kill();
+			if (this.GetMinerState() != MinerState.Stopped)
+			{
+				this.StopMiner();
+			}
 		}
 
-		public void Initialize(bool run = false)
+		#region Miner Actions
+		public void InitializeMiner(bool run = false)
 		{
 			if (this.IsInitialized == false)
 			{
-				Process p = new Process();
-				p.StartInfo.FileName = this.MinerExePath;
-				p.StartInfo.Verb = "runas";
-				p.StartInfo.RedirectStandardOutput = true;
-				p.StartInfo.UseShellExecute = false;
+				Process p = new Process()
+				{
+					StartInfo = new ProcessStartInfo()
+					{
+						FileName = this.MinerExePath,
+						UseShellExecute = false,
+						CreateNoWindow = true,
+						Verb = "runas",
+					},
+				};
+				p.Exited += this.P_Exited;
 				p.Start();
-				p.PriorityClass = GData.SettingsManager.Settings.XmrigPriority;
 
-				while (this.XmrigHandle == new IntPtr())
-				{
-					foreach (Process process in Process.GetProcessesByName("xmrig"))
-					{
-						if (process.ProcessName == "xmrig" && process.MainWindowHandle != new IntPtr())
-						{
-							this.XmrigProcess = process;
-							this.XmrigHandle = process.MainWindowHandle;
+				p.PriorityClass = (ProcessPriorityClass)GData.SettingsManager.Settings.XmrigPriority;
 
-							this.SetWindowState(WindowState.Hidden);
-							if (run == false)
-							{
-								this.SendKey(Keys.P);
-							}
-
-							break;
-						}
-					}
-				}
-
-				Task.Run(() =>
-				{
-					while (!p.StandardOutput.EndOfStream)
-					{
-						string line = p.StandardOutput.ReadLine();
-
-						if (!string.IsNullOrEmpty(line))
-						{
-							this.LogLine(line);
-						}
-					}
-				});
+				this.XmrigProcess = p;
 
 				if (run == false)
 				{
 					this.SetState(MinerState.PausedInitializing);
+					this.PauseMiner();
+				}
+				else
+				{
+					this.SetState(MinerState.Initializing);
+				}
+
+				Task.Run(() =>
+				{
+					while (p.HasExited == false)
+					{
+						this.GetAPI();
+					}
+				});
+			}
+			else
+			{
+				throw new Exception(Lang.Miner_AlreadyInitialized);
+			}
+		}
+
+		private void P_Exited(object sender, EventArgs e)
+		{
+			throw new Exception("Process exited.");
+		}
+
+		public void PauseMiner()
+		{
+			if (this.IsInitialized && this.IsRunning)
+			{
+				this.MinerRPC("pause");
+				if (this.IsInitialized)
+				{
+					this.SetState(MinerState.Paused);
+				}
+				else
+				{
+					this.SetState(MinerState.PausedInitializing);
+				}
+			}
+			else
+			{
+				if (this.IsInitialized)
+				{
+					throw new Exception(Lang.Miner_AlreadyPaused);
+				}
+				else
+				{
+					throw new Exception(Lang.Miner_NotInitialized);
+				}
+			}
+		}
+
+		public void ResumeMiner()
+		{
+			if (this.IsInitialized && this.IsRunning == false)
+			{
+				this.MinerRPC("resume");
+				if (this.IsInitialized)
+				{
+					this.SetState(MinerState.Running);
 				}
 				else
 				{
 					this.SetState(MinerState.Initializing);
 				}
 			}
-			/*
-			this.GetApi();*/
-		}
-
-		public void Resume()
-		{
-			if (this.GetMinerState() == MinerState.Paused)
+			else
 			{
-				this.SendKey(Keys.R);
-				this.SetState(MinerState.Running);
-			}
-			else if (this.GetMinerState() == MinerState.PausedInitializing)
-			{
-				this.SetState(MinerState.Initializing);
-			}
-			else if (this.GetMinerState() == MinerState.Stopped)
-			{
-				this.Initialize(true);
-				this.SetState(MinerState.Initializing);
+				if (this.IsInitialized)
+				{
+					throw new Exception(Lang.Miner_AlreadyRunning);
+				}
+				else
+				{
+					throw new Exception(Lang.Miner_NotInitialized);
+				}
 			}
 		}
 
-		public void Pause()
-		{
-			if (this.IsRunning && this.IsInitialized)
-			{
-				this.SetState(MinerState.Paused);
-				this.SendKey(Keys.P);
-			}
-		}
-
-		public void Kill()
+		public void StopMiner()
 		{
 			if (this.IsInitialized && this.XmrigProcess.HasExited == false)
 			{
 				this.XmrigProcess.Kill();
 				this.XmrigProcess = null;
-				this.XmrigHandle = new IntPtr();
 
 				this.SetState(MinerState.Stopped);
 			}
-		}
-
-		public enum WindowState
-		{
-			Shown,
-			Hidden,
-		}
-
-		public void SetWindowState(WindowState state)
-		{
-			if (state == WindowState.Shown)
-			{
-				ShowWindow(this.XmrigHandle, WindowShowStyle.ShowNoActivate);
-			}
 			else
 			{
-				ShowWindow(this.XmrigHandle, WindowShowStyle.Hide);
+				throw new Exception(Lang.Miner_AlreadyStopped);
 			}
 		}
+		#endregion Miner Actions
 
-		private void LogLine(string line)
-		{
-			// if (Unsorted.IsDebugMode()) Console.WriteLine(line);
-
-			if (line.Contains("accepted"))
-			{
-				this.ValidShares++;
-				OnValidShare?.Invoke();
-			}
-			else if (line.Contains("rejected"))
-			{
-				this.InvalidShares++;
-				OnInvalidShare?.Invoke();
-			}
-			else if (line.Contains("speed") && this.IsRunning)
-			{
-				string[] lineSplit = line.Split(new string[] { "10s/60s/15m " }, StringSplitOptions.None);
-				lineSplit = lineSplit[1].Split(' ');
-
-				if (lineSplit[0] != "n/a")
-				{
-					decimal.TryParse(lineSplit[0].Replace('.', ','), out decimal hashrate);
-					this.HashRate = hashrate;
-				}
-				else
-				{
-					this.HashRate = 0;
-				}
-
-				OnLoggedHashRate?.Invoke(this.HashRate);
-			}
-			else if (line.Contains("READY"))
-			{
-				if (this.GetMinerState() == MinerState.Initializing)
-				{
-					this.SetState(MinerState.Running);
-				}
-				else if (this.GetMinerState() == MinerState.PausedInitializing)
-				{
-					this.SetState(MinerState.Paused);
-				}
-			}
-			else if (!(line.Contains("configuration") || line.Contains("resumed") || line.Contains("paused")))
-			{
-				OnLoggedLine?.Invoke(line);
-			}
-		}
-
+		#region Miner State
 		private void SetState(MinerState state)
 		{
 			switch (state)
@@ -281,6 +241,54 @@ namespace GMG_Core.Xmrig
 				return MinerState.Running;
 			}
 		}
+		#endregion Miner State
+
+		public void GetAPI()
+		{
+			while (true)
+			{
+				var request = new RestRequest(APISummary);
+				request.AddHeader("Authorization", $"Bearer {GData.SettingsManager.Settings.AccessToken}");
+				IRestResponse response = this.APIClient.Get(request);
+
+				XMRigHTTPAPI xmrigApi = JsonConvert.DeserializeObject<XMRigHTTPAPI>(response.Content);
+
+				int minerValidShares = xmrigApi.Results.SharesGood;
+				int minerInvalidShares = xmrigApi.Results.SharesTotal - xmrigApi.Results.SharesGood;
+
+				if (xmrigApi.Hashrate.Total[0] != null && this.IsRunning)
+				{
+					if (this.IsInitialized && this.IsRunning && this.GetMinerState() == MinerState.Initializing)
+					{
+						this.SetState(MinerState.Running);
+					}
+					OnLoggedHashRate?.Invoke((decimal)xmrigApi.Hashrate.Total[0]);
+				}
+				else
+				{
+					OnLoggedHashRate?.Invoke(0);
+				}
+
+				if (minerValidShares > this.ValidShares)
+				{
+					for (int i = 0; i < minerValidShares - this.ValidShares; i++)
+					{
+						OnValidShare?.Invoke();
+					}
+					this.ValidShares = minerValidShares;
+				}
+				if (xmrigApi.Connection.Rejected > this.InvalidShares)
+				{
+					for (int i = 0; i < xmrigApi.Connection.Rejected - this.InvalidShares; i++)
+					{
+						OnInvalidShare?.Invoke();
+					}
+					this.InvalidShares = xmrigApi.Connection.Rejected;
+				}
+
+				Thread.Sleep(1000);
+			}
+		}
 
 		public void UpdateConfig(XMRigConfigJSON newConfig)
 		{
@@ -288,23 +296,16 @@ namespace GMG_Core.Xmrig
 			File.WriteAllText(this.ConfigPath, json);
 		}
 
-		private void SendKey(Keys key)
-		{
-			PostMessage(this.XmrigHandle, 0x0100, (int)key, 0);
-		}
-
-		private void GetApi()
+		private void MinerRPC(string param)
 		{
 			Task.Run(() =>
 			{
-				while (true)
-				{
-					string request = Requests.GET("http://127.0.0.1:38486/1/summary");
-					XMRigAPI xmrigApi = JsonConvert.DeserializeObject<XMRigAPI>(request);
-					Console.WriteLine(xmrigApi.CPU.Brand);
-					
-					Thread.Sleep(1);
-				}
+				var request = new RestRequest(APIJsonRPC);
+				request.AddHeader("Authorization", $"Bearer {GData.SettingsManager.Settings.AccessToken}");
+				request.AddHeader("Content-Type", "application/json");
+				request.AddJsonBody("{\"method\":\"" + param + "\",\"id\":1}");
+
+				this.APIClient.Post(request);
 			});
 		}
 	}

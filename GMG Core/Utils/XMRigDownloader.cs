@@ -1,25 +1,24 @@
-﻿
-using System.IO;
+﻿using System.IO;
 using System.IO.Compression;
 using System.Net;
 
 using static ScriptsLib.Unsorted.Unsorted;
 
-namespace GMG_Core
+namespace GMG_Core.Utils
 {
 	public class XmrigDownloader
 	{
 		public static void DownloadXmrig()
 		{
 			// DELETE EXISTING XMRIG DIRECTORY IF IT EXISTS
-			if (Directory.Exists(GData.XmrigFolder.Path))
+			if (Directory.Exists(GData.XMRigFolder.Path))
 			{
-				ForceDirectoryDelete(GData.XmrigFolder.Path);
-				GData.XmrigFolder.CreateFolder();
+				ForceDirectoryDelete(GData.XMRigFolder.Path);
+				GData.XMRigFolder.CreateFolder();
 			}
 
 			// XMRIG DOWNLOAD URL FROM GITHUB
-			string releaseUrl = $"https://github.com/xmrig/xmrig/releases/download/v{GData.XmrigVersion}/xmrig-{GData.XmrigVersion}-msvc-win64.zip";
+			string releaseUrl = $"https://github.com/xmrig/xmrig/releases/download/v{GData.XMRigVersion}/xmrig-{GData.XMRigVersion}-msvc-win64.zip";
 			// SET DOWNLOAD PATHS
 			string zipExtractedPath = GData.TempFolder.Path + @"\XMRig_Download";
 			string zipPath = zipExtractedPath + ".zip";
@@ -41,9 +40,9 @@ namespace GMG_Core
 			ZipFile.ExtractToDirectory(zipPath, zipExtractedPath);
 
 			// MOVE THE NECESSARY FILES FROM THE EXTRACTED FOLDER TO THE CORRECT PATH
-			File.Move(zipExtractedPath + $@"\xmrig-{GData.XmrigVersion}\config.json", GData.XmrigConfigPath);
-			File.Move(zipExtractedPath + $@"\xmrig-{GData.XmrigVersion}\xmrig.exe", GData.XmrigExePath);
-			File.Move(zipExtractedPath + $@"\xmrig-{GData.XmrigVersion}\WinRing0x64.sys", GData.XmrigWinringPath);
+			File.Move(zipExtractedPath + $@"\xmrig-{GData.XMRigVersion}\config.json", GData.XMRigConfigPath);
+			File.Move(zipExtractedPath + $@"\xmrig-{GData.XMRigVersion}\xmrig.exe", GData.XMRigExePath);
+			File.Move(zipExtractedPath + $@"\xmrig-{GData.XMRigVersion}\WinRing0x64.sys", GData.XMRigWinringPath);
 
 			// CLEANUP
 			ForceDirectoryDelete(zipExtractedPath);

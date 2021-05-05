@@ -1,23 +1,24 @@
-﻿using GMG_Core.Xmrig;
+﻿using GMG_Core.Settings;
+using GMG_Core.Xmrig;
 
-using static GMG_Core.FolderManager;
+using static GMG_Core.Utils.FolderManager;
 
 namespace GMG_Core
 {
 	public static class GData
 	{
 		// XMRIG VERSION
-		public static string XmrigVersion { get { return "6.10.0"; } }
+		public static string XMRigVersion { get { return "6.10.0"; } }
 
 		// FOLDERS
 		public static Folder AppDataFolder { get; set; }
 		public static Folder TempFolder { get; set; }
-		public static Folder XmrigFolder { get; set; }
+		public static Folder XMRigFolder { get; set; }
 
 		// PATH TO THE XMRIG EXE
-		public static string XmrigConfigPath { get; set; }
-		public static string XmrigExePath { get; set; }
-		public static string XmrigWinringPath { get; set; }
+		public static string XMRigConfigPath { get; set; }
+		public static string XMRigExePath { get; set; }
+		public static string XMRigWinringPath { get; set; }
 
 		// SETTINGS PATH
 		public static string SettingsPath { get; set; }

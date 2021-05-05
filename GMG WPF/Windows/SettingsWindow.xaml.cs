@@ -1,4 +1,9 @@
 ﻿using GMG_Core;
+using GMG_Core.APIs;
+using GMG_Core.Enums;
+using GMG_Core.Utils;
+
+using GMG_WPF.Utils;
 
 using System;
 using System.Collections.Generic;
@@ -8,8 +13,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-
-using static GMG_Core.Enums;
 
 namespace GMG_WPF
 {
@@ -34,12 +37,12 @@ namespace GMG_WPF
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			FixWindow.Fix(this);
+			WindowUtils.FixWindow(this);
 
 			this.PaintTabHeaders();
 			this.LoadSettings();
 
-			int recommendedCoreCount = Convert.ToInt32(Utils.GetCPUCacheSize() / 2);
+			int recommendedCoreCount = Convert.ToInt32(CPU.GetCacheSize() / 2);
 			if (recommendedCoreCount > Environment.ProcessorCount)
 			{
 				recommendedCoreCount = Environment.ProcessorCount;
@@ -73,7 +76,7 @@ namespace GMG_WPF
 			checkBox_desktopNotificationOnInvalidShare.IsChecked = GData.SettingsManager.Settings.DesktopNotificationOnInvalidShare;
 			textBox_amountOfValidSharesForNotification.Text = GData.SettingsManager.Settings.ValidSharesAmountForNotification.ToString();
 			textBox_amountOfInvalidSharesForNotification.Text = GData.SettingsManager.Settings.InvalidSharesAmountForNotification.ToString();
-			if (GData.SettingsManager.Settings.Currency == XMR.Currency.EUR)
+			if (GData.SettingsManager.Settings.Currency == CryptonatorAPI.Currency.EUR)
 			{
 				radioButton_eur.IsChecked = true;
 			}
@@ -82,7 +85,7 @@ namespace GMG_WPF
 				radioButton_usd.IsChecked = true;
 			}
 
-			comboBox_processPriority.SelectedIndex = this.ConvertPriorityToInteger(GData.SettingsManager.Settings.XmrigPriority);
+			comboBox_processPriority.SelectedIndex = this.ConvertPriorityToInteger((ProcessPriorityClass)GData.SettingsManager.Settings.XmrigPriority);
 
 			this.ChangeTimeUnit(GData.SettingsManager.Settings.AfkMiningTimeUnit);
 		}
@@ -145,11 +148,11 @@ namespace GMG_WPF
 			GData.SettingsManager.Settings.InvalidSharesAmountForNotification = Convert.ToInt32(textBox_amountOfInvalidSharesForNotification.Text);
 			if (Convert.ToBoolean(radioButton_eur.IsChecked))
 			{
-				GData.SettingsManager.Settings.Currency = XMR.Currency.EUR;
+				GData.SettingsManager.Settings.Currency = CryptonatorAPI.Currency.EUR;
 			}
 			else
 			{
-				GData.SettingsManager.Settings.Currency = XMR.Currency.USD;
+				GData.SettingsManager.Settings.Currency = CryptonatorAPI.Currency.USD;
 			}
 			GData.SettingsManager.Settings.XmrigPriority = this.ConvertIntegerToPriority(comboBox_processPriority.SelectedIndex);
 
@@ -257,7 +260,7 @@ namespace GMG_WPF
 
 		private void textBox_amountOfSharesForNotification_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			TextBoxRemoveNumbers.RemoveNumbers((TextBox)sender);
+			TextBoxUtils.RemoveNumbers((TextBox)sender);
 		}
 	}
 }

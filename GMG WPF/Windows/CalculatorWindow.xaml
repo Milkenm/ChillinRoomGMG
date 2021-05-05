@@ -1,11 +1,11 @@
-﻿<Window x:Class="GMG_WPF.CalculatorWindow"
+﻿<Window x:Class="GMG_WPF.Windows.CalculatorWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GMG_WPF"
         mc:Ignorable="d"
-        Title="Calculator" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="Resources/ChillinRoom_PNG.png" Loaded="Window_Loaded">
+        Title="Calculator" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="/GMG WPF;component/Resources/ChillinRoom_PNG.png" Loaded="Window_Loaded">
 	<Window.Background>
 		<ImageBrush ImageSource="/GMG WPF;component/Resources/Background.png" Stretch="UniformToFill" />
 	</Window.Background>

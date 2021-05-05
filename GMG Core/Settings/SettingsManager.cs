@@ -1,5 +1,7 @@
-﻿using GMG_Core.Xmrig;
+﻿using GMG_Core.Enums;
+using GMG_Core.Xmrig;
 
+using ScriptsLib;
 using ScriptsLib.Extensions;
 
 using System;
@@ -7,10 +9,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
-using static GMG_Core.Enums;
-using static GMG_Core.XMR;
+using static GMG_Core.APIs.CryptonatorAPI;
 
-namespace GMG_Core
+namespace GMG_Core.Settings
 {
 	public class SettingsManager
 	{
@@ -41,7 +42,10 @@ namespace GMG_Core
 			}
 			this.Settings.XmrigConfig.CPU.RXWoW = cores.ToArray();
 			this.Settings.XmrigConfig.HTTP.Enabled = true;
+			this.Settings.XmrigConfig.HTTP.Host = "127.0.0.1";
 			this.Settings.XmrigConfig.HTTP.Port = 38486;
+			this.Settings.XmrigConfig.HTTP.AccessToken = this.Settings.AccessToken;
+			this.Settings.XmrigConfig.HTTP.Restricted = false;
 		}
 
 		private void LoadDefaults()
@@ -53,6 +57,7 @@ namespace GMG_Core
 			if (this.Settings.ValidSharesAmountForNotification == 0) this.Settings.ValidSharesAmountForNotification = 1;
 			if (this.Settings.InvalidSharesAmountForNotification == 0) this.Settings.InvalidSharesAmountForNotification = 1;
 			if (this.Settings.Statistics == null) this.Settings.Statistics = new Statistics();
+			if (this.Settings.AccessToken == null) this.Settings.AccessToken = Generators.GeneratePassword(10);
 		}
 
 		public void LoadSettings()
@@ -126,7 +131,8 @@ namespace GMG_Core
 		public Currency Currency = Currency.EUR;
 		public Statistics Statistics = new Statistics();
 		public bool MinimizeOnStart = false;
-		public ProcessPriorityClass XmrigPriority = ProcessPriorityClass.Normal;
+		public ProcessPriorityClass? XmrigPriority = ProcessPriorityClass.Normal;
+		public string AccessToken = null;
 	}
 
 	[Serializable]

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace GMG_Core
+namespace GMG_Core.Utils
 {
 	public class FolderManager
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace GMG_Core
+namespace GMG_Core.Utils
 {
 	public static partial class NumberFormating
 	{
@@ -11,7 +11,7 @@ namespace GMG_Core
 
 			StringBuilder sb = new StringBuilder();
 
-			int loop = 3 - (numString[0].Length % 3);
+			int loop = 3 - numString[0].Length % 3;
 			if (loop == 3)
 			{
 				loop = 0;

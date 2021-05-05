@@ -1,12 +1,9 @@
-﻿namespace GMG_Core
+﻿namespace GMG_Core.Enums
 {
-	public static partial class Enums
+	public enum TimeUnit
 	{
-		public enum TimeUnit
-		{
-			Second,
-			Minute,
-			Hour,
-		}
+		Second,
+		Minute,
+		Hour,
 	}
 }

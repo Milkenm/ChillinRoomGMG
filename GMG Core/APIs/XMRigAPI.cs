@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 
-namespace GMG_Core.Xmrig
+namespace GMG_Core.APIs
 {
-	public class XMRigApi
+	public class XMRigAPI
 	{
-		public class XMRigAPI
+		public class XMRigHTTPAPI
 		{
 			[JsonProperty("id")] public string ID;
 			[JsonProperty("worker_id")] public string WorkerID;

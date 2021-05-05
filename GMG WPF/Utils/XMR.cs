@@ -1,14 +1,15 @@
 ﻿using GMG_Core;
+using GMG_Core.APIs;
 
 using System;
 
-namespace GMG_WPF
+namespace GMG_WPF.Utils
 {
-	public static class GetXmrPrice
+	public static class XMR
 	{
 		public static decimal GetPrice()
 		{
-			decimal price = XMR.GetPrice(GData.SettingsManager.Settings.Currency);
+			decimal price = CryptonatorAPI.GetXMRPrice(GData.SettingsManager.Settings.Currency);
 			decimal round = Math.Round(price, 2, MidpointRounding.ToEven);
 
 			return round;

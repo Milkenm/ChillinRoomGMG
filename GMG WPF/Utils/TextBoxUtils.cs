@@ -1,9 +1,9 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows.Controls;
 
-namespace GMG_WPF
+namespace GMG_WPF.Utils
 {
-	public static class TextBoxRemoveNumbers
+	public static class TextBoxUtils
 	{
 		public static void RemoveNumbers(TextBox tb)
 		{

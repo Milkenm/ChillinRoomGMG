@@ -1,4 +1,8 @@
 ﻿using GMG_Core;
+using GMG_Core.APIs;
+using GMG_Core.Utils;
+
+using GMG_WPF.Utils;
 
 using System;
 using System.Windows;
@@ -32,7 +36,7 @@ namespace GMG_WPF
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			FixWindow.Fix(this);
+			WindowUtils.FixWindow(this);
 
 			AddressStats = SupportXmrAPI.GetAddressStats();
 			Timer.Tick += this.Timer_Tick;
@@ -57,7 +61,7 @@ namespace GMG_WPF
 			textBlock_recordHashrate.Text = string.Format(RecordHashrateLabelPlaceholder, string.Format(RecordHashrateLabelPlaceholder, NumberFormating.AbbreviateNumber(GData.SettingsManager.Settings.Statistics.RecordHashRate, true, true)));
 			textBlock_totalHashes.Text = string.Format(TotalHashesLabelPlaceholder, NumberFormating.AbbreviateNumber(AddressStats.TotalHashes), this.GetPlural(AddressStats.TotalHashes, true));
 			textBlock_totalXmrPaid.Text = string.Format(TotalXmrPaidLabelPlaceholder, AddressStats.AmountPaid / 12);
-			textBlock_xmrPrice.Text = string.Format(XmrPriceLabelPlaceholder, this.GetCurrencyChar(), GetXmrPrice.GetPrice().ToString("0.00"));
+			textBlock_xmrPrice.Text = string.Format(XmrPriceLabelPlaceholder, this.GetCurrencyChar(), XMR.GetPrice().ToString("0.00"));
 		}
 
 		private void UpdateMiningTimes()
@@ -88,7 +92,7 @@ namespace GMG_WPF
 
 		private char GetCurrencyChar()
 		{
-			if (GData.SettingsManager.Settings.Currency == XMR.Currency.EUR)
+			if (GData.SettingsManager.Settings.Currency == CryptonatorAPI.Currency.EUR)
 			{
 				return '€';
 			}

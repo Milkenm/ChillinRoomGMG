@@ -71,6 +71,9 @@
     <Reference Include="NuGet.Squirrel, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\squirrel.windows.2.0.1\lib\Net45\NuGet.Squirrel.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="ScriptsLib, Version=7.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ScriptsLib.7.2.0\lib\ScriptsLib.dll</HintPath>
     </Reference>
@@ -83,6 +86,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -104,24 +108,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CalculatorWindow.xaml.cs">
+    <Compile Include="Windows\CalculatorWindow.xaml.cs">
       <DependentUpon>CalculatorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DisableMaximizeBox.cs" />
-    <Compile Include="FixWindow.cs" />
-    <Compile Include="GetXmrPrice.cs" />
-    <Compile Include="SettingsWindow.xaml.cs">
+    <Compile Include="Utils\XMR.cs" />
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StatisticsWindow.xaml.cs">
+    <Compile Include="Windows\StatisticsWindow.xaml.cs">
       <DependentUpon>StatisticsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TextBoxRemoveNumbers.cs" />
-    <Page Include="CalculatorWindow.xaml">
+    <Compile Include="Utils\TextBoxUtils.cs" />
+    <Compile Include="Utils\WindowUtils\DisableMaximizeBox.cs" />
+    <Compile Include="Utils\WindowUtils\FixWindow.cs" />
+    <Page Include="Windows\CalculatorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -129,15 +133,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SettingsWindow.xaml">
+    <Page Include="Windows\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatisticsWindow.xaml">
+    <Page Include="Windows\StatisticsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

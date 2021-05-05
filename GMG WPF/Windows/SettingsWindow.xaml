@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Settings" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="Resources/ChillinRoom_PNG.png">
+        Title="Settings" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/GMG WPF;component/Resources/ChillinRoom_PNG.png">
 	<Window.Background>
 		<ImageBrush ImageSource="/GMG WPF;component/Resources/Background.png" Stretch="UniformToFill" />
 	</Window.Background>
@@ -163,7 +163,6 @@
 							<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
 						</StackPanel>
 					</Grid>
-					<TextBlock Text="Mining Process Priority" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="0,7,0,0" Grid.Column="2" Grid.Row="4" Height="14" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 					<ComboBox Name="comboBox_processPriority" Grid.Column="2" HorizontalAlignment="Left" Margin="0,26,0,0" Grid.Row="4" VerticalAlignment="Top" Width="159" Height="22">
 						<ComboBoxItem Content="Realtime" HorizontalAlignment="Left" Width="157"/>
 						<ComboBoxItem Content="High" HorizontalAlignment="Left" Width="157"/>
@@ -172,6 +171,14 @@
 						<ComboBoxItem Content="Below normal" HorizontalAlignment="Left" Width="157"/>
 						<ComboBoxItem Content="Low" HorizontalAlignment="Left" Width="157"/>
 					</ComboBox>
+					<Grid HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Column="2" Grid.Row="4" Height="14" VerticalAlignment="Top">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+							<TextBlock Text="Mining Process Priority" Foreground="#FFBBBBBB" FontFamily="Arial"/>
+							<TextBlock Text="(" Foreground="#FF595959" FontFamily="Arial" Margin="5,-1,0,0"/>
+							<TextBlock x:Name="textBlock_recommendedMiningCores1" Text="Realtime/High/Above Normal will freeze your device on miner startup" Foreground="#FF595959" FontFamily="Arial"/>
+							<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
+						</StackPanel>
+					</Grid>
 				</Grid>
 			</TabItem>
 			<TabItem Header="AFK Mining" Background="#33ACACAC" Foreground="White" BorderBrush="#66ACACAC" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">

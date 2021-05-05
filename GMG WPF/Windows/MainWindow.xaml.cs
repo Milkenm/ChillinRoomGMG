@@ -1,5 +1,12 @@
 ﻿using GMG_Core;
+using GMG_Core.APIs;
+using GMG_Core.Enums;
+using GMG_Core.Settings;
+using GMG_Core.Utils;
 using GMG_Core.Xmrig;
+
+using GMG_WPF.Utils;
+using GMG_WPF.Windows;
 
 using ScriptsLib.Unsorted;
 
@@ -10,7 +17,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace GMG_WPF
+namespace GMG_WPF.Windows
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
@@ -66,7 +73,7 @@ namespace GMG_WPF
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			FixWindow.Fix(this, 400, 280);
+			WindowUtils.FixWindow(this, 400, 280);
 
 			this.SetupTrayIcon();
 
@@ -78,7 +85,7 @@ namespace GMG_WPF
 			GData.XMRig.OnMinerStateChange += this.XMRig_OnMinerStateChange;
 			if (GData.SettingsManager.Settings.RunOnAppStart)
 			{
-				GData.XMRig.Initialize();
+				GData.XMRig.InitializeMiner();
 			}
 
 			this.SetControlStates();
@@ -301,13 +308,13 @@ namespace GMG_WPF
 				case XMRig.MinerState.Initializing:
 					return this.StopOrPauseMiner(stopInsteadOfPause);
 				case XMRig.MinerState.PausedInitializing:
-					GData.XMRig.Resume();
+					GData.XMRig.ResumeMiner();
 					return XMRig.MinerState.Running;
 				case XMRig.MinerState.Paused:
-					GData.XMRig.Resume();
+					GData.XMRig.ResumeMiner();
 					return XMRig.MinerState.Running;
 				case XMRig.MinerState.Stopped:
-					GData.XMRig.Initialize(true);
+					GData.XMRig.InitializeMiner(true);
 					return XMRig.MinerState.Initializing;
 				default:
 					return XMRig.MinerState.Stopped;
@@ -318,12 +325,12 @@ namespace GMG_WPF
 		{
 			if (stopInsteadOfPause)
 			{
-				GData.XMRig.Kill();
+				GData.XMRig.StopMiner();
 				return XMRig.MinerState.Stopped;
 			}
 			else
 			{
-				GData.XMRig.Pause();
+				GData.XMRig.PauseMiner();
 
 				if (GData.XMRig.GetMinerState() == XMRig.MinerState.Initializing)
 				{
@@ -551,13 +558,13 @@ namespace GMG_WPF
 			int multiplier = 0;
 			switch (GData.SettingsManager.Settings.AfkMiningTimeUnit)
 			{
-				case Enums.TimeUnit.Second:
+				case TimeUnit.Second:
 					multiplier = 1000;
 					break;
-				case Enums.TimeUnit.Minute:
+				case TimeUnit.Minute:
 					multiplier = 60000;
 					break;
-				case Enums.TimeUnit.Hour:
+				case TimeUnit.Hour:
 					multiplier = 3600000;
 					break;
 			}
@@ -627,7 +634,6 @@ namespace GMG_WPF
 			GData.SettingsManager.SaveSettings();
 			IsClosing = true;
 			NotifyIcon.Visible = false;
-			GData.XMRig.Kill();
 			Environment.Exit(0);
 		}
 	}

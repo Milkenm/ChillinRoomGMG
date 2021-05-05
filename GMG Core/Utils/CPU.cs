@@ -1,10 +1,10 @@
 ﻿using System.Management;
 
-namespace GMG_Core
+namespace GMG_Core.Utils
 {
-	public static class Utils
+	public static class CPU
 	{
-		public static uint GetCPUCacheSize()
+		public static uint GetCacheSize()
 		{
 			using (ManagementObject Mo = new ManagementObject("Win32_Processor.DeviceID='CPU0'"))
 			{

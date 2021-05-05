@@ -4,11 +4,11 @@ using System;
 
 using static ScriptsLib.Network.Requests;
 
-namespace GMG_Core
+namespace GMG_Core.APIs
 {
-	public static class XMR
+	public static class CryptonatorAPI
 	{
-		public static decimal GetPrice(Currency currency)
+		public static decimal GetXMRPrice(Currency currency)
 		{
 			string request = GET("https://api.cryptonator.com/api/ticker/xmr-" + currency.ToString().ToLower());
 			XmrRequest response = JsonConvert.DeserializeObject<XmrRequest>(request);

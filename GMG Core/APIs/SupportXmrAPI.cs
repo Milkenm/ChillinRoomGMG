@@ -2,9 +2,7 @@
 
 using ScriptsLib.Network;
 
-using System.Windows.Forms;
-
-namespace GMG_Core
+namespace GMG_Core.APIs
 {
 	public class SupportXmrAPI
 	{

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GMG_WPF"
         mc:Ignorable="d"
-        Title="Statistics" Loaded="Window_Loaded" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="Resources/ChillinRoom_PNG.png">
+        Title="Statistics" Loaded="Window_Loaded" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="/GMG WPF;component/Resources/ChillinRoom_PNG.png">
 	<Window.Background>
 		<ImageBrush ImageSource="/GMG WPF;component/Resources/Background.png" Stretch="UniformToFill" />
 	</Window.Background>
