@@ -108,11 +108,11 @@ namespace GMG_WPF.Windows
 				this.UpdateInvalidSharesTextBlock();
 			}
 
+			textBlock_withdrawLink.Visibility = Visibility.Hidden;
+
 			Timer_Timings.Tick += this.Timer_Timings_Tick;
 			Timer_ApiUpdate.Tick += this.Timer_ApiUpdate_Tick;
 			this.Timer_ApiUpdate_Tick(null, null);
-
-			textBlock_withdrawLink.Visibility = Visibility.Hidden;
 
 			InputInactivity.InactivityTimeReached += this.InputInactivity_InactivityTimeReached;
 			InputInactivity.InputReceived += this.InputInactivity_InputReceived;
@@ -139,9 +139,10 @@ namespace GMG_WPF.Windows
 			if (SupportXmrAPI != null)
 			{
 				AddressStats stats = SupportXmrAPI.GetAddressStats();
+
 				this.Dispatcher.Invoke(() =>
 				{
-					if (stats.AmountDue >= 0.01m)
+					if (stats.AmountDue >= Convert.ToDecimal(0.01))
 					{
 						textBlock_withdrawLink.Visibility = Visibility.Visible;
 					}
