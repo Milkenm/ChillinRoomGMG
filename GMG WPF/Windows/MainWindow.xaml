@@ -23,7 +23,7 @@
 			</Rectangle.Fill>
 		</Rectangle>
 		<TextBlock Name="textBlock_hashrate" Text="0 H/s" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" Margin="86,17,86,187" Width="212" Height="42" Foreground="#FFBBBBBB" FontFamily="Arial"/>
-		<Canvas HorizontalAlignment="Left" Height="76" Margin="10,75,0,0" VerticalAlignment="Top" Width="364" Background="#19383838">
+		<Canvas HorizontalAlignment="Left" Height="89" Margin="10,75,0,0" VerticalAlignment="Top" Width="364" Background="#19383838">
 			<Grid Width="330" Height="15" Grid.Column="2" Canvas.Left="15" Canvas.Top="46">
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
 					<TextBlock Name="textBlock_xmrEarnings" Text="Pending Balance: 0.000000000000 XMR" Canvas.Left="15" Canvas.Top="45" Foreground="#FFBBBBBB" FontFamily="Arial"/>
@@ -46,6 +46,7 @@
 					<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
 				</StackPanel>
 			</Grid>
+			<TextBlock Name="textBlock_supportxmrLink" Text="SupportXMR.com" MouseLeftButtonDown="textBlock_withdrawLink_MouseLeftButtonDown" Foreground="#205391" FontFamily="Arial" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline" Canvas.Left="15" Canvas.Top="62"/>
 		</Canvas>
 		<Button Name="button_mine" Content="Mine" Margin="127,200,126,10" Background="#3FDDDDDD" Foreground="#FFC7C7C7" BorderBrush="#19383838" FontFamily="Arial" Click="Button_Click"/>
 		<TextBlock Name="textBlock_minerState" Text="Stopped" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="15,223,257,1" FontSize="11"/>
