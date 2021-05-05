@@ -122,6 +122,7 @@ namespace GMG_Core.Settings
 		public bool AfkMiningEnabled = false;
 		public int AfkMiningDelay = 30;
 		public TimeUnit AfkMiningTimeUnit = TimeUnit.Minute;
+		public bool AfkMiningNotifications = true;
 		public bool CloseToTray = false;
 		public bool MinimizeToTray = true;
 		public bool DesktopNotificationOnValidShare = false;

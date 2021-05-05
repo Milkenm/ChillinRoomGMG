@@ -66,6 +66,7 @@ namespace GMG_WPF
 				stackPanel_afkMiningCores.Children.Add(new CheckBox() { Content = $"Core #{i}", Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255)), IsChecked = GData.SettingsManager.Settings.AfkMiningCores.Contains(i) });
 			}
 			checkBox_afkMiningEnabled.IsChecked = GData.SettingsManager.Settings.AfkMiningEnabled;
+			checkBox_afkMiningNotifications.IsChecked = GData.SettingsManager.Settings.AfkMiningNotifications;
 			slider_timeout.Value = GData.SettingsManager.Settings.AfkMiningDelay;
 			checkBox_mineOnStart.IsChecked = GData.SettingsManager.Settings.RunOnAppStart;
 			checkBox_replacePauseWithStop.IsChecked = GData.SettingsManager.Settings.StopInsteadOfPause;
@@ -137,6 +138,7 @@ namespace GMG_WPF
 			GData.SettingsManager.Settings.AfkMiningEnabled = Convert.ToBoolean(checkBox_afkMiningEnabled.IsChecked);
 			GData.SettingsManager.Settings.AfkMiningTimeUnit = DelayTimeUnit;
 			GData.SettingsManager.Settings.AfkMiningDelay = Convert.ToInt32(slider_timeout.Value);
+			GData.SettingsManager.Settings.AfkMiningNotifications = Convert.ToBoolean(checkBox_afkMiningNotifications.IsChecked);
 			GData.SettingsManager.Settings.RunOnAppStart = Convert.ToBoolean(checkBox_mineOnStart.IsChecked);
 			GData.SettingsManager.Settings.StopInsteadOfPause = Convert.ToBoolean(checkBox_replacePauseWithStop.IsChecked);
 			GData.SettingsManager.Settings.CloseToTray = Convert.ToBoolean(checkBox_closeToTray.IsChecked);

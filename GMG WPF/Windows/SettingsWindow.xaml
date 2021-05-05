@@ -192,6 +192,7 @@
 						<RowDefinition Height="30"/>
 						<RowDefinition Height="40"/>
 						<RowDefinition Height="70"/>
+						<RowDefinition Height="195"/>
 						<RowDefinition/>
 					</Grid.RowDefinitions>
 					<CheckBox Name="checkBox_afkMiningEnabled" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Width="179" Height="15" Grid.Row="1" Grid.Column="2">
@@ -224,7 +225,7 @@
 							</StackPanel>
 						</ScrollViewer>
 					</Border>
-					<Grid HorizontalAlignment="Left" Margin="0,6,0,215" Grid.Column="2" Grid.Row="3">
+					<Grid HorizontalAlignment="Left" Margin="0,6,0,166" Grid.Column="2" Grid.Row="3" Width="185">
 						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 							<TextBlock Text="AFK Mining Cores" Foreground="#FFBBBBBB" FontFamily="Arial"/>
 							<TextBlock Text="(" Foreground="#FF595959" FontFamily="Arial" Margin="5,-1,0,0"/>
@@ -232,6 +233,17 @@
 							<TextBlock Text=")" Foreground="#FF595959" FontFamily="Arial" Margin="0,-1,0,0"/>
 						</StackPanel>
 					</Grid>
+					<CheckBox Name="checkBox_afkMiningNotifications" HorizontalAlignment="Right" VerticalAlignment="Top" Background="White" BorderBrush="#FFABADB3" Height="15" Grid.Row="4" Grid.Column="2" Margin="0,0,572,0" Width="189">
+						<CheckBox.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</CheckBox.RenderTransform>
+						<TextBlock Text="Notifications on AFK Mining start/stop" FontFamily="Arial" FontSize="10" Foreground="#FFBBBBBB" Margin="0,3,0,0"/>
+					</CheckBox>
 				</Grid>
 			</TabItem>
 		</TabControl>

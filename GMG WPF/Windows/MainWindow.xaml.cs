@@ -6,7 +6,6 @@ using GMG_Core.Utils;
 using GMG_Core.Xmrig;
 
 using GMG_WPF.Utils;
-using GMG_WPF.Windows;
 
 using ScriptsLib.Unsorted;
 
@@ -169,7 +168,7 @@ namespace GMG_WPF.Windows
 					IsAfkMining = true;
 					GData.SettingsManager.LoadXmrigSettings(SettingsManager.XmrigSettings.AfkMining);
 					this.ToggleMinerState();
-					this.ToggleTrayIcon();
+					this.AfkMiningNotication();
 				}
 			}
 		}
@@ -180,22 +179,25 @@ namespace GMG_WPF.Windows
 			{
 				IsAfkMining = false;
 				this.ToggleMinerState();
-				this.ToggleTrayIcon();
+				this.AfkMiningNotication();
 
 				AfkMiningValidShares = 0;
 				AfkMiningInvalidShares = 0;
 			}
 		}
 
-		private void ToggleTrayIcon()
+		private void AfkMiningNotication()
 		{
-			if (IsAfkMining)
+			if (GData.SettingsManager.Settings.AfkMiningNotifications)
 			{
-				NotifyIcon.ShowBalloonTip(5000, "AFK Miner Started", "AFK mining has started.", ToolTipIcon.None);
-			}
-			else
-			{
-				NotifyIcon.ShowBalloonTip(5000, "AFK Miner Stopped", $"Total Shares: {AfkMiningValidShares} Valid Shares and {AfkMiningInvalidShares} Invalid Shares", ToolTipIcon.None);
+				if (IsAfkMining)
+				{
+					NotifyIcon.ShowBalloonTip(5000, "AFK Miner Started", "AFK mining has started.", ToolTipIcon.None);
+				}
+				else
+				{
+					NotifyIcon.ShowBalloonTip(5000, "AFK Miner Stopped", $"Total Shares: {AfkMiningValidShares} Valid Shares and {AfkMiningInvalidShares} Invalid Shares", ToolTipIcon.None);
+				}
 			}
 		}
 
