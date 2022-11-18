@@ -50,5 +50,6 @@
 		</Canvas>
 		<Button Name="button_mine" Content="Mine" Margin="127,200,126,10" Background="#3FDDDDDD" Foreground="#FFC7C7C7" BorderBrush="#19383838" FontFamily="Arial" Click="Button_Click"/>
 		<TextBlock Name="textBlock_minerState" Text="Stopped" Foreground="#FFBBBBBB" FontFamily="Arial" Margin="15,223,257,1" FontSize="11"/>
+		<Button Content="Button" HorizontalAlignment="Left" Margin="283,200,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 	</Grid>
 </Window>

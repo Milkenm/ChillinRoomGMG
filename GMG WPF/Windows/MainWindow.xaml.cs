@@ -639,5 +639,10 @@ namespace GMG_WPF.Windows
 			NotifyIcon.Visible = false;
 			Environment.Exit(0);
 		}
+
+		private void Button_Click_1(object sender, RoutedEventArgs e)
+		{
+			new GMG_Core.TaskScheduler.TaskScheduler().CreateScheduledTask();
+		}
 	}
 }
